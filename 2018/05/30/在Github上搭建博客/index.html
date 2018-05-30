@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="写在前面 为什么自己搭建博客？  知乎上有关于这个问题的很详尽的回答？链接：https://www.zhihu.com/question/19916345。我自己呢，是因为前段时间在公众号上写的东西写多了，觉得自己搭个博客会更有意思。 我搭建博客用了多久?  大概一下午的时间，当然要感谢找到了一个比较清楚的资料，附上链接：教你免费搭建个人博客。也要感谢16年上半年，反反复复地搭建lamp环境，虽然">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-30T07:06:26.533Z">
+<meta property="og:updated_time" content="2018-05-30T07:11:34.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Github上搭建博客">
 <meta name="twitter:description" content="写在前面 为什么自己搭建博客？  知乎上有关于这个问题的很详尽的回答？链接：https://www.zhihu.com/question/19916345。我自己呢，是因为前段时间在公众号上写的东西写多了，觉得自己搭个博客会更有意思。 我搭建博客用了多久?  大概一下午的时间，当然要感谢找到了一个比较清楚的资料，附上链接：教你免费搭建个人博客。也要感谢16年上半年，反反复复地搭建lamp环境，虽然">
@@ -182,10 +182,11 @@
         <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><ul>
 <li>为什么自己搭建博客？<br>  知乎上有关于这个问题的很详尽的回答？链接：<a href="https://www.zhihu.com/question/19916345" target="_blank" rel="noopener">https://www.zhihu.com/question/19916345</a>。我自己呢，是因为前段时间在公众号上写的东西写多了，觉得自己搭个博客会更有意思。</li>
 <li>我搭建博客用了多久?<br>  大概一下午的时间，当然要感谢找到了一个比较清楚的资料，附上链接：<a href="https://zhangslob.github.io/2017/02/28/%E6%95%99%E4%BD%A0%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%8CHexo-Github/?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=756109351147544576" target="_blank" rel="noopener">教你免费搭建个人博客</a>。也要感谢16年上半年，反反复复地搭建lamp环境，虽然之后没怎么用过，但是让我自己建站变得容易的多了。</li>
-<li>系统<br>  windows 10 64位，编辑器：sublime text3，控制台：cmd</li>
-</ul>
-<h3 id="搭建博客使用-hexo-Github"><a href="#搭建博客使用-hexo-Github" class="headerlink" title="搭建博客使用 hexo+Github"></a>搭建博客使用 hexo+Github</h3><ul>
-<li>什么是hexo?<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方文档</a></li>
+<li><p>系统<br>  windows 10 64位，编辑器：sublime text3，控制台：cmd</p>
+<a id="more"></a>
+<h3 id="搭建博客使用-hexo-Github"><a href="#搭建博客使用-hexo-Github" class="headerlink" title="搭建博客使用 hexo+Github"></a>搭建博客使用 hexo+Github</h3></li>
+<li><p>什么是hexo?<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">官方文档</a></p>
+</li>
 <li>什么是Github?<br>GitHub is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside millions of other developers. (GitHub是一个受你工作方式启发的开发平台。 从开源到商业，您可以托管和查看代码，管理项目，并与数百万其他开发人员一起构建软件。) <a href="https://github.com/" target="_blank" rel="noopener">click me</a></li>
 </ul>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
@@ -210,10 +211,12 @@
 <li><p>访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，我们会看到网站初始的模样</p>
 </li>
 </ul>
-<h3 id="设置秘钥"><a href="#设置秘钥" class="headerlink" title="设置秘钥"></a>设置秘钥</h3><p style="font-size: 14px;">现在我们可以暂时关闭hexo的本地服务，在git的管理界面输入以下命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</span><br></pre></td></tr></table></figure><br><br>一路按Enter键过来就好，最后会得到信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure><br><br>找到该文件，打开（sublime text），Ctrl + a复制里面的所有内容，然后进入Sign in to GitHub：<a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a><br><br>New SSH key ——Title：blog —— Key：输入刚才复制的—— Add SSH key<br></p>
+<h3 id="设置秘钥"><a href="#设置秘钥" class="headerlink" title="设置秘钥"></a>设置秘钥</h3><p style="font-size: 14px;">现在我们可以暂时关闭hexo的本地服务，在git的管理界面输入以下命令:</p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot;</span><br></pre></td></tr></table></figure><br><br><p style="font-size: 14px;">一路按Enter键过来就好，最后会得到信息：</p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure><br><br><p style="font-size: 14px;">找到该文件，打开（sublime text），Ctrl + a复制里面的所有内容，然后进入Sign in to GitHub：<a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a><br><br>New SSH key ——Title：blog —— Key：输入刚才复制的—— Add SSH key<br></p>
 
-<h3 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h3><p style="font-size: 14px;"><br>在blog目录下，用sublime打开_config.yml文件，修改参数信息<br><br><b>特别提醒，在每个参数的：后都要加一个空格</b><br><br>修改网站相关信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 卡而的博客</span><br><span class="line">subtitle:副标题</span><br><span class="line">description: 描述</span><br><span class="line">keywords:关键词</span><br><span class="line">author: 作者</span><br><span class="line">language:zh-CN</span><br><span class="line">timezone:Asia/Shanghai</span><br></pre></td></tr></table></figure><br><br>配置部署（我的是abluecup，修改成自己的）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: http://github.com/ABlueCup/ABlueCup.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><br><br></p>
-
+<h3 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h3><p></p><p style="font-size: 14px;"><br>在blog目录下，用sublime打开_config.yml文件，修改参数信息</p>
+<p><b>特别提醒，在每个参数的：后都要加一个空格</b></p>
+<p>修改网站相关信息</p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 卡而的博客</span><br><span class="line">subtitle:副标题</span><br><span class="line">description: 描述</span><br><span class="line">keywords:关键词</span><br><span class="line">author: 作者</span><br><span class="line">language:zh-CN</span><br><span class="line">timezone:Asia/Shanghai</span><br></pre></td></tr></table></figure><p></p>
+<p></p><p style="font-size: 14px;">配置部署（我的是abluecup，修改成自己的）</p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: http://github.com/ABlueCup/ABlueCup.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p></p>
 <h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
       
