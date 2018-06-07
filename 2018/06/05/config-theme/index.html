@@ -88,7 +88,12 @@
 <meta property="og:description" content="选择主题我们搭建好博客后，会选择其他的主题而不是hexo自身携带的主题。网上可以搜索到许多的主题，可以击这里查看。我最初选择的是yilia，后来因为嫌字体太大（16px),想修改字体的大小，弄了半天也没弄好，干脆就放弃了，选择了next(它的字体是14px)。 安装next">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/06/05/config-theme/chooseTheme.png">
-<meta property="og:updated_time" content="2018-06-07T03:17:41.731Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/05/config-theme/scheme.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/05/config-theme/social.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/05/config-theme/menuNext.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/05/config-theme/tags.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/05/config-theme/categories.png">
+<meta property="og:updated_time" content="2018-06-07T08:38:51.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Github搭建博客（二）">
 <meta name="twitter:description" content="选择主题我们搭建好博客后，会选择其他的主题而不是hexo自身携带的主题。网上可以搜索到许多的主题，可以击这里查看。我最初选择的是yilia，后来因为嫌字体太大（16px),想修改字体的大小，弄了半天也没弄好，干脆就放弃了，选择了next(它的字体是14px)。 安装next">
@@ -327,7 +332,28 @@
 <p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next的地址</a><br>README中详细地介绍了next的安装方法，我之前在windows10中安装了git，所以选择的方法是在git bash控制台切换到blog目录下输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
 <p>之后在目录 blog/theme/下会看到目录 next,里面包含了next的主题文件。我们此时打开blog的 _config.yml 文件，找到theme那一行，主题修改为next，如下图所示<br><img src="/2018/06/05/config-theme/chooseTheme.png" alt="选择主题"><br>在cmd控制台依次运行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
 <p>在浏览器中输入 localhost:4000就可以查看了</p>
-<h2 id="next配置的选择"><a href="#next配置的选择" class="headerlink" title="next配置的选择"></a>next配置的选择</h2><p>建议先阅读整篇文档，尤其是里面的英文注释，有助于帮助理解。</p>
+<h2 id="next配置的选择"><a href="#next配置的选择" class="headerlink" title="next配置的选择"></a>next配置的选择</h2><p>建议先阅读整篇文档，尤其是里面的英文注释，有助于帮助理解。在这里，我写下自己做的配置</p>
+<ul>
+<li><p>布局样式的选择<br><img src="/2018/06/05/config-theme/scheme.png" alt="scheme.png"><br>四个布局样式都很不错，简洁大方，选择比较随意。</p>
+</li>
+<li><p>social的选择<br><img src="/2018/06/05/config-theme/social.png" alt="social"></p>
+</li>
+<li><p>menu 的选择<br><img src="/2018/06/05/config-theme/menuNext.png" alt="menuNext"></p>
+</li>
+</ul>
+<h2 id="遇到的问题的解决方法"><a href="#遇到的问题的解决方法" class="headerlink" title="遇到的问题的解决方法"></a>遇到的问题的解决方法</h2><h3 id="标签和分类页面打不开"><a href="#标签和分类页面打不开" class="headerlink" title="标签和分类页面打不开"></a>标签和分类页面打不开</h3><p>安装和配置好next后，点击标签页和分类页，都出现了Error.原因是找不到页面。在menu的选择图中可以看到，我们将标签和分类的路径设置为 /tags/和/categories/，但是实际上这两个路径并不存在，这就需要我们新建这两个路径,在blog根目录下输入下面的命令行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line"></span><br><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure></p>
+<p>路径建好了，我到相应的路径下找到对应的页面进行修改，tags的页面中，要添加<code>type: &quot;tags&quot;</code>,categories的页面中，要添加<code>type: &quot;categories&quot;,如下图所示</code><br><img src="/2018/06/05/config-theme/tags.png" alt="tags"><br><img src="/2018/06/05/config-theme/categories.png" alt="categories"></p>
+<h3 id="如何插入图片"><a href="#如何插入图片" class="headerlink" title="如何插入图片"></a>如何插入图片</h3><p>图片可以使用本地图片，也可以使用网络服务器上的图片，储存图片的服务器，叫图床。（图柜也比图床好理解吧）</p>
+<ul>
+<li>修改hexo的配置文件_config.yml,找到post_asset_folder,将它的值改为true. 这样，当你<code>hexo new &quot;post&quot;</code>的时候，会生成与文件名相同的目录</li>
+<li><p>安装hexo-asset-image插件，它是一个图片路径转换的插件，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>之后就可以将图片放入相应的文件目录中，使用Markdown语法插入图片了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![alt name](name.png)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><b>这里有一个需要注意的地方就是，图片格式的大小写要一致，比如png不能写成PNG，至于为什么，还不清楚</b></p>
 
       
     </div>
@@ -367,10 +393,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/07/tags/" rel="prev" title="标签云">
-                标签云 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -447,7 +469,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -457,10 +479,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -468,10 +490,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -518,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择主题"><span class="nav-number">1.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装next"><span class="nav-number">2.</span> <span class="nav-text">安装next</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next配置的选择"><span class="nav-number">3.</span> <span class="nav-text">next配置的选择</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择主题"><span class="nav-number">1.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装next"><span class="nav-number">2.</span> <span class="nav-text">安装next</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next配置的选择"><span class="nav-number">3.</span> <span class="nav-text">next配置的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题的解决方法"><span class="nav-number">4.</span> <span class="nav-text">遇到的问题的解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标签和分类页面打不开"><span class="nav-number">4.1.</span> <span class="nav-text">标签和分类页面打不开</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何插入图片"><span class="nav-number">4.2.</span> <span class="nav-text">如何插入图片</span></a></li></ol></li></ol></div>
             
 
           </div>
