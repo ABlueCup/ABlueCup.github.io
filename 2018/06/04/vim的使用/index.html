@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="系统," />
+  <meta name="keywords" content="vim," />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="参考链接http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/https://coolshell.cn/articles/5426.html上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。 vim是什么？Vim is a highly configurable text editor for effic">
-<meta name="keywords" content="系统">
+<meta name="keywords" content="vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim的使用">
 <meta property="og:url" content="http://yoursite.com/2018/06/04/vim的使用/index.html">
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="参考链接http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/https://coolshell.cn/articles/5426.html上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。 vim是什么？Vim is a highly configurable text editor for effic">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-06T08:57:55.674Z">
+<meta property="og:updated_time" content="2018-06-14T08:19:44.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim的使用">
 <meta name="twitter:description" content="参考链接http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/https://coolshell.cn/articles/5426.html上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。 vim是什么？Vim is a highly configurable text editor for effic">
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Simple is the the best.</p>
+        <p class="site-subtitle">vim  grunt webpack less bootstrap jqueryUI bower http-server</p>
       
   </div>
 
@@ -293,6 +293,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系统/" itemprop="url" rel="index">
+                    <span itemprop="name">系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -354,7 +376,7 @@
 </ol>
 </blockquote>
 </blockquote>
-<h3 id="Stronger"><a href="#Stronger" class="headerlink" title="Stronger"></a>Stronger</h3><blockquote>
+<h4 id="Stronger"><a href="#Stronger" class="headerlink" title="Stronger"></a>Stronger</h4><blockquote>
 <p>N(G) 光标移动到行N<br>gg  光标移动到第一行<br>G 光标移动到最后一行<br>Word moves</p>
 <blockquote>
 <p>w 移动到下一个word的首字母<br>e 移动到本word的结尾<br>W(大写) 定义WORD是一组word,以blank隔开，移动到下一个WORD的开头<br>E 移动到本WORD的结尾</p>
@@ -363,11 +385,14 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="Faster"><a href="#Faster" class="headerlink" title="Faster"></a>Faster</h3><p>一般的命令格式 <start position起始位置="">&lt;command命令&gt;&lt;结束位置&gt;<br>举例说明<br>0y$</start></p>
+<h4 id="Faster"><a href="#Faster" class="headerlink" title="Faster"></a>Faster</h4><p>一般的命令格式 <start position起始位置="">&lt;command命令&gt;&lt;结束位置&gt;<br>举例说明<br>0y$</start></p>
 <blockquote>
 <p>0 表示光标移动到本行的开始位置；<br>y 开始复制<br>$ 复制到本行结束</p>
 </blockquote>
 <p>另外附加的三个命令<br>v 可视化<br>gU 变成大写<br>gu 变成小写</p>
+<h3 id="Vim-SuperPowers-Vim超级编辑器"><a href="#Vim-SuperPowers-Vim超级编辑器" class="headerlink" title="Vim SuperPowers(Vim超级编辑器)"></a>Vim SuperPowers(Vim超级编辑器)</h3><h4 id="Move-on-current-line-0-g-f-F-t-T-在当前行移动命令-0-g-f-F-t-T"><a href="#Move-on-current-line-0-g-f-F-t-T-在当前行移动命令-0-g-f-F-t-T" class="headerlink" title="Move on current line (0 ^ $ g_ f F t T , ;) 在当前行移动命令(0 ^ $ g_ f F t T , ;"></a>Move on current line (0 ^ $ g_ f F t T , ;) 在当前行移动命令(0 ^ $ g_ f F t T , ;</h4><blockquote>
+<p>0 → go to column 0<br>^ → go to first character on the line<br>$ → go to the last column<br>g_ → go to the last character on the line<br>fa → go to next occurrence of the letter a on the line.<br>, (resp. ;) will find the next (resp. previous) occurrence.<br>t, → go to just before the character ,.<br>3fa → find the 3rd occurrence of a on this line.<br>F and T → like f and t but backward.</p>
+</blockquote>
 
       
     </div>
@@ -385,7 +410,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/系统/" rel="tag"># 系统</a>
+            <a href="/tags/vim/" rel="tag"># vim</a>
           
         </div>
       
@@ -487,7 +512,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -509,7 +534,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -558,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim是什么？"><span class="nav-number">2.</span> <span class="nav-text">vim是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习VIM的四个阶段"><span class="nav-number">3.</span> <span class="nav-text">学习VIM的四个阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（Survive）存活"><span class="nav-number">3.1.</span> <span class="nav-text">（Survive）存活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feel-Comfortable-感觉舒适"><span class="nav-number">3.2.</span> <span class="nav-text">(Feel Comfortable) 感觉舒适</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Better-Stronger-Faster-更好-更强-更快"><span class="nav-number">3.3.</span> <span class="nav-text">(Better. Stronger. Faster.)更好 更强 更快</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Better"><span class="nav-number">3.3.1.</span> <span class="nav-text">Better</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stronger"><span class="nav-number">3.4.</span> <span class="nav-text">Stronger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Faster"><span class="nav-number">3.5.</span> <span class="nav-text">Faster</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim是什么？"><span class="nav-number">2.</span> <span class="nav-text">vim是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习VIM的四个阶段"><span class="nav-number">3.</span> <span class="nav-text">学习VIM的四个阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（Survive）存活"><span class="nav-number">3.1.</span> <span class="nav-text">（Survive）存活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feel-Comfortable-感觉舒适"><span class="nav-number">3.2.</span> <span class="nav-text">(Feel Comfortable) 感觉舒适</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Better-Stronger-Faster-更好-更强-更快"><span class="nav-number">3.3.</span> <span class="nav-text">(Better. Stronger. Faster.)更好 更强 更快</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Better"><span class="nav-number">3.3.1.</span> <span class="nav-text">Better</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stronger"><span class="nav-number">3.3.2.</span> <span class="nav-text">Stronger</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Faster"><span class="nav-number">3.3.3.</span> <span class="nav-text">Faster</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-SuperPowers-Vim超级编辑器"><span class="nav-number">3.4.</span> <span class="nav-text">Vim SuperPowers(Vim超级编辑器)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Move-on-current-line-0-g-f-F-t-T-在当前行移动命令-0-g-f-F-t-T"><span class="nav-number">3.4.1.</span> <span class="nav-text">Move on current line (0 ^ $ g_ f F t T , ;) 在当前行移动命令(0 ^ $ g_ f F t T , ;</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -596,7 +621,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
