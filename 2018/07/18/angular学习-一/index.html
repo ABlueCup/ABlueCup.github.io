@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="angular简介：AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。是一款优秀的前端JS框架，已经被用于Google的多款产品当中。AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。（参考：angular中文网）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-18T03:10:23.645Z">
+<meta property="og:updated_time" content="2018-08-06T07:25:56.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular学习(一)">
 <meta name="twitter:description" content="angular简介：AngularJS诞生于2009年，由Misko Hevery 等人创建，后为Google所收购。是一款优秀的前端JS框架，已经被用于Google的多款产品当中。AngularJS有着诸多特性，最为核心的是：MVVM、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。（参考：angular中文网）">
@@ -354,6 +354,12 @@
 <p>启动服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ng serve --open</span><br></pre></td></tr></table></figure></p>
 <p>默认浏览器会自动启动并搜索: localhost:4200<br>当然，我们安装环境的时候，也要学会卸载环境，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall -g @angular/cli</span><br></pre></td></tr></table></figure></p>
 <p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm uninstall -g @angular/cli</span><br></pre></td></tr></table></figure></p>
+<h2 id="apply的使用"><a href="#apply的使用" class="headerlink" title="$apply的使用"></a>$apply的使用</h2><h3 id="apply的解释"><a href="#apply的解释" class="headerlink" title="$apply的解释"></a>$apply的解释</h3><p>让页面中的绑定的数据注意到数据的变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html ng-app=&quot;weather&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;angular&lt;/title&gt;</span><br><span class="line">	&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		angular.module(&quot;weather&quot;,[])</span><br><span class="line">		.controller(&quot;Ctrl&quot;,function($scope,$timeout)&#123;</span><br><span class="line">			$scope.message = &quot;Waiting 2000ms for update&quot;;</span><br><span class="line">		    setTimeout(function()&#123;</span><br><span class="line">		        	$scope.message = &quot;Timeout called!&quot;;</span><br><span class="line">		    &#125;,2000)</span><br><span class="line">		&#125;)</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div ng:app ng-controller=&quot;Ctrl&quot;&gt;</span><br><span class="line">	 &#123;&#123;message&#125;&#125;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在这个app中，2000毫秒之后，页面绑定的数据并没有变化。$scope.message确实已经变化了，并没有传递到前端页面上。 我们需要将控制器中数据的变化传递到页面上，就需要使用$apply。将函数绑定在$apply中,修改controller如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.controller(&quot;Ctrl&quot;,function($scope)&#123;</span><br><span class="line">		$scope.message = &quot;Waiting 2000ms for update&quot;;</span><br><span class="line">		setTimeout(function()&#123;</span><br><span class="line">		        	$scope.$apply(function()&#123;</span><br><span class="line">		        		$scope.message = &quot;Timeout called!&quot;;</span><br><span class="line">		        		&#125;)</span><br><span class="line">		    &#125;,2000)</span><br><span class="line"></span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>我自己想过一个比喻，关于$rootscope,$scope的，自然也可以应用在这里：<br>我们使用ng创建一个app的时候,会随之产生一个$rootscope;在这个app中创建controller的时候，也会随之产生一个$scope.我们将app比作一个大剧场，大剧场里面有很多小剧场（controller)。大剧场有公共资源可以使用，他们放在一个房间里$rootscope;小剧场也有资源可以单独使用，他们也放在一个小房间里$scope。当然，小剧场自然可以使用大剧场的公共资源。那$apply,$timeout,$http是什么呢，$scope里面放了很多的data,而处理这些data，就像在茶水房里烧水一样，需要工具和方法，我们使用的是js或者jquery这些工具，那如何让剧场里的人知道水烧开了呢，$apply就是。$scope.$apply对于data的包裹，相当于将data纳入了ng框架当中。<br>在ng自带的方法里面，他们会自动将data纳入ng中去，比如上面的代码可以修改成使用ng自带的$timeout方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.controller(&quot;Ctrl&quot;,function($scope,$timeout)&#123;</span><br><span class="line">	$scope.message = &quot;Waiting 2000ms for update&quot;;	</span><br><span class="line">	$timeout(function()&#123;</span><br><span class="line">		      $scope.message = &quot;Timeout called!&quot;;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="apply-和-apply-fn-的区别"><a href="#apply-和-apply-fn-的区别" class="headerlink" title="$apply()和$apply(fn)的区别"></a>$apply()和$apply(fn)的区别</h3><p>我们可以像上文中一样使用$apply(fn),将data包裹在$scope.$apply(fn)中；也可以在改变data后，使用$scope.$apply();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTime(function()&#123;</span><br><span class="line">	$scope.message = &quot;Timeout Called!&quot;;</span><br><span class="line">	$scope.$apply();</span><br><span class="line">	&#125;,2000)</span><br></pre></td></tr></table></figure></p>
+<p>但是这样不好的点在于，它不会在有error的时候抛出。</p>
+<h2 id="ng-x"><a href="#ng-x" class="headerlink" title="ng-x"></a>ng-x</h2><h3 id="ng-model"><a href="#ng-model" class="headerlink" title="ng-model"></a>ng-model</h3><p>数据双向绑定，ng-model=”name”相当于定义了一个名为name的数据变量 $scope.name,一处变而处处变。<br>常常会用在表单里面，用以获取用户输入的数据。</p>
 
       
     </div>
@@ -393,6 +399,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/盒子模型/" rel="prev" title="盒子模型">
+                盒子模型 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -469,7 +479,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -491,7 +501,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -540,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular简介："><span class="nav-number">1.</span> <span class="nav-text">angular简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建环境"><span class="nav-number">2.</span> <span class="nav-text">搭建环境</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#angular简介："><span class="nav-number">1.</span> <span class="nav-text">angular简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建环境"><span class="nav-number">2.</span> <span class="nav-text">搭建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply的使用"><span class="nav-number">3.</span> <span class="nav-text">$apply的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apply的解释"><span class="nav-number">3.1.</span> <span class="nav-text">$apply的解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply-和-apply-fn-的区别"><span class="nav-number">3.2.</span> <span class="nav-text">$apply()和$apply(fn)的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ng-x"><span class="nav-number">4.</span> <span class="nav-text">ng-x</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ng-model"><span class="nav-number">4.1.</span> <span class="nav-text">ng-model</span></a></li></ol></li></ol></div>
             
 
           </div>
