@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="盒子模型有两种：w3c模型和IE模型，通过box-sizing的值来判断是哪一种；box-sizing=content-box，这是默认值,是w3c模型；box-sizing=border-box,是IE模型">
-<meta name="keywords" content="css">
+<meta name="description" content="此处是工作中遇到的小问题的总结：">
+<meta name="keywords" content="前端 编程  计算机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JDK的安装和盒子模型">
-<meta property="og:url" content="http://yoursite.com/2018/07/20/盒子模型/index.html">
+<meta property="og:title" content="日常总结">
+<meta property="og:url" content="http://yoursite.com/2018/12/12/日常总结/index.html">
 <meta property="og:site_name" content="卡而的博客">
-<meta property="og:description" content="盒子模型有两种：w3c模型和IE模型，通过box-sizing的值来判断是哪一种；box-sizing=content-box，这是默认值,是w3c模型；box-sizing=border-box,是IE模型">
+<meta property="og:description" content="此处是工作中遇到的小问题的总结：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-31T09:17:15.562Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/5/10/1634933fa3100474?w=1039&h=579&f=png&s=16869">
+<meta property="og:updated_time" content="2018-12-12T06:01:42.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JDK的安装和盒子模型">
-<meta name="twitter:description" content="盒子模型有两种：w3c模型和IE模型，通过box-sizing的值来判断是哪一种；box-sizing=content-box，这是默认值,是w3c模型；box-sizing=border-box,是IE模型">
+<meta name="twitter:title" content="日常总结">
+<meta name="twitter:description" content="此处是工作中遇到的小问题的总结：">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/5/10/1634933fa3100474?w=1039&h=579&f=png&s=16869">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/20/盒子模型/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/12/日常总结/"/>
 
 
 
 
 
-  <title>JDK的安装和盒子模型 | 卡而的博客</title>
+  <title>日常总结 | 卡而的博客</title>
   
 
 
@@ -253,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/盒子模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/日常总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="卡而">
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JDK的安装和盒子模型</h1>
+          <h1 class="post-title" itemprop="name headline">日常总结</h1>
         
 
         <div class="post-meta">
@@ -282,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T17:03:39+08:00">
-                2018-07-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-12T13:55:38+08:00">
+                2018-12-12
               </time>
             
 
@@ -320,22 +322,28 @@
       
 
       
-        <p>盒子模型有两种：w3c模型和IE模型，通过box-sizing的值来判断是哪一种；box-sizing=content-box，这是默认值,是w3c模型；box-sizing=border-box,是IE模型<br><a id="more"></a></p>
-<h2 id="w3c模型"><a href="#w3c模型" class="headerlink" title="w3c模型"></a>w3c模型</h2><p>width = 内容的宽度<br>height = 内容的高度</p>
-<h2 id="IE模型"><a href="#IE模型" class="headerlink" title="IE模型"></a>IE模型</h2><p>width = 内容的宽度 + padding + border;<br>height = 内容的高度 + padding + border;</p>
-<h2 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h2><p>背景色占据的内容和padding,不占据border;</p>
-<h2 id="outline"><a href="#outline" class="headerlink" title="outline"></a>outline</h2><p>outline （轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。<br>注释：轮廓线不会占据空间，也不一定是矩形。<br>它的用法和border是一样的。 </p>
-<h2 id="JDK的环境搭建"><a href="#JDK的环境搭建" class="headerlink" title="JDK的环境搭建"></a>JDK的环境搭建</h2><h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html</a></p>
-<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>双击.exe程序，按照顺序依次点击<br>C:\Program Files\Java\jdk11</p>
-<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p>我的电脑（右键）——&gt; 属性 ——&gt; 高级设置 ——&gt; 环境变量</p>
-<p>在用户变量里面设置 JAVA_HOME = C:\Program Files\Java\jdk11<br>在系统变量里面添加到PATH C:\Program Files\Java\jdk11\bin</p>
-<h3 id="相关名词"><a href="#相关名词" class="headerlink" title="相关名词"></a>相关名词</h3><p>JVM java虚拟机<br>JRE java程序的运行环境<br>JDK java的开发包工具</p>
-<h2 id="phoneCat"><a href="#phoneCat" class="headerlink" title="phoneCat"></a>phoneCat</h2><p>ng-app 声明angularjs的作用域，创建一个名称为指定名称的module,同时创建$rootScope;<br>ng-controller 创建一个控制器，同时创建一个$scope, $scope是$rootScope的后代，controller是 data model 和 view 之间的粘合剂；</p>
-<h3 id="component-组件"><a href="#component-组件" class="headerlink" title="component 组件"></a>component 组件</h3><p>由 template 和 controller组成，使用 .component(name, cod)方法创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;myapp&apos;)</span><br><span class="line">.component(&apos;phoneList&apos;,&#123;</span><br><span class="line">	template: &apos;&lt;ul&gt;&apos;+</span><br><span class="line">		&apos;&lt;li ng-repeat=&quot;phone in $ctr.phones&quot;&gt;&apos;+</span><br><span class="line">			&apos;&lt;span&gt;&#123;&#123;phone.name&#125;&#125;&lt;/span&gt;&apos;+</span><br><span class="line">			&apos;&lt;span&gt;&#123;&#123;phone.snippet&#125;&#125;&lt;/span&gt;&apos;+</span><br><span class="line">		&apos;&lt;/li&gt;&apos;+</span><br><span class="line">		&apos;&lt;/ul&gt;&apos;,</span><br><span class="line">	controller: function phoneListController()&#123;</span><br><span class="line">		this.phones = [</span><br><span class="line">        &#123;</span><br><span class="line">          name: &apos;Nexus S&apos;,</span><br><span class="line">          snippet: &apos;Fast just got faster with Nexus S.&apos;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">          name: &apos;Motorola XOOM™ with Wi-Fi&apos;,</span><br><span class="line">          snippet: &apos;The Next, Next Generation tablet.&apos;</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">          name: &apos;MOTOROLA XOOM™&apos;,</span><br><span class="line">          snippet: &apos;The Next, Next Generation tablet.&apos;</span><br><span class="line">        &#125;</span><br><span class="line">      ];</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
-<p>细节补充：</p>
-<p>我们创建的组件名称是phoneList,但是在view中，要写<code>&lt;phone-list&gt;&lt;/phone-list&gt;</code>,否则，不显示；component的命名只能是驼峰规则，而view中的标签要用  “-”  代替；</p>
+        <p>此处是工作中遇到的小问题的总结：<br><a id="more"></a></p>
+<p>1、a标签的选择问题<br>需要修改带class的a标签的hover的文字颜色，方式如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    a.egHyperlink:hover&#123;</span><br><span class="line">        color:red;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;a href=&quot;#&quot; class=&quot;egHyperlink&quot;&gt;smile&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>2、hr分割线<br>需要一条粉红色的分割线，宽度1px</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    hr&#123;</span><br><span class="line">        height:2px;</span><br><span class="line">        border:none;</span><br><span class="line">        border-top:1px solid #00BFFF;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;hr&gt;</span><br></pre></td></tr></table></figure>
+<p>展示效果如下：</p>
+<hr style="height:2px; border:none;border-top:1px solid #00BFFF;"> 
 
+<p>3、图片环绕文字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&lt;img src=&quot;https://user-gold-cdn.xitu.io/2018/5/10/1634933fa3100474?w=1039&amp;h=579&amp;f=png&amp;s=16869&quot; width=&quot;50%&quot; style=&quot;float:left;border:1px solid #00BFFF;margin:0 10px 0 0;&quot;/&gt;</span><br><span class="line">&lt;p&gt;What I want to accomplish is for the text to be aligned with the top and left side of the floated img and to wrap immediately underneath with no margin. When I comment out the padding in &apos;p&apos; the image has no bottom margin, but I want the padding property to be active in my stylesheet.What I want to accomplish is for the text to be aligned with the top and left side of the floated img and to wrap immediately underneath with no margin. When I comment out the padding in &apos;p&apos; the image has no bottom margin, but I want the padding property to be active in my stylesheet.&lt;/p&gt;</span><br><span class="line">&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<div><br><img src="https://user-gold-cdn.xitu.io/2018/5/10/1634933fa3100474?w=1039&h=579&f=png&s=16869" width="50%" style="float:left;border:1px solid #00BFFF;margin:0 10px 0 0;"><br><p>What I want to accomplish is for the text to be aligned with the top and left side of the floated img and to wrap immediately underneath with no margin. When I comment out the padding in ‘p’ the image has no bottom margin, but I want the padding property to be active in my stylesheet.What I want to accomplish is for the text to be aligned with the top and left side of the floated img and to wrap immediately underneath with no margin. When I comment out the padding in ‘p’ the image has no bottom margin, but I want the padding property to be active in my stylesheet.</p><br><div style="clear:both;"></div><br></div>
+
+<p>4、颜色的值，遇到过几次需要使用颜色而又不是特别严格要求使用某一种颜色的问题，这个时候可以自己选择，今天先更新一个，以后遇到就记下来</p>
+<div><br>    <div style="width:100px;height:100px;background-color:#00BFFF;text-align:center;line-height:100px;color:#fff;float:left;"><br>        #00BFFF<br>    </div><br>    <div style="width:100px;height:100px;background-color:rgb(2, 221, 223)
+;text-align:center;line-height:100px;color:#fff;float:left;"><br>        rgb(2, 221, 223)<br>    </div><br>    <div style="clear:both;"></div><br></div><br>文字颜色，<br><div><br><span style="color:rgb(75,75,75)">rgb(75,75,75)<span><br></span></span></div>
+
+
+<p>5、@media screen问题<br>总是遇到需要使用@media screen来区分设备的问题，却总是忘记代码，脑子啊，css样式要写在{}内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Mobile</span><br><span class="line">@media screen and (min-width: 480px)&#123;&#125;</span><br><span class="line"></span><br><span class="line"># Tablet</span><br><span class="line">@meida screen and (min-width: 768px)&#123;&#125;</span><br><span class="line"></span><br><span class="line"># Desktop</span><br><span class="line">@media screen and (min-width: 992px)&#123;&#125;</span><br><span class="line"></span><br><span class="line"># Huge</span><br><span class="line">@media screen and (min-width: 1280px)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Phone</span><br><span class="line">@media screen and (max-width:320px)&#123;&#125;</span><br><span class="line"></span><br><span class="line"># Tablet</span><br><span class="line">@media screen and (min-width:321px) and (max-width:768px)&#123;&#125;</span><br><span class="line"></span><br><span class="line"># Desktop</span><br><span class="line">@media screen and (min-width:769px)&#123;&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -350,12 +358,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/css/" rel="tag"># css</a>
-          
-        </div>
-      
 
       
       
@@ -365,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/18/angular学习-一/" rel="next" title="angular学习(一)">
-                <i class="fa fa-chevron-left"></i> angular学习(一)
+              <a href="/2018/07/20/盒子模型/" rel="next" title="JDK的安装和盒子模型">
+                <i class="fa fa-chevron-left"></i> JDK的安装和盒子模型
               </a>
             
           </div>
@@ -374,10 +376,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/12/日常总结/" rel="prev" title="日常总结">
-                日常总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -429,17 +427,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,22 +504,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#w3c模型"><span class="nav-number">1.</span> <span class="nav-text">w3c模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE模型"><span class="nav-number">2.</span> <span class="nav-text">IE模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景色"><span class="nav-number">3.</span> <span class="nav-text">背景色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#outline"><span class="nav-number">4.</span> <span class="nav-text">outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK的环境搭建"><span class="nav-number">5.</span> <span class="nav-text">JDK的环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装包"><span class="nav-number">5.1.</span> <span class="nav-text">下载安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装步骤"><span class="nav-number">5.2.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置环境变量"><span class="nav-number">5.3.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关名词"><span class="nav-number">5.4.</span> <span class="nav-text">相关名词</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phoneCat"><span class="nav-number">6.</span> <span class="nav-text">phoneCat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#component-组件"><span class="nav-number">6.1.</span> <span class="nav-text">component 组件</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
