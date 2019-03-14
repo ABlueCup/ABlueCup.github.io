@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T03:04:49.453Z">
+<meta property="og:updated_time" content="2019-03-14T09:26:04.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhufeng.md">
 <meta name="twitter:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
@@ -365,6 +365,82 @@
 <li>语义化强一些 </li>
 <li>不能使用关键字和保留字： 在js中有特殊含义的叫关键字，未来可能成为关键字的叫做保留字</li>
 </ul>
+<hr>
+<p>六、数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型：</p>
+<ul>
+<li>基本数据类型 （值）<ul>
+<li>数字 number</li>
+<li>字符串 string</li>
+<li>布尔值 boolean</li>
+<li>null</li>
+<li>undefined</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>对象object<ul>
+<li>普通对象</li>
+<li>数组对象</li>
+<li>正则对象</li>
+<li>日期对象</li>
+<li>…</li>
+</ul>
+</li>
+<li>函数 function</li>
+</ul>
+</li>
+<li>ES6中新增加的一个特殊的数据类型Symbol(唯一的值)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[基本数据类型]</span><br><span class="line">    数字类型中有一个特殊的值，叫 NaN (not a number 代表不是一个有效的数字，但是属于number类型)</span><br><span class="line">    JS中所有用单引号或者双引号包裹起来的都是字符串，里面的内容是当前字符串中的字符（一个字符串由0到多个字符自称）</span><br><span class="line">    boolean: true false</span><br><span class="line"></span><br><span class="line">[引用数据类型]</span><br><span class="line">var o=&#123;name: &apos;name&apos;, age: 9&#125; =&gt; 普通对象 由大括号包裹起来，里面包含多组属性名和属性值（包含多组键值对） &#123;&#125; 空对象</span><br><span class="line"></span><br><span class="line">var array = [1,2,3]; // =&gt; 中括号包裹起来， 包含零到多项内容，这种是数组对象 []空数组</span><br><span class="line"></span><br><span class="line">var reg = /-?(d|[1-9]\d+))(\.\d+)?/g; /=&gt; 由元字符组成一个完整的正则  //不是空正则 当行注释 ^=^</span><br><span class="line"></span><br><span class="line">function fn()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[Symbol] </span><br><span class="line">    创建出来的是一个唯一的值</span><br><span class="line">    var a = Symbol(&apos;珠峰&apos;);</span><br><span class="line">    var b = Symbol(&apos;珠峰&apos;);</span><br><span class="line">    a==b =&gt; false; </span><br><span class="line">    const a = Symbol(&apos;flag&apos;); a 是唯一且不能改变的量</span><br></pre></td></tr></table></figure>
+<p>扩展： JS代码如何运行以及运行后如何输出结果<br>[如何被运行] </p>
+<ul>
+<li>把代码运行在浏览器中，浏览器内核来渲染解析；</li>
+<li>基于Node来运行（Node也是基于V8引擎渲染和解析JS的工具)</li>
+</ul>
+<p>[如何输出结果]</p>
+<ul>
+<li>alert： 在浏览器中通过弹框的方式输出（浏览器提示框）；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alert();// =&gt; window.alert()</span><br><span class="line">alert(1+1) =&gt; &apos;2&apos; 基于alert输出的结果都会转换成字符串：把值（如果是表达式先计算出结果）通过toString()这个方法转化成字符串，然后再输出</span><br><span class="line">alert([12,23]) =&gt; &quot;12,23&quot;</span><br><span class="line">alert(&#123;name:&apos;xx&apos;&#125;) =&gt; &apos;[object Object]&apos;</span><br><span class="line"> 对象.toString()结果是[object Object]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>confirm 和alert用法一致，只不过提示的框中有确定和取消两个按钮，所以它是确认提示框</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var flag = confirm(&apos;确定要退出吗&apos;);</span><br><span class="line">if(flag)&#123;</span><br><span class="line">        // 用户点击的是确定按钮</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    //用户点击的取消按钮</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>prompt 在confirm的基础上增加输入框</p>
+</li>
+<li><p>console.log :在浏览器控制台输出日志</p>
+</li>
+</ul>
+<ul>
+<li>Elements: 当前页面中的元素和样式在这里都可以看见，还可以调节样式修改结构等；</li>
+<li>Console: 控制台 可以在JS代码中通过.log输出到这里，也可以在这里直接编写JS代码；</li>
+<li>Source: 当前网站的源文件都在这里</li>
+<li>……</li>
+</ul>
+<ul>
+<li>console.dir 比log的输出更详细（尤其是输出对象数据值的时候）</li>
+<li>console.table: 把一个JSON数据按照表格的方式输出<br>.. (更多的console输出方法)</li>
+</ul>
+<hr>
+<p>七、数据类型的详细剖析</p>
+<ol>
+<li><p>number数字类型<br>NaN： not a number， 但它是数字类型<br>isNaN: 检测当前值是否不是有效数字，返回true 代表不是有效数字，返回false代表是有效数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">isNaN([value])</span><br><span class="line">isNaN(&apos;13&apos;) =&gt; false</span><br><span class="line">isNaN(&apos;AA&apos;) =&gt; true</span><br><span class="line">isNaN(true) =&gt; false</span><br><span class="line">isNaN(false) =&gt; false</span><br><span class="line">isNaN(null) =&gt; false</span><br><span class="line">isNaN(undefined) =&gt; true</span><br><span class="line">isNaN(&#123;age:9&#125;) =&gt; true</span><br><span class="line">isNaN([12,23]) =&gt; true</span><br><span class="line">isNaN([12]) =&gt; false</span><br><span class="line">isNaN(/DS/) =&gt; true</span><br><span class="line">isNaN(function()&#123;&#125;) =&gt; true</span><br><span class="line"></span><br><span class="line">重要： isNaN检测的机制</span><br><span class="line">1、首先验证当前要检测的值是否为数字类型的值，如果不是，浏览器会默认的把值转换为数字类型；</span><br><span class="line">    把非数字类型转化为数字</span><br><span class="line">    -其他基本类型转换为数字： 直接使用Number这个方法；</span><br><span class="line">    </span><br><span class="line">        [字符串转化为数字] 如果当前字符串中出现任意一个非有效数字字符，结果为NaN</span><br><span class="line">            Number(&apos;13&apos;) =&gt; 13 </span><br><span class="line">            Number(&apos;13a&apos;) =&gt; NaN</span><br><span class="line">            Number(&apos;13.5&apos;) =&gt; 13.5 可以识别小数点</span><br><span class="line">        [布尔转数字]</span><br><span class="line">            Number(true) =&gt; 1</span><br><span class="line">            Number(false) =&gt; 0</span><br><span class="line">        [其他]</span><br><span class="line">            Number(null) =&gt; 0</span><br><span class="line">            Number(undefined) =&gt; NaN</span><br><span class="line">    - 把引用数据类型值转换为数字： 先把引用值调取toString转化为字符串，然后把字符串调取Number转化为数字</span><br><span class="line">    Number(&apos;&apos;) =&gt; 0</span><br><span class="line">    ([]).toString =&gt; &apos;&apos;;</span><br><span class="line">    isNaN([]) =&gt; false</span><br><span class="line">        </span><br><span class="line">2、当前检测的值已经是数字类型，是有效数字返回false,不是返回true  (数字类型中只有NaN不是有效数字，其余都是有效数字)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>parseInt parseFloat</p>
+<blockquote>
+<p>等同于Number,也是为了把其他值转化为数字类型<br>和Number的区别在于字符串转换分析上<br>Number出现任意非有效字符，即为NaN<br>parseInt: 把一个字符串中的整数部分解析出来<br>parseFloat: 把一个字符串中的小数（浮点数）解析出来</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&apos;13.5px&apos;) =&gt; 13</span><br><span class="line">parseFloat(&apos;13.5px&apos;) = 13.5</span><br><span class="line">parseInt(&apos;w13.5&apos;) =&gt; NaN</span><br><span class="line"></span><br><span class="line">parseInt从字符串最左边字符开始查找有效数字字符，并且转化为数字，但是一旦遇到非有效数字字符，查找结束</span><br><span class="line">parseFloat多识别一个字符. parseFloat(&apos;.2p&apos;) =&gt; 0.2</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>NaN的比较<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(NaN == NaN) =&gt; false NaN和谁都不相等，包括和自己也不相等</span><br><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>思考题： 有一个变量，存储的值不知道，我想检测它是否为一个有效数字，下面的方案是否可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(Number(num) == NaN)&#123; // 条件永远不成立</span><br><span class="line">    alert(&quot;num不是有效数字&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>只有一种方案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(isNaN(num))&#123;</span><br><span class="line">    alert(&quot;num不是有效数字&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
