@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T09:26:04.983Z">
+<meta property="og:updated_time" content="2019-03-14T10:08:44.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhufeng.md">
 <meta name="twitter:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
@@ -441,6 +441,31 @@
 <p>思考题： 有一个变量，存储的值不知道，我想检测它是否为一个有效数字，下面的方案是否可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(Number(num) == NaN)&#123; // 条件永远不成立</span><br><span class="line">    alert(&quot;num不是有效数字&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>只有一种方案</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(isNaN(num))&#123;</span><br><span class="line">    alert(&quot;num不是有效数字&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>布尔类型</p>
+<blockquote>
+<p>只有两个值 true/false<br>如何把其他类型转化为布尔类型</p>
+<ul>
+<li>Boolean<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Boolean(1) =&gt; true</span><br><span class="line">Boolean(0) =&gt; false</span><br><span class="line">数字里面只有0和NaN是false,其余都是true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>!</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!&apos;st&apos; 非、取反，先把其他数据类型转化为布尔类型，然后取反</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>!!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">否定之否定，肯定</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>规律  <code>在js中只有 0 null undefined NaN 空字符串 转化为布尔类型的false,其余都转化为true</code></p>
+<p>null &amp; undefined</p>
+<blockquote>
+<p>都代表空<br>null ：空对象指针<br>undefined ：未定义</p>
+</blockquote>
+<p>null 一般是意料之中的没有（通俗理解都是认为手动的设置为null, 后面的程序中我们会再次给它赋值）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = null; // =&gt;null 是手动赋值的, 预示着我会把num变量的值修改</span><br></pre></td></tr></table></figure></p>
+<p>undefined 代表着没有，一般都不是人为控制的，大部分都是浏览器自主为空，后面可以赋值，也可以不赋值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var num;</span><br><span class="line">// 此时num会被浏览器分配一个值 undefined, 后面可以赋值，也可以不赋值</span><br></pre></td></tr></table></figure>
 
       
     </div>
