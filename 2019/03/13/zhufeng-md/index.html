@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T10:08:44.956Z">
+<meta property="og:updated_time" content="2019-03-15T09:18:12.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhufeng.md">
 <meta name="twitter:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
@@ -321,9 +321,8 @@
 
       
         <p>JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。<br><a id="more"></a></p>
-<h2 id="Jascript"><a href="#Jascript" class="headerlink" title="Jascript"></a>Jascript</h2><p>JS: 轻量级的客户端脚本编程语言；</p>
-<ol>
-<li>编程语言<br> HTML + CSS是标记语言<br> 编程语言是具备一定逻辑的，拥有自己的编程思想（面向对象编程[oop]、 面向过程编程）<ul>
+<h1 id="Jascript"><a href="#Jascript" class="headerlink" title="Jascript"></a>Jascript</h1><h2 id="JS-轻量级的客户端脚本编程语言；"><a href="#JS-轻量级的客户端脚本编程语言；" class="headerlink" title="JS: 轻量级的客户端脚本编程语言；"></a>JS: 轻量级的客户端脚本编程语言；</h2><ol>
+<li>编程语言<br>HTML + CSS是标记语言<br>编程语言是具备一定逻辑的，拥有自己的编程思想（面向对象编程[oop]、 面向过程编程）<ul>
 <li>面向对象编程<ul>
 <li>java</li>
 <li>c++</li>
@@ -337,20 +336,24 @@
 </ul>
 </li>
 </ul>
+<ol start="2">
+<li>目前的Js已经不仅仅是客户端语言了，基于Node可以做服务器端程序，所以js是全栈编程语言</li>
+</ol>
 </li>
-<li><p>目前的Js已经不仅仅是客户端语言了，基于Node可以做服务器端程序，所以js是全栈编程语言</p>
-</li>
-<li><p>js 包括三部分</p>
-<ul>
+</ol>
+<ol start="3">
+<li>js 包括三部分<ul>
 <li>ECMAscript（ES） js语法核心</li>
 <li>DOM document object model 文档对象模型， 提供各种API供js获取和操作html元素（dom元素）</li>
 <li>BOM brower object model 浏览器对象模型，提供各种API供js操作浏览器</li>
 </ul>
 </li>
 </ol>
-<p>四： ECMAScript<br>    它是Js的语法规划，JS中的变量、数据类型、语法规范、操作语句、设计模式等等都是ES规定的</p>
-<p>五： 变量(variable)<br>    它不是具体的值，只是一个用来存储具体值的容器或者代名词<br>    存储的值可以改变，所以称为变量</p>
-<pre><code>基于ES语法规范，在js中创建变量有以下规范
+<h2 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h2><pre><code>它是Js的语法规划，JS中的变量、数据类型、语法规范、操作语句、设计模式等等都是ES规定的
+</code></pre><h2 id="变量-variable"><a href="#变量-variable" class="headerlink" title="变量(variable)"></a>变量(variable)</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><pre><code>它不是具体的值，只是一个用来存储具体值的容器或者代名词
+存储的值可以改变，所以称为变量
+
+基于ES语法规范，在js中创建变量有以下规范
 - var (ES3)
 - function (ES3) 创建函数（函数也是变量，只不过存储的值是函数类型而已）
 - let (ES6)
@@ -358,16 +361,14 @@
 - import (ES6) 基于ES6的模块规范导出需要的信息
 - class (ES6) 基于ES6创建类
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  *语法： var [变量名] = 值;  /  </span><br><span class="line">  *let [变量名] = 值;  / </span><br><span class="line">  *const [变量名] = 值;</span><br><span class="line">  *function 函数名()&#123;&#125;</span><br><span class="line">**/</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">var n = 13;</span><br><span class="line">n = 15;</span><br><span class="line"></span><br><span class="line">const m = 100;</span><br></pre></td></tr></table></figure>
-<p>创建变量的命名规范</p>
-<ul>
+<h3 id="创建变量的命名规范"><a href="#创建变量的命名规范" class="headerlink" title="创建变量的命名规范"></a>创建变量的命名规范</h3><ul>
 <li>严格区分大小写</li>
 <li>遵循驼峰命名法：按照数字、字母、下划线命名，数字不能作为开头，命名基于英文单词，拼写成一个完整的名字（第一个单词字母小写，其余每一个有意义的单词首字母大写）</li>
 <li>语义化强一些 </li>
 <li>不能使用关键字和保留字： 在js中有特殊含义的叫关键字，未来可能成为关键字的叫做保留字</li>
 </ul>
 <hr>
-<p>六、数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型：</p>
-<ul>
+<h2 id="数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型："><a href="#数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型：" class="headerlink" title="数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型："></a>数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型：</h2><ul>
 <li>基本数据类型 （值）<ul>
 <li>数字 number</li>
 <li>字符串 string</li>
@@ -422,13 +423,9 @@
 <li>console.table: 把一个JSON数据按照表格的方式输出<br>.. (更多的console输出方法)</li>
 </ul>
 <hr>
-<p>七、数据类型的详细剖析</p>
-<ol>
-<li><p>number数字类型<br>NaN： not a number， 但它是数字类型<br>isNaN: 检测当前值是否不是有效数字，返回true 代表不是有效数字，返回false代表是有效数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">isNaN([value])</span><br><span class="line">isNaN(&apos;13&apos;) =&gt; false</span><br><span class="line">isNaN(&apos;AA&apos;) =&gt; true</span><br><span class="line">isNaN(true) =&gt; false</span><br><span class="line">isNaN(false) =&gt; false</span><br><span class="line">isNaN(null) =&gt; false</span><br><span class="line">isNaN(undefined) =&gt; true</span><br><span class="line">isNaN(&#123;age:9&#125;) =&gt; true</span><br><span class="line">isNaN([12,23]) =&gt; true</span><br><span class="line">isNaN([12]) =&gt; false</span><br><span class="line">isNaN(/DS/) =&gt; true</span><br><span class="line">isNaN(function()&#123;&#125;) =&gt; true</span><br><span class="line"></span><br><span class="line">重要： isNaN检测的机制</span><br><span class="line">1、首先验证当前要检测的值是否为数字类型的值，如果不是，浏览器会默认的把值转换为数字类型；</span><br><span class="line">    把非数字类型转化为数字</span><br><span class="line">    -其他基本类型转换为数字： 直接使用Number这个方法；</span><br><span class="line">    </span><br><span class="line">        [字符串转化为数字] 如果当前字符串中出现任意一个非有效数字字符，结果为NaN</span><br><span class="line">            Number(&apos;13&apos;) =&gt; 13 </span><br><span class="line">            Number(&apos;13a&apos;) =&gt; NaN</span><br><span class="line">            Number(&apos;13.5&apos;) =&gt; 13.5 可以识别小数点</span><br><span class="line">        [布尔转数字]</span><br><span class="line">            Number(true) =&gt; 1</span><br><span class="line">            Number(false) =&gt; 0</span><br><span class="line">        [其他]</span><br><span class="line">            Number(null) =&gt; 0</span><br><span class="line">            Number(undefined) =&gt; NaN</span><br><span class="line">    - 把引用数据类型值转换为数字： 先把引用值调取toString转化为字符串，然后把字符串调取Number转化为数字</span><br><span class="line">    Number(&apos;&apos;) =&gt; 0</span><br><span class="line">    ([]).toString =&gt; &apos;&apos;;</span><br><span class="line">    isNaN([]) =&gt; false</span><br><span class="line">        </span><br><span class="line">2、当前检测的值已经是数字类型，是有效数字返回false,不是返回true  (数字类型中只有NaN不是有效数字，其余都是有效数字)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>parseInt parseFloat</p>
-<blockquote>
+<h2 id="数据类型的详细剖析"><a href="#数据类型的详细剖析" class="headerlink" title="数据类型的详细剖析"></a>数据类型的详细剖析</h2><h3 id="number数字类型"><a href="#number数字类型" class="headerlink" title="number数字类型"></a>number数字类型</h3><p>NaN： not a number， 但它是数字类型<br>isNaN: 检测当前值是否不是有效数字，返回true 代表不是有效数字，返回false代表是有效数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">isNaN([value])</span><br><span class="line">isNaN(&apos;13&apos;) =&gt; false</span><br><span class="line">isNaN(&apos;AA&apos;) =&gt; true</span><br><span class="line">isNaN(true) =&gt; false</span><br><span class="line">isNaN(false) =&gt; false</span><br><span class="line">isNaN(null) =&gt; false</span><br><span class="line">isNaN(undefined) =&gt; true</span><br><span class="line">isNaN(&#123;age:9&#125;) =&gt; true</span><br><span class="line">isNaN([12,23]) =&gt; true</span><br><span class="line">isNaN([12]) =&gt; false</span><br><span class="line">isNaN(/DS/) =&gt; true</span><br><span class="line">isNaN(function()&#123;&#125;) =&gt; true</span><br><span class="line"></span><br><span class="line">重要： isNaN检测的机制</span><br><span class="line">1、首先验证当前要检测的值是否为数字类型的值，如果不是，浏览器会默认的把值转换为数字类型；</span><br><span class="line">    把非数字类型转化为数字</span><br><span class="line">    -其他基本类型转换为数字： 直接使用Number这个方法；</span><br><span class="line">    </span><br><span class="line">        [字符串转化为数字] 如果当前字符串中出现任意一个非有效数字字符，结果为NaN</span><br><span class="line">            Number(&apos;13&apos;) =&gt; 13 </span><br><span class="line">            Number(&apos;13a&apos;) =&gt; NaN</span><br><span class="line">            Number(&apos;13.5&apos;) =&gt; 13.5 可以识别小数点</span><br><span class="line">        [布尔转数字]</span><br><span class="line">            Number(true) =&gt; 1</span><br><span class="line">            Number(false) =&gt; 0</span><br><span class="line">        [其他]</span><br><span class="line">            Number(null) =&gt; 0</span><br><span class="line">            Number(undefined) =&gt; NaN</span><br><span class="line">    - 把引用数据类型值转换为数字： 先把引用值调取toString转化为字符串，然后把字符串调取Number转化为数字</span><br><span class="line">    Number(&apos;&apos;) =&gt; 0</span><br><span class="line">    ([]).toString =&gt; &apos;&apos;;</span><br><span class="line">    isNaN([]) =&gt; false</span><br><span class="line">        </span><br><span class="line">2、当前检测的值已经是数字类型，是有效数字返回false,不是返回true  (数字类型中只有NaN不是有效数字，其余都是有效数字)</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>parseInt parseFloat<blockquote>
 <p>等同于Number,也是为了把其他值转化为数字类型<br>和Number的区别在于字符串转换分析上<br>Number出现任意非有效字符，即为NaN<br>parseInt: 把一个字符串中的整数部分解析出来<br>parseFloat: 把一个字符串中的小数（浮点数）解析出来</p>
 </blockquote>
 </li>
@@ -442,8 +439,7 @@
 <p>只有一种方案</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(isNaN(num))&#123;</span><br><span class="line">    alert(&quot;num不是有效数字&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>布尔类型</p>
-<blockquote>
+<h3 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h3><blockquote>
 <p>只有两个值 true/false<br>如何把其他类型转化为布尔类型</p>
 <ul>
 <li>Boolean<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Boolean(1) =&gt; true</span><br><span class="line">Boolean(0) =&gt; false</span><br><span class="line">数字里面只有0和NaN是false,其余都是true</span><br></pre></td></tr></table></figure>
@@ -459,13 +455,33 @@
 </li>
 </ul>
 <p>规律  <code>在js中只有 0 null undefined NaN 空字符串 转化为布尔类型的false,其余都转化为true</code></p>
-<p>null &amp; undefined</p>
-<blockquote>
+<h3 id="null-amp-undefined"><a href="#null-amp-undefined" class="headerlink" title="null &amp; undefined"></a>null &amp; undefined</h3><blockquote>
 <p>都代表空<br>null ：空对象指针<br>undefined ：未定义</p>
 </blockquote>
 <p>null 一般是意料之中的没有（通俗理解都是认为手动的设置为null, 后面的程序中我们会再次给它赋值）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var num = null; // =&gt;null 是手动赋值的, 预示着我会把num变量的值修改</span><br></pre></td></tr></table></figure></p>
 <p>undefined 代表着没有，一般都不是人为控制的，大部分都是浏览器自主为空，后面可以赋值，也可以不赋值；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var num;</span><br><span class="line">// 此时num会被浏览器分配一个值 undefined, 后面可以赋值，也可以不赋值</span><br></pre></td></tr></table></figure>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>其他数据类型转化为string类型<code>().toString()</code></p>
+<ul>
+<li>基本数据类型转化为string类型，直接使用引号包裹住字符；</li>
+<li>引用类型转化为string类型<br>  function(){} 直接使用引号包裹<br>  普通对象， [object Object]<br>  数组  [] =&gt; ‘’; [12] =&gt; ‘12’; [12,23] =&gt; ‘12, 23’;<br>  正则对象，日期对象，直接使用引号包裹；</li>
+</ul>
+<hr>
+<h2 id="object对象数据类型"><a href="#object对象数据类型" class="headerlink" title="object对象数据类型"></a>object对象数据类型</h2><p>分为四类</p>
+<h3 id="普通对象"><a href="#普通对象" class="headerlink" title="普通对象"></a>普通对象</h3><pre><code>特点  
+- 由大括号包裹起来；
+- 由0到多组属性名和属性值（键值对）组成；
+</code></pre><p>属性是用来描述当前对象特征的，属性值是对这个特征的描述；(属性：键[key] 属性值：值[value])<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name: &apos;kyle&apos;,</span><br><span class="line">    age: 9</span><br><span class="line">&#125;</span><br><span class="line">// 对象的操作：对键值对的增删改查</span><br><span class="line">[获取] </span><br><span class="line">语法： 对象.属性名 / 对象[属性名]</span><br><span class="line">obj.name</span><br><span class="line">obj[&apos;name&apos;] 一般来说属性名都是字符串格式，属性值不固定，任何格式都可以</span><br><span class="line"></span><br><span class="line">[增/改]</span><br><span class="line">js对象中属性名是不允许重复的，是唯一的。</span><br><span class="line">obj.name = &apos;xxx&apos;;// 原有对象中存在name属性，此处是修改属性值</span><br><span class="line">obj.sex = &apos;man&apos;; // 原对象中不存在sex属性，此处是新增属性</span><br><span class="line">obj[&apos;age&apos;] = 12;</span><br><span class="line"></span><br><span class="line">[删]</span><br><span class="line">彻底删除</span><br><span class="line">delete obj.age // delete obj[&apos;age&apos;] 对象中不存在age属性了</span><br><span class="line">假删除：并没有移除属性，只是让当前属性的值为空</span><br><span class="line">obj.sex = null;// obj[&apos;sex] = null;</span><br><span class="line">obj.class // undefined;</span><br><span class="line">在获取属性值的时候，如果当前对象有这个属性名，可以正常取值(哪怕是null),但是如果没有这个属性名，则获取的值是undefined</span><br><span class="line"></span><br><span class="line">var obj = &#123;name:&apos;kyle&apos;, age: 9&#125;</span><br><span class="line">var name = &apos;peng&apos;;</span><br><span class="line">obj.name =&gt; &apos;kyle;</span><br><span class="line">obj[&apos;name&apos;] =&gt; &apos;kyle&apos;;</span><br><span class="line">obj[name] =&gt; undefined; 此处的name是一个变量，我们要获取的并不是属性名叫name,而是储存在name中的值 &apos;peng&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>一个对象中的属性名不仅仅是字符串格式，还有可能是数字格式,遇到其他格式的先转化为字符串格式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// chrome控制台下shift+enter换行</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'kyle'</span>,</span><br><span class="line">    <span class="number">0</span>:<span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数字格式用obj[0]和obj['0'],但是不能用obj.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// SyntaxError 语法错误</span></span><br></pre></td></tr></table></figure>
+<p>当我们存储的属性名不是字符串也不是数字格式时，会调用.toString()转化为字符串格式后，再进行存储 null undefined boolean 引用类型都可以先转化为字符串再储存值<br>obj[{}] = 300; obj = {‘[object Object]’:300}, 获取的时候也是先把{}转化为字符串，然后再获取值</p>
+<hr>
+<p>数组对象（对象由键值对组成）<br>var oo = {a:12}<br>var ary=[12,23];//=&gt; 12,23都是属性值，属性名呢？<br>通过观察结果：数组对象的属性名是数字，我们把数字属性名成为当前对象的索引。<br>ary[0], ary[‘0’]</p>
+<p>数组和对象的关系： 数组是一种特殊的对象，属性名是数字</p>
+<hr>
+<p>浅分析js的运行机制<br>1、当浏览器(他的内核/引擎)解析和渲染JS的时候，会提供一个供JS代码运行的环境，我们把这个环境称为全局作用域(global scope);<br>2、代码自上而下执行（之前还有一个变量提升阶段）<br>    =&gt;基本数据类型的值会存储在当前作用域下<br>    var a =12; 有三步操作<br>    1）在当前环境下开辟一个空间存储12；<br>    2）声明一个变量名 a;<br>    3) 把声明的变量和值关联起来，赋值操作叫做定义<br>    var b=a; 基本数据类型值也叫值类型，是按照值来操作的：把原有的值复制一份放到新的空间或位置上，和原来的值没有关系.<br>    1) 在当前环境下开辟一个空间存储12；<br>    2） 声明变量 b<br>    3) b 和 12 关联； a 和 b 没有关系；<br>    b =23<br>    1) 开辟空间存储13;<br>    2) b和13关联<br>    变量和基本类型数据是一一对应关系；<br>    =&gt; 引用数据类型的值不能存储在当前的作用域下，因为可能存储的内容过于复杂，我们需要先开辟一个新的空间，把内容存储到这个空间中<br>    1）开辟一个新的空间，把对象中的键值对依次存储起来（为了保证后面可以找到这个空间，此空间有一个16进制的地址）<br>    2）声明一个变量<br>    3）让变量和空间地址关联在一起（把空间的地址赋值给变量）<br>    引用类型不是按值操作，是按照引用的地址操作：把原来空间的地址赋值给新的变量，但是原来的空间没有被克隆。这样就会出现多个变量关联的是同一个空间，相互之间就会存在影响。</p>
+<hr>
+<p>作用域叫栈内存，存储引用类型数据值的叫堆内存<br>栈内存：本身就是供JS代码执行的环境，所有的基本类型值都会直接在栈内存中开辟一个位置；<br>堆内存：独立于栈内存的内存，存储引用类型中的数据值；对象存储的键值对，函数存储的是代码字符串</p>
 
       
     </div>
@@ -652,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jascript"><span class="nav-number">1.</span> <span class="nav-text">Jascript</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jascript"><span class="nav-number">1.</span> <span class="nav-text">Jascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-轻量级的客户端脚本编程语言；"><span class="nav-number">1.1.</span> <span class="nav-text">JS: 轻量级的客户端脚本编程语言；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript"><span class="nav-number">1.2.</span> <span class="nav-text">ECMAScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量-variable"><span class="nav-number">1.3.</span> <span class="nav-text">变量(variable)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义："><span class="nav-number">1.3.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建变量的命名规范"><span class="nav-number">1.3.2.</span> <span class="nav-text">创建变量的命名规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型："><span class="nav-number">1.4.</span> <span class="nav-text">数据值是一门编程语言进行生产的材料。JS中包含的值有一下数据类型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型的详细剖析"><span class="nav-number">1.5.</span> <span class="nav-text">数据类型的详细剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number数字类型"><span class="nav-number">1.5.1.</span> <span class="nav-text">number数字类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔类型"><span class="nav-number">1.5.2.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null-amp-undefined"><span class="nav-number">1.5.3.</span> <span class="nav-text">null &amp; undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">1.5.4.</span> <span class="nav-text">string</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#object对象数据类型"><span class="nav-number">1.6.</span> <span class="nav-text">object对象数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通对象"><span class="nav-number">1.6.1.</span> <span class="nav-text">普通对象</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
