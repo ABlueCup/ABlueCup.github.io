@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+  <link rel="alternate" href="/auto.xml" title="卡而的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="node并不是一门语言，它是一个工具或者环境， 基于V8引擎（webkit）渲染和解析JS的； 单线程； 无阻塞I/O操作； 事件驱动之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；  在node环境中把JS代码执行 REPL命令（Read -  Evalu">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NPM GIT概念解析">
+<meta property="og:url" content="https://abluecup.github.io/2019/03/13/NPM Git/index.html">
+<meta property="og:site_name" content="卡而的博客">
+<meta property="og:description" content="node并不是一门语言，它是一个工具或者环境， 基于V8引擎（webkit）渲染和解析JS的； 单线程； 无阻塞I/O操作； 事件驱动之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；  在node环境中把JS代码执行 REPL命令（Read -  Evalu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://abluecup.github.io/2019/03/13/NPM%20Git/Picture6.png">
+<meta property="og:updated_time" content="2019-04-02T05:19:39.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NPM GIT概念解析">
+<meta name="twitter:description" content="node并不是一门语言，它是一个工具或者环境， 基于V8引擎（webkit）渲染和解析JS的； 单线程； 无阻塞I/O操作； 事件驱动之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；  在node环境中把JS代码执行 REPL命令（Read -  Evalu">
+<meta name="twitter:image" content="https://abluecup.github.io/2019/03/13/NPM%20Git/Picture6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abluecup.github.io/2019/03/13/NPM Git/"/>
+
+
+
+
+
+  <title>NPM GIT概念解析 | 卡而的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/abluecup" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">卡而的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">你见过凌晨四点钟的洛杉矶吗</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2019/03/13/NPM Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡而">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡而的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NPM GIT概念解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T09:35:00+08:00">
+                2019-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="node并不是一门语言，它是一个工具或者环境，"><a href="#node并不是一门语言，它是一个工具或者环境，" class="headerlink" title="node并不是一门语言，它是一个工具或者环境，"></a>node并不是一门语言，它是一个工具或者环境，</h2><ul>
+<li>基于V8引擎（webkit）渲染和解析JS的；</li>
+<li>单线程；</li>
+<li>无阻塞I/O操作；</li>
+<li>事件驱动<br>之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；</li>
+</ul>
+<h2 id="在node环境中把JS代码执行"><a href="#在node环境中把JS代码执行" class="headerlink" title="在node环境中把JS代码执行"></a>在node环境中把JS代码执行</h2><ul>
+<li>REPL命令（Read -  Evaluate -Print -Loop:输入-求职-输出-循环） // 先执行node</li>
+<li>基于node xxx.js命令执行</li>
+<li>基于WB这类编辑工具直接执行</li>
+</ul>
+<h2 id="常用DOS命令"><a href="#常用DOS命令" class="headerlink" title="常用DOS命令"></a>常用DOS命令</h2><p>ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> -t : 测试网速<br>Ctrl + c : 结束当前正在运行的操作<br>exit: 退出当前窗口<br>ipconfig -all ：查看当前电脑的Ip地址 物理地址 子网掩码 DNS等信息<br>cls: 清屏<br>cd + 详细目录地址： 切盘 （win里面不能切磁盘，切磁盘的时候直接E: 打磁盘名称加:）<br>cd .. 返回上级目录<br>cd ./ 当前目录<br>cd / 根目录<br>dir 查看当前目录下文件<br>mkdir 创建目录<br>copy con xx.xx 创建文件 ctrl + c 保存并退出<br>del xx.xx 删除文件<br>rmdir xx 删除目录</p>
+<h2 id="NPM模块管理"><a href="#NPM模块管理" class="headerlink" title="NPM模块管理"></a>NPM模块管理</h2><p>安装完成Node之后，基本上自带npm模块管理器<br>我们需要一个第三方（别人写的）模块、插件、类库、框架等，需要提前下载安装才可以使用</p>
+<ul>
+<li>百度搜索，找到下载地址，然后基于浏览器下载即可（资源比较混乱，不好搜索）</li>
+<li>也可以基于npm等第三方包管理器下载（yarn bower …都是第三方模块管理器）</li>
+</ul>
+<ol>
+<li><p>npm下载资源都是在<a href="http://www.npmjs.com/中下载的" target="_blank" rel="noopener">http://www.npmjs.com/中下载的</a><br><code>npm install xxx</code>：把资源或者第三方模块下载到当前目录下<br><code>npm install xxx -g (--global)</code>: 把资源或者第三方模块安装到全局环境下（目的：以后可以基于命令来操作一些事情）<br><code>npm uninstall xxx</code>: 从本地卸载</p>
+<blockquote>
+<p>基于npm的一些细节点</p>
+<ul>
+<li>需要联网（基于npm是从国外服务器上下载资源，所以下载速度较慢）</li>
+<li>下载成功后，当前目录中多增加一个node_modules文件夹，在这个文件夹中找到我们安装的模块</li>
+<li>一般来说，下载下来的内容包含源码和最后宫开发者使用的压缩版本</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解决下载慢的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1. 基于nrm切换到国内下载源（一般是淘宝镜像）</span><br><span class="line">    1&gt; 安装nrm到全局环境（因为我们需要使用命令） npm install nrm -g</span><br><span class="line">    2&gt; 安装完成之后，我们可以使用nrm命令</span><br><span class="line">        nrm ls 查看当前可用源</span><br><span class="line">        nrm use xx 使用某个源 // nrm use taobao</span><br><span class="line">        切换源还是基于npm安装</span><br><span class="line">2.可以基于yarn来安装</span><br><span class="line">    1&gt;  安装yarn到全局环境中,然后基于yarn安装我们需要的模块 ,只能安装到本地，不能安装到全局</span><br><span class="line">    yarn add xx</span><br><span class="line">    yarn remove xx</span><br><span class="line">    安装了一个新的模块管理器</span><br><span class="line">3 基于cnmp淘宝镜像来处理</span><br><span class="line">    安装了一个新的管理器</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.解决版本安装问题<br>    1)首先查看当期那模块的历史版本信息<br>    <code>npm view jquery &gt; jquery.version.json</code> 把当前模块的历史信息输出到具体的某个文件中（文件名自己随便起）<br>    2） 安装指定的版本<br>    <code>npm install jquery@1.11.3</code> @后面 + 版本号 <code>yarn add jquery@1.11.3</code></p>
+<p>课后扩展：</p>
+<ol>
+<li>bower是从github下载安装，熟悉下它的使用；</li>
+<li>在全局中安装less/babel-cli</li>
+</ol>
+<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p>github是一个提供代码管理的公共平台，我们以及众多开发者会把自己生产的组件、类库、插件、框架等托管到这个平台中，供别人使用和研究。<br>github中，我们可以创建仓库来管理自己的项目文件，而github支持开发者通过git操作，把本地的项目代码推送到指定的仓库中，它还提供静态的web页面的发布等。<br>国内有一个和github类似的网站：coding，和github类似，也是提供代码管理的平台。</p>
+<ol>
+<li>基于github创建仓库，管理代码</li>
+</ol>
+<h2 id="Git基础管理"><a href="#Git基础管理" class="headerlink" title="Git基础管理"></a>Git基础管理</h2><blockquote>
+<p>git是一个分布式代码版本管理控制系统</p>
+<ul>
+<li>记录当前产品代码的所有版本信息，而且方便快速回退到某一个具体的版本；</li>
+<li>方便团队协作开发，能够检测代码冲突，能够合并代码等；</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn: 在git诞生前就已经存在的版本控制系统，不过他是集中式管理</span><br><span class="line"></span><br><span class="line">git: 是分布式代码管理系统</span><br></pre></td></tr></table></figure>
+<p>1） 集中式版本控制系统<br>    中央服务器：版本信息记录，和最新代码管理都在这；每次开发前，需要从中央服务器把代码拉取下来；本地开发完成后，在提交到中央服务器上（但是没提交之前，本次内容不是一个新的版本）<br>    提交一次，记录一个新的历史版本（当前版本的代码就存储起来了，以后可以对比或者回滚到这个版本）<br>2） 分布式版本控制系统<br>    每个开发者的本地都是一个git仓库，在本地就可以生成历史版本<br>    集中服务器用来(github)<br>    本地仓库：自己的代码和版本信息同步或推送到中央服务器</p>
+<p>CDN加速   地域式服务器分布管理</p>
+<h2 id="git的工作管理和基础操作"><a href="#git的工作管理和基础操作" class="headerlink" title="git的工作管理和基础操作"></a>git的工作管理和基础操作</h2><ol>
+<li>在本地创建git仓库,管理本地代码<blockquote>
+<p>初次使用git,先在本地配置一些基础信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git config -l </span><br><span class="line"></span><br><span class="line">$ git config --global user.name xxx</span><br><span class="line">$ git config --global user.eamil xxxx</span><br><span class="line"><span class="comment"># 配置用户名和用户邮箱和gitHub保持一致（这样以后在本地想gitHub推送内容的时候，能够展示出是谁推送的）</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init // 初始化目录，创建仓库</span><br></pre></td></tr></table></figure>
+<p>会在当前目录中创建一个空的仓库，文件目录中生成一个.git的隐藏文件，这个文件和重要，我们本地仓库的版本信息</p>
+<ol start="2">
+<li>在当前目录(git仓库根目录)创建一个 ‘.gitignore’文件. 这个文件中存储了当git提交的时候所忽略的文件<blockquote>
+<p>可以基于WB创建<br>基于Linux命令 $touch  .gitignore </p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># dependencies</span><br><span class="line">node_modules</span><br><span class="line"></span><br><span class="line"># testing</span><br><span class="line">/coverage</span><br><span class="line"></span><br><span class="line"># production</span><br><span class="line">/build</span><br><span class="line"></span><br><span class="line"># misc</span><br><span class="line">.DS_Store</span><br><span class="line">.env.local</span><br><span class="line">.env.development.local</span><br><span class="line">.env.test.local</span><br><span class="line">.env.production.local</span><br><span class="line"></span><br><span class="line"># npm or yarn</span><br><span class="line">npm-debug.log*</span><br><span class="line">yarn-debug.log*</span><br><span class="line">yarn-error.log*</span><br><span class="line"></span><br><span class="line"># webStorm</span><br><span class="line">.idear</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据交换</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> c = a;</span><br><span class="line">a = b;</span><br><span class="line">b =c;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> e =<span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> f =<span class="number">20</span>;</span><br><span class="line">e = e + f;</span><br><span class="line">f = e -f;</span><br><span class="line">e = e -f;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> m = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> n =<span class="number">200</span>;</span><br><span class="line">[m,n] = [n,m];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(m);</span><br><span class="line"><span class="built_in">console</span>.log(n);</span><br></pre></td></tr></table></figure>
+<h3 id="GIT工作原理及操作"><a href="#GIT工作原理及操作" class="headerlink" title="GIT工作原理及操作"></a>GIT工作原理及操作</h3><p>当我们在本地创建一个git仓库后，我们可以基于这个仓库管理我们的代码；</p>
+<p><strong>git的工作流程</strong></p>
+<blockquote>
+<p>每一个git仓库都划分为三个区</p>
+<ul>
+<li>工作区：编辑代码的地方</li>
+<li>暂存区：临时存储要生成版本代码的地方</li>
+<li>历史区： 存储是的生成的每一个版本代码</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1. 工作区到暂存区</span><br><span class="line">$ git status  </span><br><span class="line">查看文件的状态，按颜色区分：红色表示当前文件在工作区，还没有提交到暂存区；</span><br><span class="line">绿色表示文件在暂存区，还没有提交到历史区；如果没有文件，表示三个区域代码已经同步；</span><br><span class="line"></span><br><span class="line">$ git add .gitignore</span><br><span class="line">$ git add -A // 所有</span><br><span class="line">$ git add . // 所有</span><br><span class="line"></span><br><span class="line">工作区提交到暂存区，暂存区提交到历史区。暂存区始终存放提交的内容，并不消失。以后工作区有内容修改，会和暂存区做对比，以此来判断哪些是新处理的。</span><br><span class="line"></span><br><span class="line">2. 暂存区到历史区</span><br><span class="line">$ git commit</span><br><span class="line">这样执行后，会弹出一个提交文本输入界面，需要我们编写本次提交到离市区，给当前版本填写备注信息；</span><br><span class="line"></span><br><span class="line">$ git commit -m &apos;自己需要编写的备注信息&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="git和github同步"><a href="#git和github同步" class="headerlink" title="git和github同步"></a>git和github同步</h3><p>1.让本地仓库和远程仓库建立关联<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">查看所有关联信息</span><br><span class="line"></span><br><span class="line">$ git remote add xx [远程仓库git地址] </span><br><span class="line">建立关联</span><br><span class="line"></span><br><span class="line">$ git remote remove xxx</span><br><span class="line">移除关联</span><br></pre></td></tr></table></figure></p>
+<p>我们远程仓库关联在一起的名字默认是： origin， 当然自己可以随意修改</p>
+<ol start="2">
+<li>把本地的代码推送到远程仓库上，或者从远程仓库上拉去最新的信息到本地仓库</li>
+</ol>
+<blockquote>
+<p>我们本地推送和拉取的信息，既有代码也有版本信息，所以说与其说是推送和拉取，不如说是和远程仓库保持信息的同步；</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在同步之前，我们都应该先拉取</span><br><span class="line">$ git pull origin (这个名字就是和远程仓库管理啊的名字，以自己设置的为主) master</span><br><span class="line">从远程仓库master分支拉取信息；</span><br><span class="line"></span><br><span class="line">$ git push origin master</span><br><span class="line">把本地信息推送到远程仓库master分支下。</span><br></pre></td></tr></table></figure>
+<p>以上是操作知识点，真实项目开发流程如下：<br>1.LEADER会首先创建一个远程仓库（这个仓库可能是空的，也可能是包含了项目需要的基础的结构信息）；</p>
+<ol start="2">
+<li><p>作为开发者我们需要在本地创建一个本地仓库，还需要让当前本地的仓库与远程仓库保持关联</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原始做法：</span><br><span class="line">git init</span><br><span class="line">git remote add origin [git 仓库地址]</span><br><span class="line"></span><br><span class="line">简单做法：</span><br><span class="line">git clone [远程仓库地址]（克隆后的名字，可以不设置，默认是仓库名）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在本地开发产品，需要同步的时候，我们首先把工作区内容放到历史区，生成版本信息（git add .  / git commit -m ‘’ ），再把本地试试去的信息推送到远程仓库上： （git pull/ git push）</p>
+</li>
+<li><p>在团队协作开发的时候，leader会在自己的github账号下创建一个远程仓库，那么团队其他成员在向这个远程仓库推送信息的时候，使用自己的账号是没有推送权限的，我们需要把当前这个远程仓库，在github中创建工作群组，让更多人用自己的账号也有操作权限<br>小组成员在自己的邮箱中收到一份邀请邮件，确认参加；<br><img src="/2019/03/13/NPM Git/Picture6.png" alt="Alert text"></p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+    
+    <div>
+        
+            <div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/12/日常总结/" rel="next" title="日常总结">
+                <i class="fa fa-chevron-left"></i> 日常总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/02/Javascript基础知识一/" rel="prev" title="Javascript基础知识一">
+                Javascript基础知识一 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">卡而</p>
+              <p class="site-description motion-element" itemprop="description">优雅源自技术的丰富和成熟。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/auto.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/abluecup.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:pengweizhen666@gmail.com" target="_blank" title="邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node并不是一门语言，它是一个工具或者环境，"><span class="nav-number">1.</span> <span class="nav-text">node并不是一门语言，它是一个工具或者环境，</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在node环境中把JS代码执行"><span class="nav-number">2.</span> <span class="nav-text">在node环境中把JS代码执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用DOS命令"><span class="nav-number">3.</span> <span class="nav-text">常用DOS命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM模块管理"><span class="nav-number">4.</span> <span class="nav-text">NPM模块管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github"><span class="nav-number">5.</span> <span class="nav-text">github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git基础管理"><span class="nav-number">6.</span> <span class="nav-text">Git基础管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git的工作管理和基础操作"><span class="nav-number">7.</span> <span class="nav-text">git的工作管理和基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GIT工作原理及操作"><span class="nav-number">7.1.</span> <span class="nav-text">GIT工作原理及操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git和github同步"><span class="nav-number">7.2.</span> <span class="nav-text">git和github同步</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卡而</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

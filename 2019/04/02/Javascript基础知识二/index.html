@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/auto.xml" title="卡而的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="变量提升机制123456/** 一般都把js放到body的末尾1.为啥？2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果3.script标签中有两个属性，defer / async, 这两个属性是做什么的*/ 栈内存：作用域， 1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）； 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript基础知识二">
+<meta property="og:url" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/index.html">
+<meta property="og:site_name" content="卡而的博客">
+<meta property="og:description" content="变量提升机制123456/** 一般都把js放到body的末尾1.为啥？2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果3.script标签中有两个属性，defer / async, 这两个属性是做什么的*/ 栈内存：作用域， 1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）； 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/Untitled.png">
+<meta property="og:updated_time" content="2019-04-02T05:18:34.991Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript基础知识二">
+<meta name="twitter:description" content="变量提升机制123456/** 一般都把js放到body的末尾1.为啥？2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果3.script标签中有两个属性，defer / async, 这两个属性是做什么的*/ 栈内存：作用域， 1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）； 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储">
+<meta name="twitter:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/Untitled.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abluecup.github.io/2019/04/02/Javascript基础知识二/"/>
+
+
+
+
+
+  <title>Javascript基础知识二 | 卡而的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/abluecup" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">卡而的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">你见过凌晨四点钟的洛杉矶吗</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2019/04/02/Javascript基础知识二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="卡而">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡而的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Javascript基础知识二</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T11:24:01+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="变量提升机制"><a href="#变量提升机制" class="headerlink" title="变量提升机制"></a>变量提升机制</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">一般都把js放到body的末尾</span></span><br><span class="line"><span class="comment">1.为啥？</span></span><br><span class="line"><span class="comment">2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果</span></span><br><span class="line"><span class="comment">3.script标签中有两个属性，defer / async, 这两个属性是做什么的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>栈内存：作用域，</p>
+<pre><code>1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）；
+2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储进去；
+    =&gt; 当栈内存被销毁，存储的那些基本值也随之而销毁；
+</code></pre><p>堆内存：引用值对应的空间<br>    存储引用类型值（对象：键值对；函数：代码字符串;）<br>    =&gt; 当前堆内存销毁，那么引用值彻底没了<br>    =&gt; 堆内存的释放： 当堆内存没有被任何的变量或者其他东西所占用，浏览器会在空闲的时候，自主进行内存回收，把所有不被占用的内存销毁掉。（webkit内核浏览器）<br>    xxx = null;通过空对象指针null可以让原始变量或者其他东西谁都不指向，原先被占用的堆内存就没有被东西占用了，浏览器会销毁它。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var ary1 =[1,2,4];</span><br><span class="line">ary1= null; // 释放堆内存</span><br></pre></td></tr></table></figure></p>
+<h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><p>当栈内存（作用域）形成，JS自上而下执行之前，浏览器首先会把所有带var / function关键字的进行提前的声明或者定义，这种预先处理机制称之为变量提升；<br>    声明： declare // var a ;function aa; (默认值undefined)<br>    定义： defined a=12; (定义就是赋值)<br>    =&gt; 带var的只声明，未定义；带function的声明和赋值都完成了；<br>变量提升只发生在当前作用域<br>在全局作用域下声明的变量是全局变量，在私有作用域下声明的变量是私有变量 （带 var , function 的才是声明）<br>浏览器很懒，做过的事情不会重复第二遍，即当代码执行遇到创建函数这部分代码的手，直接跳过（在变量提升阶段，已经完成函数的赋值操作）</p>
+<p>在ES3或者ES5语法规范中，只有全局作用域和函数执行的私有作用域（栈内存），其他大括号不会形成栈内存</p>
+<h2 id="带var-和不带var-的区别"><a href="#带var-和不带var-的区别" class="headerlink" title="带var 和不带var 的区别"></a>带var 和不带var 的区别</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="string">'a'</span> <span class="keyword">in</span> <span class="built_in">window</span>; <span class="comment">// in 用来检测属性是否隶属于对象</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">12</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// window对象的一个属性</span></span><br></pre></td></tr></table></figure>
+<p>在全局作用域下声明一个变量，也相当于给window全局对象设置了一个属性，变量的值就是属性的值；私有作用域下声明的私有变量和window没啥关系；<br>全局变量和win中的属性存在映射机制；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不加var,本质是window下的属性，不存在变量提升机制； 加var，本质是变量，存在变量提升机制</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// Uncaught ReferenceError: a is not defined 按照变量的机制处理，且window下并没有window.a的属性</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a'</span> <span class="keyword">in</span> <span class="built_in">window</span>);<span class="comment">//false undefined, 对象没有这个属性，打印undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// undefined</span></span><br><span class="line">a=<span class="number">12</span>;<span class="comment">// window.a=12的简写；</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//12， 不存在变量a,但是window对象下有a属性</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">//12， </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = b =<span class="number">12</span>; <span class="comment">// 这样写b是不带var的；</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>, b=<span class="number">12</span>;<span class="comment">// 这样写，b是带var的；</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a,b);  <span class="comment">// undefined, undefined;</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="number">12</span>,b=<span class="number">12</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">/** 私有作用域下，带var不带var也有区别</span></span><br><span class="line"><span class="comment">              带var的在私有作用域变量提升阶段，都声明为私有变量，和外界没有任何关系；</span></span><br><span class="line"><span class="comment">              不带var的不是私有变量，会向上级查找，看是否为上级的变量，不是，继续向上查找，一直找到window为止；</span></span><br><span class="line"><span class="comment">              我们把这种查找机制叫做作用域链；也就是我们在私有作用域中操作的这个非私有变量，是一直操作的别人的；</span></span><br><span class="line"><span class="comment">              </span></span><br><span class="line"><span class="comment">              </span></span><br><span class="line"><span class="comment">              */</span></span><br><span class="line">    <span class="built_in">console</span>.log(a,b); <span class="comment">// 形成一个私有作用域，变量提升， a=undefined, b =window.b =12;</span></span><br><span class="line">    <span class="keyword">var</span> a = b=<span class="number">13</span>;   <span class="comment">// window.b被修改为13</span></span><br><span class="line">    <span class="built_in">console</span>.log(a,b);  <span class="comment">//私有作用域 13 ,13</span></span><br><span class="line">&#125;  <span class="comment">// 跳过函数创建的代码，继续执行</span></span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(a,b); <span class="comment">//  12 ， 13// 被覆盖了</span></span><br></pre></td></tr></table></figure>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    b=<span class="number">13</span>;</span><br><span class="line">    conaolog.log(b); <span class="comment">// 13</span></span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//13</span></span><br></pre></td></tr></table></figure>
+<p>1.变量提升（没有）<br>2.执行fn,没有变量提升；b在fn和window下都没有；在作用域查找的过程中，如果找到win也没有这个变量，相当于给win设置了一个属性b window.b=13;</p>
+<h2 id="只对等号左边进行变量提升"><a href="#只对等号左边进行变量提升" class="headerlink" title="只对等号左边进行变量提升"></a>只对等号左边进行变量提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fn(); <span class="comment">// fn is not a function  fn此时是undefined,不是函数</span></span><br><span class="line">sum(); <span class="comment">// 2 普通函数在变量提升阶段已经声明且赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匿名函数之函数表达式</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fn(); <span class="comment">// 1 当代码执行到这一行的时候，会把函数赋值给fn</span></span><br><span class="line">sum(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p><strong>真实项目中，常常采用函数表达式这种方式</strong></p>
+<h2 id="条件判断下的变量提升"><a href="#条件判断下的变量提升" class="headerlink" title="条件判断下的变量提升"></a>条件判断下的变量提升</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    <span class="comment">//在当前作用域中，不管条件是否成立都要进行变量的提升 </span></span><br><span class="line">    <span class="comment">// 带var的还是只声明</span></span><br><span class="line">    <span class="comment">// 带function的在老版本浏览器渲染机制下，声明+定义都处理，但是为了迎合ES6中的块级作用域，新版本浏览器对于函数（在条件判断中的函数），不管条件是否成立，都只是先声明，没有定义，类似于var</span></span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">'a'</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</span><br><span class="line">   <span class="keyword">var</span> a =<span class="number">100</span>; </span><br><span class="line">   &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;;</span><br><span class="line">    g = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;;</span><br><span class="line">    ~ <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (g() &amp;&amp; [] == ![]) &#123; <span class="comment">// Uncaught typeError: g is not a function</span></span><br><span class="line"><span class="comment">// 新版本浏览器中只声明，未赋值，g=undefined, undefined不是函数，报错；老版本浏览器中g() = true;</span></span><br><span class="line">            f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;();</span><br><span class="line">    <span class="built_in">console</span>.log(f());</span><br><span class="line">    <span class="built_in">console</span>.log(g());</span><br></pre></td></tr></table></figure>
+<h2 id="同名问题处理"><a href="#同名问题处理" class="headerlink" title="同名问题处理"></a>同名问题处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        *   1.带var和function关键字声明相同的名字，这种也算是重名了（其实是一个FN，只是存储的值不同）</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">       <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 2. 关于重名的处理：如果名字重复了，不会重新的声明，但是是会重新的定义：（重新赋值）【不管是变量提升还是代码执行阶段皆是如此】</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">       <span class="comment">/*</span></span><br><span class="line"><span class="comment">        *变量提升： fn = ...(1)</span></span><br><span class="line"><span class="comment">                      = ...(2)</span></span><br><span class="line"><span class="comment">                      =...(3)</span></span><br><span class="line"><span class="comment">                      =...(4)</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       fn(); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       fn(); <span class="comment">// 4</span></span><br><span class="line">       <span class="keyword">var</span> fn = <span class="number">100</span>; <span class="comment">// 带var的在变量提升阶段只是把声明处理了，没有执行赋值操作，所以在代码执行的时候需要完成赋值；</span></span><br><span class="line">       fn(); <span class="comment">// Uncaught TypeError: fn is not a function;</span></span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       fn();</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       fn();</span><br></pre></td></tr></table></figure>
+<h2 id="let创建的变量不存在变量提升"><a href="#let创建的变量不存在变量提升" class="headerlink" title="let创建的变量不存在变量提升"></a>let创建的变量不存在变量提升</h2><ol>
+<li>在ES6中基于let或const创建变量或者函数，不存在变量提升机制, 且切断了全局变量和window属性的映射机制；</li>
+<li>在同一个作用域中，基于let不能声明相同的变量；</li>
+<li>浏览器在作用域形成之后，执行代码之前，会有一个变量查重机制（语法检测）,发现有重复声明的变量,报错 Uncaught SyntaxError<br>虽然没有把变量提前声明定义，但是浏览器已经记住了，当前作用域下有哪些变量;不管用什么方式，在当前作用域下声明了变量，再次使用let创建都会报错。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">b =<span class="number">12</span>; <span class="comment">// window.b=12</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line">a=<span class="number">12</span>; <span class="comment">// </span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//Uncaught ReferenceError: a is not defined</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h2 id="ES6-JS中暂时性死区问题"><a href="#ES6-JS中暂时性死区问题" class="headerlink" title="ES6 JS中暂时性死区问题"></a>ES6 JS中暂时性死区问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(b); <span class="comment">// Uncaught ReferenceError: a is not defined</span></span><br><span class="line">    <span class="keyword">let</span> b = <span class="number">13</span>; <span class="comment">// 基于let创建变量，会把大部分&#123;&#125;当成一个私有的块级作用域（类似于函数的私有作用域），在这里也是重新检测语法规范，看一下是否是基于新语法创建的变量，如果是按照新语法来解析</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);</span><br><span class="line"><span class="comment">// 在原有浏览器的渲染机制下，基于typeof等逻辑运算符检测一个违背声明过得变量，不会报错，返回undefined   </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> c); <span class="comment">// Uncaught ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> c; <span class="comment">//如果当前变量是基于ES6语法处理，在没有声明这个变量的时候，使用TYPEOF检测，会直接报错，不会是undefined,解决了原有的暂时性死区问题</span></span><br></pre></td></tr></table></figure>
+<h2 id="闭包作用域-scope"><a href="#闭包作用域-scope" class="headerlink" title="闭包作用域(scope)"></a>闭包作用域(scope)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>,</span><br><span class="line">    b = <span class="number">13</span>,</span><br><span class="line">    c = <span class="number">14</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 形成作用域后，变量提升前，需要做形参赋值 a =12; </span></span><br><span class="line">    <span class="comment">// 在私有作用域中，只有以下两种情况是私有变量 A: 声明过的变量 ；B:形参也是私有变量； </span></span><br><span class="line">    <span class="comment">// 剩下的都不是自己私有的变量，都需要基于作用域链的机制向上查找</span></span><br><span class="line">    <span class="built_in">console</span>.log(a, b, c); <span class="comment">// 12 undefined 14</span></span><br><span class="line">    <span class="keyword">var</span> b = c = a = <span class="number">20</span>;</span><br><span class="line">    <span class="comment">// var b=20; c=20;a=20;</span></span><br><span class="line">    <span class="built_in">console</span>.log(a, b, c); <span class="comment">// 20,20,20</span></span><br><span class="line">&#125;</span><br><span class="line">fn(a); <span class="comment">// 执行fn(小括号中是实参：值) -&gt; 执行fn把全局变量a的值12当作实参传递给函数的形参 =&gt; fn(12)</span></span><br><span class="line"><span class="built_in">console</span>.log(a, b, c); <span class="comment">//12,13,20</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [12,23] -&gt; [100,23]</span></span><br><span class="line">     <span class="keyword">var</span> ary = [<span class="number">12</span>, <span class="number">23</span>];</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">ary</span>) </span>&#123; <span class="comment">// 形参赋值赋的是引用地址</span></span><br><span class="line">         <span class="comment">// ary = [12,23]</span></span><br><span class="line">         <span class="built_in">console</span>.log(ary); <span class="comment">// [12,23]</span></span><br><span class="line">         ary[<span class="number">0</span>] = <span class="number">100</span>; <span class="comment">//[100,23] 修改了应用地址中的数据</span></span><br><span class="line"></span><br><span class="line">         ary = [<span class="number">100</span>]; <span class="comment">// 修改了引用地址</span></span><br><span class="line">         ary[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(ary); <span class="comment">// [0]</span></span><br><span class="line">     &#125;</span><br><span class="line">     fn(ary);</span><br><span class="line">     <span class="built_in">console</span>.log(ary); <span class="comment">// [100,23]</span></span><br></pre></td></tr></table></figure>
+<h2 id="查找上级作用域"><a href="#查找上级作用域" class="headerlink" title="查找上级作用域"></a>查找上级作用域</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前函数执行，形成呢个一个私有作用域A，A的上级作用域是谁，和他在哪执行的没有关系，和他在哪创建的有关系，在哪创建的，他的上级作用域就是谁。</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// arguments.callee:函数本身</span></span><br><span class="line">    <span class="comment">// arguments.callee.caller: 当前函数在哪执行的caller就是谁（记录的是他的宿主环境）;在全局下执行是null</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">120</span>;</span><br><span class="line">    fn();</span><br><span class="line">&#125;</span><br><span class="line">sum(); <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前函数执行，形成呢个一个私有作用域A，A的上级作用域是谁，和他在哪执行的没有关系，和他在哪创建的有关系，在哪创建的，他的上级作用域就是谁。</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        n++;</span><br><span class="line">        <span class="built_in">console</span>.log(n);</span><br><span class="line">    &#125;</span><br><span class="line">    f();</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> x = fn();</span><br><span class="line">x();</span><br><span class="line">x();</span><br><span class="line"><span class="built_in">console</span>.log(n);</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/02/Javascript基础知识二/Untitled.png" alt="图解"></p>
+<h2 id="堆栈内存释放"><a href="#堆栈内存释放" class="headerlink" title="堆栈内存释放"></a>堆栈内存释放</h2><p>JS中的内存分为堆内存和栈内存<br>堆内存：存储引用类型数据（对象：键值对  函数：代码字符串）<br>栈内存：提供JS代码执行的环境和存储基本类型值</p>
+<p>【堆内存释放】<br>    让所有引用堆内存地址的变量赋值为null即可（没有变量占用这个堆内存了）浏览器会在空闲的时候把它释放掉</p>
+<p>【栈内存释放】<br>    一般情况下，当函数执行完成，所形成的私有作用域（栈内存）都会自动释放掉，但是也有特殊不销毁的存在：</p>
+<pre><code>1. 函数执行完成，当前形成的栈内存中，某些内容被栈内存以外的变量占用了，此时栈内存不能释放，一旦释放，外面的变量找不到原有的内容了
+2. 全局栈内存只有在页面关闭的时候才会被释放掉
+
+如果当前内存没有被释放，那么之前在栈内存中能够存储的基本值也不会被释放，能够一直保存下来。
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//var i=2;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(n + (++i));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = fn(<span class="number">2</span>); <span class="comment">// 先把fn执行，实参2，把fn执行的返回结果（return 后面的值）赋值给f</span></span><br><span class="line">f(<span class="number">3</span>); <span class="comment">// 返回的结果执行</span></span><br><span class="line">fn(<span class="number">5</span>)(<span class="number">6</span>); <span class="comment">// 和上面两步类似，都是先执行fn,把fn的返回结果再执行</span></span><br><span class="line">fn(<span class="number">7</span>)(<span class="number">8</span>);</span><br><span class="line">f(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6,12,16,8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// i++  :自身+1  </span></span><br><span class="line"><span class="comment">// ++i  :自身+1</span></span><br><span class="line"><span class="comment">// 区别是在和别人运算的时候，i++,先拿原有的值进行运算，运算结束后，本身累加1； ++i 先自身累加1，再拿累加后的结果进行运算</span></span><br></pre></td></tr></table></figure>
+<p>闭包的作用： 保护私有变量不受外界干扰；形成一个不受外界干扰的栈内存，保存内部的私有变量；</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>【概念】： 函数执行，形成一个私有作用域，保护里面的私有变量不受外界的干扰，这种保护机制称为“闭包”；</p>
+<p>=&gt; 市面上开发者认为的闭包：形成一个不销毁的私有栈内存（作用域）才是闭包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// =&gt; 闭包：柯里化函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f=fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//=&gt; 闭包：惰性函数</span></span><br><span class="line"><span class="keyword">var</span> utils = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 闭包项目实战应用</span></span><br><span class="line"><span class="comment">// 真实项目中为了保证JS的性能（对栈内存的性能优化），应该尽可能的减少闭包的使用（不销毁的堆栈内存是耗性能的）</span></span><br><span class="line"><span class="comment">// 1.闭包具有保护作用：保护私有变量不受外界干扰</span></span><br><span class="line"><span class="comment">// 在真实项目中，尤其是团队协作开发中，应该尽可能的减少全局变量的使用，以防止相互之间的冲突（“全局变量污染”），此时我们完全可以把这一部分内容封装到一个闭包中，让全局变量转化为私有变量</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不仅如此，我们封装类库的时候，也会把自己的程序都存放在闭包中保护起来，防止和用户的程序冲突，但是我们又需要暴露一些方法给客户使用，这样我们如何处理呢 ？</span></span><br><span class="line"><span class="comment">// JQ这种方式，把需要暴露的方法抛到全局</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">jQuery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">window</span>.jQuery = <span class="built_in">window</span>.$ = jQuery; <span class="comment">// 把需要供外面使用的方法，通过给WIN设置属性的方式暴露出去；</span></span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// zepto这种方式，基于return把需要供外面使用的方法暴露出去</span></span><br><span class="line"><span class="keyword">var</span> Zepto = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        xxx:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.闭包具有保存作用：形成不销毁的栈内存，把一些值保存拿下来，方便后面的调取使用</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    
+    <div>
+        
+            <div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/02/Javascript基础知识一/" rel="next" title="Javascript基础知识一">
+                <i class="fa fa-chevron-left"></i> Javascript基础知识一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">卡而</p>
+              <p class="site-description motion-element" itemprop="description">优雅源自技术的丰富和成熟。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/auto.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/abluecup.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:pengweizhen666@gmail.com" target="_blank" title="邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量提升机制"><span class="nav-number">1.</span> <span class="nav-text">变量提升机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带var-和不带var-的区别"><span class="nav-number">2.</span> <span class="nav-text">带var 和不带var 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链"><span class="nav-number">3.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只对等号左边进行变量提升"><span class="nav-number">4.</span> <span class="nav-text">只对等号左边进行变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件判断下的变量提升"><span class="nav-number">5.</span> <span class="nav-text">条件判断下的变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同名问题处理"><span class="nav-number">6.</span> <span class="nav-text">同名问题处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let创建的变量不存在变量提升"><span class="nav-number">7.</span> <span class="nav-text">let创建的变量不存在变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-JS中暂时性死区问题"><span class="nav-number">8.</span> <span class="nav-text">ES6 JS中暂时性死区问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包作用域-scope"><span class="nav-number">9.</span> <span class="nav-text">闭包作用域(scope)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找上级作用域"><span class="nav-number">10.</span> <span class="nav-text">查找上级作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈内存释放"><span class="nav-number">11.</span> <span class="nav-text">堆栈内存释放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">12.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">卡而</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
