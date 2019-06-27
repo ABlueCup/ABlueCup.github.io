@@ -107,19 +107,19 @@
 
 
 
-<meta name="description" content="node并不是一门语言，它是一个工具或者环境， 基于V8引擎（webkit）渲染和解析JS的； 单线程； 无阻塞I/O操作； 事件驱动之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；  在node环境中把JS代码执行 REPL命令（Read -  Evalu">
+<meta name="description" content="我们在引入插件和管理项目的时候，常常会使用到npm和git,本篇将对它们做详细的介绍：">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NPM GIT概念解析">
 <meta property="og:url" content="https://abluecup.github.io/2019/03/13/NPM Git/index.html">
 <meta property="og:site_name" content="卡而的博客">
-<meta property="og:description" content="node并不是一门语言，它是一个工具或者环境， 基于V8引擎（webkit）渲染和解析JS的； 单线程； 无阻塞I/O操作； 事件驱动之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；  在node环境中把JS代码执行 REPL命令（Read -  Evalu">
+<meta property="og:description" content="我们在引入插件和管理项目的时候，常常会使用到npm和git,本篇将对它们做详细的介绍：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://abluecup.github.io/2019/03/13/NPM%20Git/Picture6.png">
-<meta property="og:updated_time" content="2019-04-02T05:19:39.188Z">
+<meta property="og:updated_time" content="2019-06-27T09:33:41.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NPM GIT概念解析">
-<meta name="twitter:description" content="node并不是一门语言，它是一个工具或者环境， 基于V8引擎（webkit）渲染和解析JS的； 单线程； 无阻塞I/O操作； 事件驱动之所以把node称为服务器端语言，是因为node基于JS操作服务器端的能力：我们在服务器端安装node,使用JS完成服务器端需要处理的一些事情，最后把写好的js代码交给Node环境运行即可；  在node环境中把JS代码执行 REPL命令（Read -  Evalu">
+<meta name="twitter:description" content="我们在引入插件和管理项目的时候，常常会使用到npm和git,本篇将对它们做详细的介绍：">
 <meta name="twitter:image" content="https://abluecup.github.io/2019/03/13/NPM%20Git/Picture6.png">
 
 
@@ -351,7 +351,8 @@
       
 
       
-        <h2 id="node并不是一门语言，它是一个工具或者环境，"><a href="#node并不是一门语言，它是一个工具或者环境，" class="headerlink" title="node并不是一门语言，它是一个工具或者环境，"></a>node并不是一门语言，它是一个工具或者环境，</h2><ul>
+        <p>我们在引入插件和管理项目的时候，常常会使用到npm和git,本篇将对它们做详细的介绍：<br><a id="more"></a></p>
+<h2 id="node并不是一门语言，它是一个工具或者环境，"><a href="#node并不是一门语言，它是一个工具或者环境，" class="headerlink" title="node并不是一门语言，它是一个工具或者环境，"></a>node并不是一门语言，它是一个工具或者环境，</h2><ul>
 <li>基于V8引擎（webkit）渲染和解析JS的；</li>
 <li>单线程；</li>
 <li>无阻塞I/O操作；</li>

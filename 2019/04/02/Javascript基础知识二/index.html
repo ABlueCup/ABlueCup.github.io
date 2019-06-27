@@ -107,22 +107,22 @@
 
 
 
-<meta name="description" content="变量提升机制123456/** 一般都把js放到body的末尾1.为啥？2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果3.script标签中有两个属性，defer / async, 这两个属性是做什么的*/ 栈内存：作用域， 1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）； 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储">
+<meta name="description" content="本篇主要介绍的是变量的提升机制、面向对象、原型链等内容">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript基础知识二">
 <meta property="og:url" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/index.html">
 <meta property="og:site_name" content="卡而的博客">
-<meta property="og:description" content="变量提升机制123456/** 一般都把js放到body的末尾1.为啥？2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果3.script标签中有两个属性，defer / async, 这两个属性是做什么的*/ 栈内存：作用域， 1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）； 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储">
+<meta property="og:description" content="本篇主要介绍的是变量的提升机制、面向对象、原型链等内容">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/Untitled.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/1.bmp">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/2.bmp">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/3.bmp">
-<meta property="og:updated_time" content="2019-04-18T08:19:13.294Z">
+<meta property="og:updated_time" content="2019-06-27T09:36:02.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript基础知识二">
-<meta name="twitter:description" content="变量提升机制123456/** 一般都把js放到body的末尾1.为啥？2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果3.script标签中有两个属性，defer / async, 这两个属性是做什么的*/ 栈内存：作用域， 1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）； 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储">
+<meta name="twitter:description" content="本篇主要介绍的是变量的提升机制、面向对象、原型链等内容">
 <meta name="twitter:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识二/Untitled.png">
 
 
@@ -354,7 +354,8 @@
       
 
       
-        <h2 id="变量提升机制"><a href="#变量提升机制" class="headerlink" title="变量提升机制"></a>变量提升机制</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">一般都把js放到body的末尾</span></span><br><span class="line"><span class="comment">1.为啥？</span></span><br><span class="line"><span class="comment">2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果</span></span><br><span class="line"><span class="comment">3.script标签中有两个属性，defer / async, 这两个属性是做什么的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+        <p>本篇主要介绍的是变量的提升机制、面向对象、原型链等内容<br><a id="more"></a></p>
+<h2 id="变量提升机制"><a href="#变量提升机制" class="headerlink" title="变量提升机制"></a>变量提升机制</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment">一般都把js放到body的末尾</span></span><br><span class="line"><span class="comment">1.为啥？</span></span><br><span class="line"><span class="comment">2.放在head中可不可以，如何放到head中也可以实现放到body末尾的效果</span></span><br><span class="line"><span class="comment">3.script标签中有两个属性，defer / async, 这两个属性是做什么的</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p>栈内存：作用域，</p>
 <pre><code>1. 提供供JS代码自上而下执行的环境（代码都是在栈中执行）；
 2. 由于基本类型值比较简单，他们都是直接在栈内存中开辟一个位置，把值直接存储进去；

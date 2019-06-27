@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="JS中的盒子模型属性在JS中通过相关的属性可以获取（设置—）元素的样式信息，这些属性就是盒子模型属性（基本上都是有关于样式的），共有13个属性，client/offset/scroll[Top/Left/Width/Height], offsetparent. clientWidth &amp;amp; clientHeight获取当前元素可视区域的宽高：内容的宽高+padding;和内容是否有溢出无关（">
+<meta name="description" content="本篇的主要内容是盒子模型和jQuery的介绍">
 <meta name="keywords" content="前端 编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="盒子模型">
 <meta property="og:url" content="https://abluecup.github.io/2019/05/15/盒子模型/index.html">
 <meta property="og:site_name" content="卡而的博客">
-<meta property="og:description" content="JS中的盒子模型属性在JS中通过相关的属性可以获取（设置—）元素的样式信息，这些属性就是盒子模型属性（基本上都是有关于样式的），共有13个属性，client/offset/scroll[Top/Left/Width/Height], offsetparent. clientWidth &amp;amp; clientHeight获取当前元素可视区域的宽高：内容的宽高+padding;和内容是否有溢出无关（">
+<meta property="og:description" content="本篇的主要内容是盒子模型和jQuery的介绍">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-06T08:48:22.989Z">
+<meta property="og:updated_time" content="2019-06-27T09:30:05.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="盒子模型">
-<meta name="twitter:description" content="JS中的盒子模型属性在JS中通过相关的属性可以获取（设置—）元素的样式信息，这些属性就是盒子模型属性（基本上都是有关于样式的），共有13个属性，client/offset/scroll[Top/Left/Width/Height], offsetparent. clientWidth &amp;amp; clientHeight获取当前元素可视区域的宽高：内容的宽高+padding;和内容是否有溢出无关（">
+<meta name="twitter:description" content="本篇的主要内容是盒子模型和jQuery的介绍">
 
 
 
@@ -349,7 +349,8 @@
       
 
       
-        <h2 id="JS中的盒子模型属性"><a href="#JS中的盒子模型属性" class="headerlink" title="JS中的盒子模型属性"></a>JS中的盒子模型属性</h2><p>在JS中通过相关的属性可以获取（设置—）元素的样式信息，这些属性就是盒子模型属性（基本上都是有关于样式的），共有13个属性，client/offset/scroll[Top/Left/Width/Height], offsetparent.</p>
+        <p>本篇的主要内容是盒子模型和jQuery的介绍<br><a id="more"></a></p>
+<h2 id="JS中的盒子模型属性"><a href="#JS中的盒子模型属性" class="headerlink" title="JS中的盒子模型属性"></a>JS中的盒子模型属性</h2><p>在JS中通过相关的属性可以获取（设置—）元素的样式信息，这些属性就是盒子模型属性（基本上都是有关于样式的），共有13个属性，client/offset/scroll[Top/Left/Width/Height], offsetparent.</p>
 <h3 id="clientWidth-amp-clientHeight"><a href="#clientWidth-amp-clientHeight" class="headerlink" title="clientWidth &amp; clientHeight"></a>clientWidth &amp; clientHeight</h3><p>获取当前元素可视区域的宽高：内容的宽高+padding;<br>和内容是否有溢出无关（和设置了overflow:hidden也无关）,就是我们自己设定的内容的宽高+padding<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取当前页面一屏幕（可视区域）的宽高</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.clientWidth || <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"><span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></table></figure></p>
 <h3 id="clientTop-amp-clientLeft"><a href="#clientTop-amp-clientLeft" class="headerlink" title="clientTop &amp; clientLeft"></a>clientTop &amp; clientLeft</h3><p>获取上左边框的宽度</p>
 <h3 id="offsetWidth-amp-offsetHeight"><a href="#offsetWidth-amp-offsetHeight" class="headerlink" title="offsetWidth &amp; offsetHeight"></a>offsetWidth &amp; offsetHeight</h3><p>在client的基础上加上border(和内容是否溢出也没有关系)</p>
