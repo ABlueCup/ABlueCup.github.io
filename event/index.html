@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="Document                 box.onclick=function(ev){         console.log(ev);     }">
+<meta name="description" content="Document              #outer {             position: absolute;             top: 30px;             left: 30px;             width: 200px;             height: 200px;             ba">
 <meta name="keywords" content="前端 编程">
 <meta property="og:type" content="website">
 <meta property="og:title" content="卡而的博客">
 <meta property="og:url" content="https://abluecup.github.io/event/index.html">
 <meta property="og:site_name" content="卡而的博客">
-<meta property="og:description" content="Document                 box.onclick=function(ev){         console.log(ev);     }">
+<meta property="og:description" content="Document              #outer {             position: absolute;             top: 30px;             left: 30px;             width: 200px;             height: 200px;             ba">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T08:18:39.039Z">
+<meta property="og:updated_time" content="2019-09-24T09:30:25.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卡而的博客">
-<meta name="twitter:description" content="Document                 box.onclick=function(ev){         console.log(ev);     }">
+<meta name="twitter:description" content="Document              #outer {             position: absolute;             top: 30px;             left: 30px;             width: 200px;             height: 200px;             ba">
 
 
 
@@ -289,20 +289,52 @@
         
           <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #outer {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 200px;
+            height: 200px;
+            background: red;
+            cursor: pointer;
+        }
+
+        #inner {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="box" style="height: 50px;background-color:red;"></div>
+    <!-- <div id="box" style="height: 50px;background-color:red;"></div> -->
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
     <script>
-    box.onclick=function(ev){
-        console.log(ev);
-    }
+        document.onclick = function () { console.log('document');}
+        document.documentElement.onclick = function () { console.log('html'); }
+        document.body.onclick = function () {  console.log('body');}
+        outer.onclick = function () { console.log('outer'); }
+        inner.onclick = function (ev) {  
+            ev.stopPropagation();
+            console.log('inner');}
+
     </script>
 </body>
+
 </html>
         
       </div>
