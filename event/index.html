@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="卡而的博客">
 <meta property="og:description" content="Document              #outer {             position: absolute;             top: 30px;             left: 30px;             width: 200px;             height: 200px;             ba">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-24T09:30:25.355Z">
+<meta property="og:updated_time" content="2019-09-26T02:31:06.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卡而的博客">
 <meta name="twitter:description" content="Document              #outer {             position: absolute;             top: 30px;             left: 30px;             width: 200px;             height: 200px;             ba">
@@ -324,13 +324,20 @@
         <div id="inner"></div>
     </div>
     <script>
-        document.onclick = function () { console.log('document');}
-        document.documentElement.onclick = function () { console.log('html'); }
-        document.body.onclick = function () {  console.log('body');}
-        outer.onclick = function () { console.log('outer'); }
-        inner.onclick = function (ev) {  
-            ev.stopPropagation();
-            console.log('inner');}
+      outer.addEventListener('click', function(){
+          console.log('outer click');
+      });
+    //   inner.attachEvent('onclick', function(){
+    //       console.log('inner click');
+    //   });
+   /*  MouseEvent
+        KeyBoardEvent
+        touchEvent
+        普通对象
+
+        ev.target, ev.clientX, ev.clientY, ev.pageX, ev.pageY, ev.preventDefault(), ev.stopPropagation(),ev.type
+        ev.pageX= 
+   */
 
     </script>
 </body>
@@ -393,7 +400,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -415,7 +422,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

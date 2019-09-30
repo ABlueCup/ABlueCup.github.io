@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="文件主要记录了常用的快捷键">
+<meta name="description" content="事件委托也叫事件代理：利用事件的冒泡传播机制，如果一个容器的后代元素当中，很多元素的点击或其他行为都要做一些处理,此时我们不需要一个个获取绑定了，我们只需要给容器的click绑定方法，这样不管点击的是哪一个后代元素，都会把容器的click行为触发，并把对应的方法执行，根据事件源，我们可以知道点击的是谁，从而做不同的事情。">
 <meta name="keywords" content="前端 编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快捷键">
-<meta property="og:url" content="https://abluecup.github.io/2019/06/13/快捷键/index.html">
+<meta property="og:title" content="事件委托">
+<meta property="og:url" content="https://abluecup.github.io/2019/09/29/事件委托/index.html">
 <meta property="og:site_name" content="卡而的博客">
-<meta property="og:description" content="文件主要记录了常用的快捷键">
+<meta property="og:description" content="事件委托也叫事件代理：利用事件的冒泡传播机制，如果一个容器的后代元素当中，很多元素的点击或其他行为都要做一些处理,此时我们不需要一个个获取绑定了，我们只需要给容器的click绑定方法，这样不管点击的是哪一个后代元素，都会把容器的click行为触发，并把对应的方法执行，根据事件源，我们可以知道点击的是谁，从而做不同的事情。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-04T09:28:38.699Z">
+<meta property="og:updated_time" content="2019-09-29T07:27:46.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快捷键">
-<meta name="twitter:description" content="文件主要记录了常用的快捷键">
+<meta name="twitter:title" content="事件委托">
+<meta name="twitter:description" content="事件委托也叫事件代理：利用事件的冒泡传播机制，如果一个容器的后代元素当中，很多元素的点击或其他行为都要做一些处理,此时我们不需要一个个获取绑定了，我们只需要给容器的click绑定方法，这样不管点击的是哪一个后代元素，都会把容器的click行为触发，并把对应的方法执行，根据事件源，我们可以知道点击的是谁，从而做不同的事情。">
 
 
 
@@ -148,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://abluecup.github.io/2019/06/13/快捷键/"/>
+  <link rel="canonical" href="https://abluecup.github.io/2019/09/29/事件委托/"/>
 
 
 
 
 
-  <title>快捷键 | 卡而的博客</title>
+  <title>事件委托 | 卡而的博客</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2019/06/13/快捷键/">
+    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2019/09/29/事件委托/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="卡而">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">快捷键</h1>
+          <h1 class="post-title" itemprop="name headline">事件委托</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-13T09:55:51+08:00">
-                2019-06-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T14:14:30+08:00">
+                2019-09-29
               </time>
             
 
@@ -349,17 +349,7 @@
       
 
       
-        <p>文件主要记录了常用的快捷键<br><a id="more"></a></p>
-<h2 id="vscode-中的快捷键"><a href="#vscode-中的快捷键" class="headerlink" title="vscode 中的快捷键"></a>vscode 中的快捷键</h2><ol>
-<li><p>插入注释<br>ctrl + alt + i 在文件头部添加注释<br>ctrl + alt + t 在光标处添加注释</p>
-</li>
-<li><p>打开控制台<br>ctrl + ` </p>
-</li>
-<li><p>JS多行注释<br>alt + shift + A</p>
-</li>
-<li><p>代码格式化<br>alt + shift + F</p>
-</li>
-</ol>
+        <h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><p>也叫事件代理：利用事件的冒泡传播机制，如果一个容器的后代元素当中，很多元素的点击或其他行为都要做一些处理,此时我们不需要一个个获取绑定了，我们只需要给容器的click绑定方法，这样不管点击的是哪一个后代元素，都会把容器的click行为触发，并把对应的方法执行，根据事件源，我们可以知道点击的是谁，从而做不同的事情。<br><a id="more"></a><br>一个个获取元素，然后绑定事件的方式，不仅麻烦，而且性能消耗比较大。当我们给容器绑定事件的时候，不管点击的是后代中的水，绑定的方法都会执行，而且ev事件对象中记录了事件源<br><code>let target = ev.target || ev.srcElement</code><br>事件委托这种处理方式，比一个个的事件绑定，性能上提高50%左右，而且需要操作的元素越多，性能提高越大</p>
 
       
     </div>
@@ -393,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/12/面试题/" rel="next" title="面试题">
-                <i class="fa fa-chevron-left"></i> 面试题
+              <a href="/2019/09/29/图片跟随/" rel="next" title="图片跟随">
+                <i class="fa fa-chevron-left"></i> 图片跟随
               </a>
             
           </div>
@@ -402,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/26/同步、异步编程/" rel="prev" title="同步、异步编程">
-                同步、异步编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode-中的快捷键"><span class="nav-number">1.</span> <span class="nav-text">vscode 中的快捷键</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件委托"><span class="nav-number">1.</span> <span class="nav-text">事件委托</span></a></li></ol></div>
             
 
           </div>
