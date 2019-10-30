@@ -117,7 +117,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/event.jpg">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/maopao.png">
-<meta property="og:updated_time" content="2019-09-26T02:25:31.999Z">
+<meta property="og:updated_time" content="2019-10-30T02:03:28.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件">
 <meta name="twitter:description" content="什么是事件？事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
@@ -386,7 +386,7 @@
 <li>事件对象是用来存储当前本次操作的相关信息，和操作有关，和元素无必然关系；<br>2，当我们基于鼠标或者键盘灯操作的时候，浏览器会把本次操作的信息存储起来（标准浏览器存储到默认的内存中【自己找不到】，IE低版本存储到window.event中了），存储的值是一个对象（堆内存），操作肯定会触发元素的某个行为，也就会把绑定的方法执行，此时标准浏览器会把之前存储的对象（准确来说堆内存地址）当作一个实参传递给每一个执行的方法，所以操作一次，即使再多方法中都有EV,但是存储的值都是一个（本次操作信息的对象而已）</li>
 </ol>
 <h2 id="mouseover-mouseout-mouseenter-mouseleave"><a href="#mouseover-mouseout-mouseenter-mouseleave" class="headerlink" title="mouseover mouseout mouseenter mouseleave"></a>mouseover mouseout mouseenter mouseleave</h2><p>enter 和leave 会阻止冒泡传播<br>1，over 属于经过、滑过，覆盖xx,从父元素进入子元素，属于离开了父元素，会触发父元素的out,触发子元素的over<br>        enter属于进入，从父元素进入子元素，并不离开父元素，会触发父元素的leave,触发子元素的enter<br>2, enter和leave组织了事件的冒泡传播，而over和out还存在冒泡传播<br>所以对于父元素嵌套子元素这种情况，使用OVER会发生很多不愿意操作的事情，此时我们使用ENTER会更加简单，操作方便，所以真是项目中ENTER的使用比over多</p>
-
+<h2 id="事件机制池"><a href="#事件机制池" class="headerlink" title="事件机制池"></a>事件机制池</h2>
       
     </div>
     
@@ -508,7 +508,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -586,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事件？"><span class="nav-number">1.</span> <span class="nav-text">什么是事件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">2.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素天生自带的事件"><span class="nav-number">3.</span> <span class="nav-text">元素天生自带的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的元素天生自带的事件"><span class="nav-number">3.1.</span> <span class="nav-text">常用的元素天生自带的事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件对象"><span class="nav-number">4.</span> <span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的默认行为"><span class="nav-number">5.</span> <span class="nav-text">事件的默认行为</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何阻止默认行为"><span class="nav-number">5.1.</span> <span class="nav-text">如何阻止默认行为</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的传播机制"><span class="nav-number">6.</span> <span class="nav-text">事件的传播机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于事件对象的一些理解"><span class="nav-number">7.</span> <span class="nav-text">关于事件对象的一些理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mouseover-mouseout-mouseenter-mouseleave"><span class="nav-number">8.</span> <span class="nav-text">mouseover mouseout mouseenter mouseleave</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事件？"><span class="nav-number">1.</span> <span class="nav-text">什么是事件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">2.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素天生自带的事件"><span class="nav-number">3.</span> <span class="nav-text">元素天生自带的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的元素天生自带的事件"><span class="nav-number">3.1.</span> <span class="nav-text">常用的元素天生自带的事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件对象"><span class="nav-number">4.</span> <span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的默认行为"><span class="nav-number">5.</span> <span class="nav-text">事件的默认行为</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何阻止默认行为"><span class="nav-number">5.1.</span> <span class="nav-text">如何阻止默认行为</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的传播机制"><span class="nav-number">6.</span> <span class="nav-text">事件的传播机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于事件对象的一些理解"><span class="nav-number">7.</span> <span class="nav-text">关于事件对象的一些理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mouseover-mouseout-mouseenter-mouseleave"><span class="nav-number">8.</span> <span class="nav-text">mouseover mouseout mouseenter mouseleave</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件机制池"><span class="nav-number">9.</span> <span class="nav-text">事件机制池</span></a></li></ol></div>
             
 
           </div>
