@@ -118,7 +118,7 @@
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/event.jpg">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/maopao.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/事件池.bmp">
-<meta property="og:updated_time" content="2019-10-30T08:38:44.571Z">
+<meta property="og:updated_time" content="2019-11-19T07:57:10.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件">
 <meta name="twitter:description" content="什么是事件？事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
@@ -194,7 +194,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">业精于勤，而毁于嬉</p>
+        <p class="site-subtitle">Keep inner peace</p>
       
   </div>
 
@@ -397,7 +397,6 @@
 <h3 id="DOM0和DOM2事件绑定的区别"><a href="#DOM0和DOM2事件绑定的区别" class="headerlink" title="DOM0和DOM2事件绑定的区别"></a>DOM0和DOM2事件绑定的区别</h3><p>1）机制不一样<br>DOM0是给事件的私有属性赋值，所以只能绑定一个方法；DOM2采用的是事件池机制，所以可以绑定多个不同的方法<br>2）移除的操作<br>box.onclick = null;重新赋值即可移除绑定方法<br>DOM2移除的时候，必须清楚要移除哪一个方法，才能呢个在事件池当中移除掉。所以基于DOM2做事件绑定，我们要有瞻前顾后的思路，也就是绑定的时候考虑如何移除（技巧：不要绑定匿名函数，都绑定实名函数）<br>3）DOM2事件绑定增加了一些DOM0无法操作的事件行为，例如：DOMContentLoaded事件（当页面中的HTML结构加载完成就会触发执行）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line">box.addEventListener(<span class="string">'DOMContentLoaded'</span>,fn);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="comment">//当页面中的资源都加载完成（包含HTML结构加载完，CSS和JS等资源加载完成等），才会触发</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);<span class="comment">// 这样也可以执行多次</span></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//当页面中的HTML结构加载完成就会执行</span></span><br><span class="line">&#125;); </span><br><span class="line"><span class="comment">// 就是 $(document).ready(function()&#123;&#125;);的简写 原理基于DOMContentLoaded完成的</span></span><br><span class="line"><span class="comment">// 在document.readyState === 'complete'时候执行函数</span></span><br><span class="line"><span class="comment">//基于DOM2事件绑定的，所以在同一个页面总可以执行多次（绑定多个不同的方法），当结构加载完成，会依次执行方法</span></span><br></pre></td></tr></table></figure></p>
 <p>DOM0和DOM2两套机制可以共存，执行顺序和编写顺序有关</p>
 <h3 id="JQ中的事件绑定方法"><a href="#JQ中的事件绑定方法" class="headerlink" title="JQ中的事件绑定方法"></a>JQ中的事件绑定方法</h3><p>JQ中的事件绑定方法有很多，最常用的是<br>on / off 添加 / 移除<br>one : 只绑定一次，第一次执行完成后，就移除掉该方法<br>click / mouseover / mouseout / …这些方法最后都是基于 on / off 完成的，one也是基于 on / off 完成的<br>delegate: 事件委托方法，在1.7版本以前用的是live方法<br>基于DOM2事件绑定实现事件的绑定和移除（兼容了所有的浏览器）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#box'</span>).on();</span><br><span class="line"></span><br><span class="line">$(<span class="built_in">document</span>).delegate(<span class="string">'#box'</span>,<span class="string">'click'</span>,fn);</span><br><span class="line"><span class="comment">// 在document上绑定fn点击行为，并把它委托给#box,通常#box是一个未来元素</span></span><br></pre></td></tr></table></figure></p>
-<p>郑州市金水区东风路街道西北角明天地产才智名座耶鲁教育</p>
 
       
     </div>
@@ -510,7 +509,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">卡而</p>
-              <p class="site-description motion-element" itemprop="description">体大思精</p>
+              <p class="site-description motion-element" itemprop="description">让心情平静下来， 让抱怨、嫉妒、仇恨、狂躁远离自己。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -520,7 +519,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
