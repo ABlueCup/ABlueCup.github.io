@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://abluecup.github.io/"/>
-  <updated>2019-11-26T08:58:25.663Z</updated>
+  <updated>2019-12-04T01:49:34.498Z</updated>
   <id>https://abluecup.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://abluecup.github.io/2019/11/26/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     <id>https://abluecup.github.io/2019/11/26/移动端开发/</id>
     <published>2019-11-26T08:23:55.000Z</published>
-    <updated>2019-11-26T08:58:25.663Z</updated>
+    <updated>2019-12-04T01:49:34.498Z</updated>
     
-    <content type="html"><![CDATA[<p>需要的基础知识：<br>一、html5<br>1、新增加（修改/删除）的语义化标签<br>header<br>footer<br>main<br>section 区域<br>article 文章区域<br>aside   与内容无关的部分（例如广告）<br>nav     导航<br>figure  配图</p><h2 id="figcaption-配图说明"><a href="#figcaption-配图说明" class="headerlink" title="figcaption  配图说明"></a>figcaption  配图说明</h2><p>mark    标记<br>time    时间标记<br>progress    进度条</p><p>2，关于表单元素的新改革</p><p>[传统表单元素]<br>input:text/password/radio/checkbox/file/hidden/button/submit/reset…<br>select<br>textarea<br>button<br>form<br>label</p><p>[新增一些表单元素或者表单类型]<br>input:search/email/tel/number/range/color/date/time/url…</p><p>表单元素中新增加的类型作用：<br>1，功能强大了，很多东西不需要导入JS插件了，例如日历<br>2，在移动端根据设置的类型不一样，用户输入过程中调取出来的虚拟键盘也不一样（例如number类型调用出来的是数字键盘）<br>3, 新增加的类型提供了css/js验证，可以验证用户输入的内容是否符合格式（之前我们都是用正则自己解决，现在h5中的新类型自带验证机制）</p><p>二、css3</p><p>三、响应式布局开发</p><p>四、微信二次开发（小程序） =&gt; Hybrid混合APP开发</p><p>五、移动端事件</p><p>六、移动端常用的插件、类库、框架</p><p>3M™</p>]]></content>
+    <content type="html"><![CDATA[<p>需要的基础知识：<br>一、html5<br>1、新增加（修改/删除）的语义化标签<br>header<br>footer<br>main<br>section 区域<br>article 文章区域<br>aside   与内容无关的部分（例如广告）<br>nav     导航<br>figure  配图</p><h2 id="figcaption-配图说明"><a href="#figcaption-配图说明" class="headerlink" title="figcaption  配图说明"></a>figcaption  配图说明</h2><p>mark    标记<br>time    时间标记<br>progress    进度条</p><p>2，关于表单元素的新改革</p><p>[传统表单元素]<br>input:text/password/radio/checkbox/file/hidden/button/submit/reset…<br>select<br>textarea<br>button<br>form<br>label</p><p>[新增一些表单元素或者表单类型]<br>input:search/email/tel/number/range/color/date/time/url…</p><p>表单元素中新增加的类型作用：<br>1，功能强大了，很多东西不需要导入JS插件了，例如日历<br>2，在移动端根据设置的类型不一样，用户输入过程中调取出来的虚拟键盘也不一样（例如number类型调用出来的是数字键盘）<br>3, 新增加的类型提供了css/js验证，可以验证用户输入的内容是否符合格式（之前我们都是用正则自己解决，现在h5中的新类型自带验证机制）</p><p>二、css3</p><p>三、响应式布局开发</p><p>四、微信二次开发（小程序） =&gt; Hybrid混合APP开发</p><p>五、移动端事件</p><p>六、移动端常用的插件、类库、框架</p><p>3M™</p><p>Hi Wendy<br>I want to ask for a personal leave from 13:30 - 17:30 on December 4th. Please allow my request, many thanks!<br>On Site 3M + 事假 + 20191204 + 4 hours.</p><p>Regards,<br>Kyle Peng</p>]]></content>
     
     <summary type="html">
     
