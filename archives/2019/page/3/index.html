@@ -468,7 +468,7 @@
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:pengweizhen666@gmail.com" target="_blank" title="邮箱">
+                    <a href="mailto:2946358527@qq.com" target="_blank" title="邮箱">
                       
                         <i class="fa fa-fw fa-envelope"></i></a>
                   </span>
@@ -675,6 +675,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'FTvPdsu2TK6x3E711x6QpQJD-gzGzoHsz',
+        appKey: 'xPDqtHbApNKoxM9CeFc5bbUU',
+        placeholder: '留言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

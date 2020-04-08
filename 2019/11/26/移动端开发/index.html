@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="一步堂">
 <meta property="og:description" content="需要的基础知识： html51、新增加（修改/删除）的语义化标签headerfootermainsection 区域article 文章区域aside   与内容无关的部分（例如广告）nav     导航figure  配图 figcaption  配图说明mark    标记time    时间标记progress    进度条 2，关于表单元素的新改革 [传统表单元素]input:text/p">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-01T09:38:05.779Z">
+<meta property="og:updated_time" content="2020-04-08T08:32:48.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端开发">
 <meta name="twitter:description" content="需要的基础知识： html51、新增加（修改/删除）的语义化标签headerfootermainsection 区域article 文章区域aside   与内容无关的部分（例如广告）nav     导航figure  配图 figcaption  配图说明mark    标记time    时间标记progress    进度条 2，关于表单元素的新改革 [传统表单元素]input:text/p">
@@ -325,6 +325,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/26/移动端开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/26/移动端开发/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -478,9 +488,12 @@ transform-origin 变形的起点
 <p>3, animation: name duration 参数duration必须要加单位s</p>
 <p>4, darken(green， 20%) 深绿， lighten(green， 20%)浅绿<br>基于这两个less函数，我们可以给按钮设置按下时的状态</p>
 <p>5, 父级元素的高度不定义的时候，它呈现出来的高度是子集元素中relative的元素的高度的累加之和，而不包括他们相对定位的高度<br>eg<br>A中有元素B、C、D<br>B{<br>    position:absolute;<br>    top:2px;<br>    left:3px;<br>    width:10px;<br>    height:20px;<br>}<br>C{<br>    position:relative;<br>    top:3px;<br>    left:7px;<br>    width:10px;<br>    height:7px;<br>}<br>D{<br>    position:relative;<br>    top:9px;<br>    left:7px;<br>    width:20px;<br>    height:17px;<br>}<br>A的高度是7+17=24px;</p>
-<p>当有padding和margin值的时候，padding会被计算在内，margin值的最上和最下有一特殊情况，就是当A元素没有border，padding等值的时候，最上和最下的margin是不计算在内的。如果有border,padding,则计算在内。</p>
+<p>当有padding和margin值的时候，padding会被计算在内，margin值的最上和最下有一特殊情况，就是当A元素没有border，padding等值的时候，最上和最下的margin是不计算在内的。如果有border,padding,则计算在内。<br>·</p>
 <p>6, 情景再现：当页面改变尺寸的时候，小于640的时候能获取到html的fontSize,大于640的时候获取不到。</p>
 <p>A: 我们在定义Html的fontSize的时候如果写在css文件里，而不是写在行内，则js通过style.fontSize的时候获取不到，只能通过其他方式获得。所以我们在写js计算屏幕宽度来定义根元素的fontSize时，一定要把所有的情况，都加上document.documentElement.style.fontSize=xxx,而不是直接return;</p>
+<p>7,String.prototype.replace的运行机制<br>String.prototype.replace(pattern, function(match, $1, …, $n, offset, string){});<br>str1、str2是两个字符串，str1表示被替换的内容，str2表示替换的内容<br>str1也可以使用正则表达式，并把匹配的内容作为参数传递给后面的函数，函数最终要返回一个字符串，当作替换内容，去替换str1</p>
+<p>8, filter, find 在javascript和jQuery中的用途是不同的<br>在javascript中，<br>    find是返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined<br>    filter是返回数组中所有满足条件的元素组成的新数组，否则返回空数组<br>    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item &gt; <span class="number">6</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr,newArr); <span class="comment">// [7,8,9]</span></span><br><span class="line"><span class="keyword">let</span> num = arr.find(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item &gt; <span class="number">6</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">//7</span></span><br></pre></td></tr></table></figure></p>
+<p>在jQuery中，<br>    find是找到所有后代中符合条件的DOM元素，返回jQuery对象 find(selector);<br>    filter是筛选所有jQ对象中，返回符合条件的jq对象 filter(selector);</p>
 
       
     </div>
@@ -551,6 +564,9 @@ transform-origin 变形的起点
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -648,7 +664,7 @@ transform-origin 变形的起点
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:pengweizhen666@gmail.com" target="_blank" title="邮箱">
+                    <a href="mailto:2946358527@qq.com" target="_blank" title="邮箱">
                       
                         <i class="fa fa-fw fa-envelope"></i></a>
                   </span>
@@ -875,6 +891,28 @@ transform-origin 变形的起点
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'FTvPdsu2TK6x3E711x6QpQJD-gzGzoHsz',
+        appKey: 'xPDqtHbApNKoxM9CeFc5bbUU',
+        placeholder: '留言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
