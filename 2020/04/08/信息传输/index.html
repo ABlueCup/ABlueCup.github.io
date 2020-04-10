@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/auto.xml" title="一步堂" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本篇内容主要讲述服务器相关内容">
+<meta name="keywords" content="前端 编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息传输">
+<meta property="og:url" content="https://abluecup.github.io/2020/04/08/信息传输/index.html">
+<meta property="og:site_name" content="一步堂">
+<meta property="og:description" content="本篇内容主要讲述服务器相关内容">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/HTTP通信图示.png">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/CDN.png">
+<meta property="og:updated_time" content="2020-04-10T09:29:56.712Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信息传输">
+<meta name="twitter:description" content="本篇内容主要讲述服务器相关内容">
+<meta name="twitter:image" content="https://abluecup.github.io/2020/04/08/信息传输/HTTP通信图示.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abluecup.github.io/2020/04/08/信息传输/"/>
+
+
+
+
+
+  <title>信息传输 | 一步堂</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/abluecup" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一步堂</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Keep inner peace</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2020/04/08/信息传输/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一步">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一步堂">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">信息传输</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-08T16:36:27+08:00">
+                2020-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/08/信息传输/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/08/信息传输/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本篇内容主要讲述服务器相关内容<br><a id="more"></a></p>
+<h2 id="客户端和服务器交互模型"><a href="#客户端和服务器交互模型" class="headerlink" title="客户端和服务器交互模型"></a>客户端和服务器交互模型</h2><p>面试必问问题：打开浏览器，在地址栏输入一个地址，按下ENTER键，到看到页面，中间都发生了什么？<br><img src="/2020/04/08/信息传输/HTTP通信图示.png" alt="HTTP通信"></p>
+<p>【HTTP请求阶段：向服务器发送请求】<br>1, 浏览器首先向DNS域名解析服务器发出请求；<br>2，DNS反解析：根据浏览器请求中的地址，到DNS服务器中找到对应的服务器外网IP地址<br>3，通过找到的外网IP，向对应的服务器发送请求（首先访问的是服务器的WEB站点管理工具：准确来说，是我们先基于工具在服务器上创建很多服务，当有客户端访问的时候，服务器会匹配出具体是请求的哪个任务）<br>4，通过url地址中携带的端口号，找到服务器上对应的服务，以及服务所管理的项目源文件</p>
+<p>【HTTP响应阶段：服务器把客户端需要的内容准备好，并且返回给客户端】<br>5，服务器端根据请求地址中的路径名称、问好传参或者哈希值，把客户端需要的内容进行准备和处理<br>6，把准备的内容响应给客户端（如果请求的是html或者css这样的资源文件，服务器返回的是资源文件中的源代码（不是文件本身））</p>
+<p>【浏览器渲染阶段】<br>7，客户端浏览器接受服务器返回的源代码，基于自己内部的渲染引擎（内核）开始进行页面的渲染和绘制；<br>-&gt;首先计算DOM结构，生成DOM TREE<br>-&gt;自上而下运行代码，加载css等资源内容<br>-&gt;根据获取的css开始渲染（绘制）页面：render tree（）<br>-&gt; 开始渲染</p>
+<p>1)我们把一次完整的 请求+响应 称之为“HTTP事务”<br>事务是一次完成的操作，请求和响应缺一不可</p>
+<p>2)一个页面完全加载完成，需要向服务器发起很多次HTTP事务操作<br>    一般来说，首先把HTMl源代码拿回来，加载HTML的时候，遇到link/script/img[src]/iframe/video和audio[preload=’none’]。。。都会重新和服务器端建立HTTP事务交互</p>
+<pre><code>特殊情况：如果我们做了资源缓存处理（304），而且即将加载的资源在之前已经加载过了，这样的操作和传统的http事务有所不同，它们是从服务器和浏览器的缓存中读取数据，比传统的读取快很多
+</code></pre><p>3）从客户端向服务器发送请求，以及服务器吧请求响应给客户端的时候，中间相互传递了很多内容（客户端把一些内容传递给服务器，服务器把一些内容传递给客户端，我们把传递的内容统称为 HTTP报文）</p>
+<p>前端性能优化：<br>1，减少HTTP请求的次数及请求内容的大小</p>
+<h2 id="一个完整的url的组成"><a href="#一个完整的url的组成" class="headerlink" title="一个完整的url的组成"></a>一个完整的url的组成</h2><p>1，URL/URN/URI<br>    uri = url &amp; urn<br>    URI: 统一资源标识符<br>    URL: 统一资源定位符<br>    URN: 统一资源名称<br>2，url的组成部分<br><a href="http://www.zhufengpeixun.cn:80/stu/index.html?name=xxx&amp;age=25#teacher" target="_blank" rel="noopener">http://www.zhufengpeixun.cn:80/stu/index.html?name=xxx&amp;age=25#teacher</a></p>
+<p>【http】传输协议：用来传输客户端和服务器端交互的信息的，类似于快递小哥，常用的有<br>        http： 超文本传输协议（除了传递普通的文本，还可以传递文件流，或者进制编码等信息）是目前最常用的WEB传输协议<br>        https: 基于SSL（Secure Sockets Layer 安全套接层）加密的传输协议，比http更加安全（涉及支付的网站一般都是基于https完成的）<br>        ftp: 文件传输协议，一般用来实现资源文件在服务器上的上传下载<br>[<a href="http://www.zhufengpeixun.cn]域名" target="_blank" rel="noopener">www.zhufengpeixun.cn]域名</a> Domain Name<br>        一级域名（顶级域名）<a href="http://www.qq.com" target="_blank" rel="noopener">www.qq.com</a><br>        二级域名    sports.qq.com<br>        三级域名    kbs.sports.qq.com<br>        ..</p>
+<pre><code>.com 供商用的国际域名
+.cn 供商用的中文域名
+.net 用于网络供应服务商（系统类的经常使用net域名）
+.org 用于官方组织
+.edu 教育机构
+.gov 政府机构
+</code></pre><p>【:80】端口号，用来区分同一台服务器上不同服务的标识（基于WEB服务管理工具创建服务的时候可以指定），不同服务之间一般是不能使用相同的端口号的<br>http  80<br>https 443<br>ftp 21<br>如果当前网站服务，采用的是协议对应的默认端口管理，那么当用户输入网址的时候可以不指定端口号，浏览器会默认把用户默认的端口传递给服务器</p>
+<p>一台服务器上的端口号范围 0 ～ 65535之间</p>
+<p>服务器上安装一款应用都可能会作为一个服务，占用一个端口号</p>
+<p>[stu/index.html] 请求的路径名称<br> path<br> pathname<br>    stu/index.html 一般都是请求当前服务对应的项目目录中stu目录下的index.html。但是也有特殊情况，就是当前的url是被“伪url重写”的，我们看到的URL请求不是真实的请求（例如 <a href="https://item.jd.com/4679424.html）,这个url是被重写的，他的真实地址有可能是" target="_blank" rel="noopener">https://item.jd.com/4679424.html）,这个url是被重写的，他的真实地址有可能是</a> <a href="https://item.jd.com/details.jsp?id=4679424，其实就是跳转到详情页，通过问号传递的不同产品的编号，展示不同的产品信息，但是.jsp这种服务器渲染的动态页面不能被搜索引擎收录，不利于页面的SEO，所以我们会把动态页面静态化，这也就用到了url重写技术" target="_blank" rel="noopener">https://item.jd.com/details.jsp?id=4679424，其实就是跳转到详情页，通过问号传递的不同产品的编号，展示不同的产品信息，但是.jsp这种服务器渲染的动态页面不能被搜索引擎收录，不利于页面的SEO，所以我们会把动态页面静态化，这也就用到了url重写技术</a></p>
+<pre><code>/stu/info 这种没有任何后缀信息，一般都不是用来请求资源文件的，而是用于ajax数据请求的接口地址，如果后缀是.json类的，也是同理，但是有一种除外 /stu/info/这种很可能不是接口地址，而是没有指定请求的资源名称，服务器会请求默认的资源文件，一般都是index.html/default.html
+
+DHTML: 动态页面，泛指当前页面中的内容不是写死的而是动态绑定的，例如 .jsp/.php/.aspx,...这些页面中的数据都是基于AJAX或者后台编程语言处理，由服务器渲染，最后把渲染的结果返回给客户端呈现出来
+</code></pre><p>[?name=xxx&amp;age=25#teacher]<br>问号传参以及哈希<br>在HTTP事务中，？传参是客户端把信息传递给服务器的一种方式（有可能是A页面渲染到B页面，也有可能是跳转到一个页面，把参数值传递给页面用来标识的）<br>哈希值一般都跟客户端服务器交互没啥关系，主要用于页面中的锚点定位和哈希路由切换</p>
+<h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><p>起始行 ：请求起始行、响应起始行<br>首部（头）：请求头、响应头、通用头<br>主体：请求主体、响应主体</p>
+<p>General 通用头<br>Request URL: <a href="http://zhufengpeixun.com/" target="_blank" rel="noopener">http://zhufengpeixun.com/</a>  请求地址<br>Request Method: GET  请求方式 GET/POST/DELETE/PUT/HEAD/OPTION<br>Status Code: 200 OK  响应的HTTP状态吗<br>Remote Address: 123.57.243.166:80   主机地址（服务器外网IP地址）<br>Referrer Policy: no-referrer-when-downgrade </p>
+<p>Request Headers 请求头 [客户端设置、服务器端接收]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1  起始行：（描述当前请求的一些基本信息，用的是1.1版本传输协议进行内容传输的）</span><br><span class="line">Host: zhufengpeixun.com </span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3654.0 Mobile Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7</span><br><span class="line">Cookie: pgv_pvi=3852008448; tencentSig=5939430400; _qddaz=QD.u3qz1b.ov06ek.k6g5okvq; IESESSION=alive; Hm_lvt_418b1c90fa35dc210dd5d2284d9f9f29=1586498727; pgv_si=s5373796352; __root_domain_v=.zhufengpeixun.com; _qdda=2-1.1; _qddab=2-u18pab.k8tsdoo6; _qddamta_2852156370=2-0; _qddamta_4001806960=2-0; Hm_lpvt_418b1c90fa35dc210dd5d2284d9f9f29=1586498744 cookie信息一般都是放到头文件中实现和服务器端的数据通信的</span><br><span class="line">If-None-Match: &quot;5c0cf3-fbaa-5a1a421dd2c9c&quot;  </span><br><span class="line">If-Modified-Since: Wed, 25 Mar 2020 01:53:18 GMT 服务器端上次修改时间</span><br></pre></td></tr></table></figure></p>
+<p>Response Headers 响应头【服务器端设置、客户端获取】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK 起始行：（描述当前请求的一些基本信息，用的是1.1版本传输协议进行内容传输的）</span><br><span class="line">Date: Fri, 10 Apr 2020 06:12:53 GMT 服务器响应内容的时候的服务器时间（客户端获取这个时间的时候已经和真实时间产生误差了，因为服务器返回内容到客户端接收到也是需要时间的），而且这个时间是格林尼治时间</span><br><span class="line">Server: Apache</span><br><span class="line">Last-Modified: Wed, 25 Mar 2020 01:53:18 GMT 服务器端上次修改时间</span><br><span class="line">ETag: &quot;5c0cf3-fbaa-5a1a421dd2c9c&quot;</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Vary: Accept-Encoding,User-Agent</span><br><span class="line">Content-Length: 12936</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Via: 1.1 cn-p-sh-bldg800-01</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Encoding: gzip</span><br></pre></td></tr></table></figure></p>
+<p>Responds<br>响应主体：服务器返回的是啥就是啥</p>
+<p>Request Payload / Form Data [请求主体]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">客户端发送给服务器短的内容</span><br></pre></td></tr></table></figure></p>
+<p>了解HTTP报文以及如何查看对未来工作开发和BUG调试至关重要，以后涉及到交互功能(前端《=》后台)出现问题，都按照如下方式查找问题原因；<br>A: 打开控制台，在network中找到当前交互的请求地址，点击进去看详情<br>B: 如果是传递给服务器的参数或者方式错误【前端问题】<br>C: 如果服务器返回的信息错误或者和API规定的内容不一样【后台问题】<br>D: 如果返回数据是对的，但是展示有问题【前端问题】<br>确定是自己前端的问题后，基于断点（或者代码中的debugger）或者控制台输出等方式，开始逐步调试即可</p>
+<p>3, 客户端和服务器端信息交互的方式<br>    [客户端传递给服务器]<br>    A: ?传参 请求的url地址末尾通过问号传参的方式，把一些信息传递给服务器</p>
+<pre><code>B: 设置请求头
+    客户端把需要传递给服务器端的内容设置到请求头信息中（自定义请求头），服务器端可以通过接收请求头信息把内容得到
+
+C: 设置请求主体
+    xhr.send([ajax send中传递的内容就是客户端设置的请求主体内容,服务器端可以接收到这些信息的])
+
+【服务器返回给客户端】
+A: 设置响应头，例如把服务器时间通过响应头返回给客户端，客户端通过获取响应头信息得到这个时间（响应头返回的速度优先于响应主体）
+B: 设置响应主体
+    主要的返回信息都在响应主体当中
+</code></pre><h2 id="前端新能优化方案"><a href="#前端新能优化方案" class="headerlink" title="前端新能优化方案"></a>前端新能优化方案</h2><p>1，在JS中尽量减少闭包的使用（闭包会产生不销毁的栈内存），<br>    A:循环给元素做事件绑定的时候，尽可能把后期需要的信息（例如索引）存储到元素的自定义属性上，而不是创建闭包存储<br>    B:在最外层形成一个闭包，把一些后续需要的公共信息进行存储，而不是每一个方法都创建一个闭包（例如单例模式）<br>    C:尽可能手动释放，不被占用内存 null<br>    …<br>2, 尽量合并css和js文件<br>    把需要引入的css合并为一个，js也合并为一个，原理是减少http请求次数，尽可能把合并后的代码进行压缩，减少Http请求资源的大小<br>    A:WEBPACK这种自动化构建工具，可以帮我们实现代码的合并和压缩（工程化开发）<br>    B:在移动端开发（或者追求高性能的PC开发【例如百度首页】），如果css或者js不是需要很多，我们可以选择把css和js搞成内嵌式，也就是代码直接写在html里面<br>3，尽量使用字体图标或者SVG图标来代替传统的png等格式图片（因为字体图标等是矢量图，放大不会变形【基于代码编写出来的】，而且渲染速度快，相对比位图要小一些）<br>4，减少对DOM的操作，主要是减少DOM的重绘和回流（重排）<br>A：关于重排的分离读写（把设置操作写在一起）<br>B: 使用文档碎片或者字符串拼接做数据绑定（DOM的动态创建）<br>5，在JS中避免“嵌套循环”（这种会额外增加很多循环次数）和“死循环”<br>6，采用图片的“懒加载”（延迟加载）<br>    目的是为了减少页面第一次加载过程中HTTP的请求次数，让页面打开的速度变快<br>    步骤：开始加载页面的时候，所有的真实图片都不去发送HTTP请求加载，而是给一张背景图，当页面加载完成，并且图片在可视区域内，我们再去做图片的加载<br>7，基于浏览器和服务器端的缓存技术（304缓存）把一些不经常更新的静态资源文件做缓存处理，例如JS,CSS,静态图片都可以做缓存<br>    原理也是为了减少HTTP请求的大小，让获取速度更快<br>8，尽可能使用事件委托（事件代理），来处理事件绑定的操作，减少DOM的频繁操作，其中包括给每一个DOM元素做事件绑定<br>9，尽量减少CSS表达式的使用<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width: expression(document.body.clientWidth - 110 + &apos;px&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>10, css选择器解析规则是从右向左解析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.container .link a&#123;</span><br><span class="line">    先找到所有的a，再筛选出在.link中的，在筛选出.container类中的，</span><br><span class="line">    先找到的是所有的a，操作起来很耗性能，我们在使用css选择器的时候尽可能减少对标签选择器的使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>11，css雪碧图技术（css sprite / css图片精灵）<br>    把所有相对较小的资源图片汇总到一张大图上，后期我们只需要把大图加载下来，用背景定位的方式展示对应的小图即可<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.bg&#123;</span><br><span class="line">    background:url(&apos;xx.png&apos;);</span><br><span class="line">&#125;</span><br><span class="line">.box1&#123;</span><br><span class="line">    background-position:xx xx;</span><br><span class="line">&#125;</span><br><span class="line">.box2&#123;</span><br><span class="line">    background-position:xx xx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>12，减少对于cookie的使用，最主要的是减少本地cookie存储内容的大小，因为客户端操作cookie的时候，这些信息总是在客户端和服务器端传来传去 </p>
+<p>13，页面中的数据获取采用异步编程和延迟分批加载<br>    使用异步获取数据是为了降低HTTP通道堵塞，不会因为数据没有请求回来耽误下面信息的渲染，提高页面的打开速度<br>    我们可以这样处理：需要动态绑定的区域，先隐藏，等数据返回并绑定完成后，再让其显示。<br>    延迟分批加载是为了减少第一次页面加载的时候HTTP请求次数，类似于图片懒加载</p>
+<p>14, 页面中出现音视频标签，我们不让页面加载的时候就去加载资源，不然页面加载速度特别慢 preload=’none’等到页面加载完成音视频播放的时候，我们再去加载资源</p>
+<p>15,在客户端和服务器端进行交互的时候，对于多项数据，我们尽可能给予JSON格式来进行传送（JSON格式的数据处理方便，资源偏小） ===&gt; 相对于xml格式的传输才会有这个优势</p>
+<p>16，尽可能实现JS的封装，低耦合、高内聚，减少页面中的冗余代码，减少HTTP请求资源的大小<br>17，css中设置定位后，最好使用ZINDEX改变盒子层级，让所有的盒子不在相同的平面上，这样后续处理的时候，性能会有一丢丢的提高<br>18，在基于AJAX的GET请求进行数据交互的时候，根据需求可以让其产生缓存（这个缓存不是304缓存）</p>
+<p>重量级优化：做CDN加速（不属于前端优化），烧钱机器，非常烧钱<br>CDN是地域式分布，在热门地区设置服务器机组，附近的用户访问的都是离其最近的机组<br><img src="/2020/04/08/信息传输/CDN.png" alt="cdn图示"><br>CMS 内容分发管理系统</p>
+<p>=========额外技巧======<br>1，我们一般都把css放在body上面，js放在body下面，让其先加载css，再加载js(保证页面渲染的过程中，元素是带着样式渲染的，而js一般都是用来操作DOM元素的，需要等待元素加载完成)<br>2，能用css搞定的绝对不用JS，能用原生JS搞定的绝对不用插件，绝对不是用FLASH（除了音视频的低版本浏览器播放）<br>    css处理动画的性能优于JS，而且css中的transform还开启了硬件加速<br>3,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0, len = array.length; i&lt;len;i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>4，JS中尽量减少对eval的使用，因为JS合并压缩的时候，可能出现由于符号不完善，导致代码执行优先级错乱的问题，eval处理起来消耗的性能也偏大</p>
+<p>补充 visiable：hidden; display:none</p>
+
+      
+    </div>
+    
+    
+    
+    
+    <div>
+        
+            <div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/26/移动端开发/" rel="next" title="移动端开发">
+                <i class="fa fa-chevron-left"></i> 移动端开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">一步</p>
+              <p class="site-description motion-element" itemprop="description">让心情平静下来， 让抱怨、嫉妒、仇恨、狂躁远离自己。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/auto.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/abluecup.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2946358527@qq.com" target="_blank" title="邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端和服务器交互模型"><span class="nav-number">1.</span> <span class="nav-text">客户端和服务器交互模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个完整的url的组成"><span class="nav-number">2.</span> <span class="nav-text">一个完整的url的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文"><span class="nav-number">3.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端新能优化方案"><span class="nav-number">4.</span> <span class="nav-text">前端新能优化方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一步</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'FTvPdsu2TK6x3E711x6QpQJD-gzGzoHsz',
+        appKey: 'xPDqtHbApNKoxM9CeFc5bbUU',
+        placeholder: '留言',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
