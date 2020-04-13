@@ -66,7 +66,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="发布订阅设计模式（观察者模式）Publish and subscribe思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可 jQ中的发布订阅123456789101112let $plan = $.Callbacks();//=&amp;gt;创建一个空的计划表：空容器 =&amp;gt; $pl">
-<meta name="keywords" content="前端 编程">
+<meta name="description" content="发布订阅设计模式（观察者模式）Publish and subscribe思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="发布订阅">
 <meta property="og:url" content="https://abluecup.github.io/2019/11/19/发布订阅/index.html">
 <meta property="og:site_name" content="一步堂">
-<meta property="og:description" content="发布订阅设计模式（观察者模式）Publish and subscribe思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可 jQ中的发布订阅123456789101112let $plan = $.Callbacks();//=&amp;gt;创建一个空的计划表：空容器 =&amp;gt; $pl">
+<meta property="og:description" content="发布订阅设计模式（观察者模式）Publish and subscribe思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-19T08:20:05.033Z">
+<meta property="og:updated_time" content="2020-04-10T09:51:39.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布订阅">
-<meta name="twitter:description" content="发布订阅设计模式（观察者模式）Publish and subscribe思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可 jQ中的发布订阅123456789101112let $plan = $.Callbacks();//=&amp;gt;创建一个空的计划表：空容器 =&amp;gt; $pl">
+<meta name="twitter:description" content="发布订阅设计模式（观察者模式）Publish and subscribe思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可">
 
 
 
@@ -190,7 +190,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Keep inner peace</p>
+        <h1 class="site-subtitle" itemprop="description">Keep inner peace</h1>
       
   </div>
 
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">发布订阅</h1>
+          <h2 class="post-title" itemprop="name headline">发布订阅</h2>
         
 
         <div class="post-meta">
@@ -341,7 +341,43 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
           
 
           
@@ -360,6 +396,7 @@
 
       
         <h2 id="发布订阅设计模式（观察者模式）"><a href="#发布订阅设计模式（观察者模式）" class="headerlink" title="发布订阅设计模式（观察者模式）"></a>发布订阅设计模式（观察者模式）</h2><p>Publish and subscribe<br>思想：准备一个容器，把到达指定时候要处理的事情事先一一增加到容器中当中（我们把这个叫做发布计划，并且向计划表总订阅方法），当到达指定时间点，通知容器中的方法依次执行即可</p>
+<a id="more"></a>
 <h3 id="jQ中的发布订阅"><a href="#jQ中的发布订阅" class="headerlink" title="jQ中的发布订阅"></a>jQ中的发布订阅</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> $plan = $.Callbacks();<span class="comment">//=&gt;创建一个空的计划表：空容器 =&gt; $plan</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $plan.fire(<span class="number">10</span>,<span class="number">20</span>); <span class="comment">// fire：通知容器中的方法按照顺序依次执行</span></span><br><span class="line">    <span class="comment">// 10,20表示执行容器中的方法时，每一个方法都传递给两个参数10和20</span></span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line">$plan.add(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line"><span class="comment">//向容器中添加方法</span></span><br><span class="line">&#125;);</span><br><span class="line">$plan.remove(</span><br><span class="line">    fn <span class="comment">// 向容器中移除方法 </span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">~<span class="function"><span class="keyword">function</span> <span class="title">anonymous</span>(<span class="params">window</span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Subscribe</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="comment">//创建一个容器（每一个实例都有一个自己独有的容器，管理自己需要执行的方法即可）</span></span><br><span class="line">      <span class="keyword">this</span>.pond = [];<span class="comment">//给实例挂载一个属性，里面盛放着需要执行的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向计划表中增加方法：去重</span></span><br><span class="line">    add(fn) &#123;</span><br><span class="line">      <span class="comment">//fn : 我们需要增加的方法</span></span><br><span class="line">      <span class="keyword">let</span> pond = <span class="keyword">this</span>.pond;</span><br><span class="line">      <span class="keyword">let</span> isExist = <span class="literal">false</span>;</span><br><span class="line">      pond.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        item === fn ? isExist = <span class="literal">true</span> : <span class="literal">null</span>;</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      !isExist ? pond.push(fn) : <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    remove(fn) &#123;</span><br><span class="line">      <span class="comment">//从计划表中移除方法</span></span><br><span class="line">      <span class="keyword">let</span> pond = <span class="keyword">this</span>.pond;</span><br><span class="line">      pond.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (item === fn) &#123;</span><br><span class="line">          pond.splice(index, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通知计划表中的方法依次执行</span></span><br><span class="line">    <span class="comment">// 如果传递参数信息了，把这些参数一次赋值给执行的每一个方法</span></span><br><span class="line">    fire(...arg)&#123;</span><br><span class="line">        <span class="keyword">let</span> pond = <span class="keyword">this</span>.pond;</span><br><span class="line">        pond.forEach(<span class="function">(<span class="params">item, index</span>)=&gt;</span>&#123;</span><br><span class="line">            item(...arg);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">window</span>.Subscribe = Subscribe;</span><br><span class="line">&#125;(<span class="built_in">window</span>);</span><br><span class="line"><span class="keyword">let</span> subscribe = <span class="keyword">new</span> Subscribe();</span><br><span class="line">subscribe.add();</span><br><span class="line">subscribe.remove();</span><br><span class="line">subscribe.fire();</span><br></pre></td></tr></table></figure>
 
@@ -477,7 +514,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">一步</p>
-              <p class="site-description motion-element" itemprop="description">让心情平静下来， 让抱怨、嫉妒、仇恨、狂躁远离自己。</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -585,13 +622,27 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">一步</span>
 
+  
+    <div class="powered-by">
+        <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+          本站访客数:<span id="busuanzi_value_site_uv"></span>
+        </span>
+    </div>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
   
 </div>
 
@@ -610,6 +661,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -801,6 +872,19 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
   
 
   

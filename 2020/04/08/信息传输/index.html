@@ -66,7 +66,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -108,7 +108,7 @@
 
 
 <meta name="description" content="本篇内容主要讲述服务器相关内容">
-<meta name="keywords" content="前端 编程">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信息传输">
 <meta property="og:url" content="https://abluecup.github.io/2020/04/08/信息传输/index.html">
@@ -117,7 +117,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/HTTP通信图示.png">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/CDN.png">
-<meta property="og:updated_time" content="2020-04-10T09:29:56.712Z">
+<meta property="og:updated_time" content="2020-04-13T06:24:51.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息传输">
 <meta name="twitter:description" content="本篇内容主要讲述服务器相关内容">
@@ -193,7 +193,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Keep inner peace</p>
+        <h1 class="site-subtitle" itemprop="description">Keep inner peace</h1>
       
   </div>
 
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">信息传输</h1>
+          <h2 class="post-title" itemprop="name headline">信息传输</h2>
         
 
         <div class="post-meta">
@@ -344,7 +344,43 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
           
 
           
@@ -417,7 +453,7 @@ B: 设置响应主体
 <p>重量级优化：做CDN加速（不属于前端优化），烧钱机器，非常烧钱<br>CDN是地域式分布，在热门地区设置服务器机组，附近的用户访问的都是离其最近的机组<br><img src="/2020/04/08/信息传输/CDN.png" alt="cdn图示"><br>CMS 内容分发管理系统</p>
 <p>=========额外技巧======<br>1，我们一般都把css放在body上面，js放在body下面，让其先加载css，再加载js(保证页面渲染的过程中，元素是带着样式渲染的，而js一般都是用来操作DOM元素的，需要等待元素加载完成)<br>2，能用css搞定的绝对不用JS，能用原生JS搞定的绝对不用插件，绝对不是用FLASH（除了音视频的低版本浏览器播放）<br>    css处理动画的性能优于JS，而且css中的transform还开启了硬件加速<br>3,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0, len = array.length; i&lt;len;i++)&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>4，JS中尽量减少对eval的使用，因为JS合并压缩的时候，可能出现由于符号不完善，导致代码执行优先级错乱的问题，eval处理起来消耗的性能也偏大</p>
-<p>补充 visiable：hidden; display:none</p>
+<p>补充 visibility:hidden; display:none<br>同样是内容消失不见<br>visibility:hidden，依然占据位置<br>display:none 不会占据位置</p>
 
       
     </div>
@@ -529,7 +565,7 @@ B: 设置响应主体
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">一步</p>
-              <p class="site-description motion-element" itemprop="description">让心情平静下来， 让抱怨、嫉妒、仇恨、狂躁远离自己。</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -637,13 +673,27 @@ B: 设置响应主体
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">一步</span>
 
+  
+    <div class="powered-by">
+        <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+          本站访客数:<span id="busuanzi_value_site_uv"></span>
+        </span>
+    </div>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
   
 </div>
 
@@ -662,6 +712,26 @@ B: 设置响应主体
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -853,6 +923,19 @@ B: 设置响应主体
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
   
 
   
