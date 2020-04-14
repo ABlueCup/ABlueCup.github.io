@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>一步堂</title>
+  <title>积步堂</title>
   
-  <subtitle>心静自然凉</subtitle>
+  <subtitle>不积跬步，无以致千里；不积小流，无以成江海。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://abluecup.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://abluecup.github.io/</id>
   
   <author>
-    <name>KYLE PENG</name>
+    <name>堂主</name>
     
   </author>
   
