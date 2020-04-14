@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,7 +100,7 @@
 
 
 
-  <link rel="alternate" href="/auto.xml" title="一步堂" type="application/atom+xml" />
+  <link rel="alternate" href="/rss.html" title="一步堂" type="application/atom+xml" />
 
 
 
@@ -114,7 +114,7 @@
 <meta property="og:url" content="https://abluecup.github.io/2019/05/15/盒子模型/index.html">
 <meta property="og:site_name" content="一步堂">
 <meta property="og:description" content="本篇的主要内容是盒子模型和jQuery的介绍">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-09-18T08:48:03.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="盒子模型">
@@ -134,7 +134,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -166,7 +166,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -190,7 +190,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Keep inner peace</h1>
+        <h1 class="site-subtitle" itemprop="description">心静自然凉</h1>
       
   </div>
 
@@ -216,6 +216,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -246,6 +256,36 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-日历">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-公益">
+          <a href="https://www.qq.com/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commonweal"></i> <br />
+            
+            公益
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-友情链接">
+          <a href="https://www.luciustan.online/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
           </a>
         </li>
       
@@ -285,7 +325,7 @@
     <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2019/05/15/盒子模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="一步">
+      <meta itemprop="name" content="KYLE PENG">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -309,9 +349,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T16:43:09+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-15T16:43:09+08:00">
                 2019-05-15
               </time>
             
@@ -331,7 +371,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2019/05/15/盒子模型/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/15/盒子模型/" itemprop="commentCount"></span>
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/05/15/盒子模型/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -355,10 +395,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  
+                <span title="字数统计">
+                  3.1k
                 </span>
               
 
@@ -371,10 +411,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  
+                <span title="阅读时长">
+                  12
                 </span>
               
             </div>
@@ -499,7 +539,12 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
 
   
     <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
     </div>
+
   
 
 
@@ -525,10 +570,10 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -537,7 +582,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">一步</p>
+              <p class="site-author-name" itemprop="name">KYLE PENG</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -549,7 +594,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
                 <a href="/archives">
               
                   <span class="site-state-item-count">25</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -560,7 +605,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
@@ -571,7 +616,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
@@ -580,7 +625,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
 
           
             <div class="feed-link motion-element">
-              <a href="/auto.xml" rel="alternate">
+              <a href="/rss.html" rel="alternate">
                 <i class="fa fa-rss"></i>
                 RSS
               </a>
@@ -591,7 +636,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/abluecup.github.io" target="_blank" title="GitHub">
+                    <a href="https://github.com/abluecup/" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i></a>
                   </span>
@@ -651,7 +696,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">一步</span>
+  <span class="author" itemprop="copyrightHolder">KYLE PENG</span>
 
   
     <div class="powered-by">
@@ -666,12 +711,12 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count"></span>
+    <span title="Site words total count">73.6k</span>
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -679,7 +724,7 @@ inline-block行内块：位置在行内，但是拥有宽度、高度等块级�
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

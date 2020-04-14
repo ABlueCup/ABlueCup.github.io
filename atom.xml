@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>一步堂</title>
   
-  <subtitle>Keep inner peace</subtitle>
+  <subtitle>心静自然凉</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://abluecup.github.io/"/>
@@ -10,7 +10,7 @@
   <id>https://abluecup.github.io/</id>
   
   <author>
-    <name>一步</name>
+    <name>KYLE PENG</name>
     
   </author>
   
