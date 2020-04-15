@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端，学习笔记，积步堂" />
 
 
 
@@ -108,7 +108,7 @@
 
 
 <meta name="description" content="本篇内容主要讲述服务器相关内容">
-<meta name="keywords" content="前端">
+<meta name="keywords" content="前端，积步堂，学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信息传输">
 <meta property="og:url" content="https://abluecup.github.io/2020/04/08/信息传输/index.html">
@@ -117,7 +117,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/HTTP通信图示.png">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/CDN.png">
-<meta property="og:updated_time" content="2020-04-14T10:04:00.349Z">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/全局刷新和局部刷新.png">
+<meta property="og:updated_time" content="2020-04-15T09:46:07.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息传输">
 <meta name="twitter:description" content="本篇内容主要讲述服务器相关内容">
@@ -328,7 +329,7 @@
     <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2020/04/08/信息传输/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="堂主">
+      <meta itemprop="name" content="卡而">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -401,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.9k
+                  6.9k
                 </span>
               
 
@@ -417,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  18
+                  25
                 </span>
               
             </div>
@@ -496,7 +497,19 @@ B: 设置响应主体
 <p>4，JS中尽量减少对eval的使用，因为JS合并压缩的时候，可能出现由于符号不完善，导致代码执行优先级错乱的问题，eval处理起来消耗的性能也偏大<br>5，使用keep-alive实现客户端和服务器端的长连接<br>6， 尽量使用设计模式管理代码<br>    发布订阅、单例、构造、Promise<br>7，开启服务器端的gzip压缩（这个压缩可以有效减少请求资源的大小），其实客户端的图片等资源也是可以压缩的（但是对于24位的位图，压缩后可能会变模糊）</p>
 <p>8，页面中不要出现无效的链接（利于SEO优化），还有其他技巧，提高关键字曝光率、Img需要加alt、设置meta标签</p>
 <p>9，避免使用with语句（非常耗性能）</p>
-<p>补充 visibility:hidden; display:none<br>同样是内容消失不见<br>visibility:hidden，依然占据位置<br>display:none 不会占据位置</p>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>1,async javascript and xml 异步的javascript和xml<br>在AJAX中的异步不是我们理解的同步异步编程，而是泛指“局部刷新”，但是我们在以后的AJAX请求中金肯呢个使用异步获取数据，（因为异步获取数据不会阻塞下面代码的执行）<br>XML是一种文件格式（我们可以把html理解为XML的一种），可扩展的标记语言，它的作用是用自己扩展的一些语义标签来存储一些数据和内容，这样存储的好处是可以清晰的展现数据结构<br>在很久以前，AJAX刚刚兴起的时候，客户端从服务器端获取数据，服务器为了清楚的表达数据结构，都是返回XML格式的内容，当下我们获取的数据一般都是JSON格式的内容，JSON相对于XML来说，也能清晰表达数据结构，而且访问里面数据的时候，操作起来比XML更简单<br>（但是现在某些项目中服务器返回的数据不单纯是数据，而是数据和需要展示的结构拼接好的结果，类似于我们自己做的字符串拼接，也就是说服务器端把数据和结构拼接好了返回给客户端，此时返回的数据格式一般都是XML格式的字符串）<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version='1.0' encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">student</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>22<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">english</span>&gt;</span>100<span class="tag">&lt;/<span class="name">english</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>2，全局刷新和局部刷新</p>
+<p><img src="/2020/04/08/信息传输/全局刷新和局部刷新.png" alt="全局刷新和局部刷新图示"></p>
+<p>3，ajax操作<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建AJAX实例</span></span><br><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest(); <span class="comment">//iE6中不兼容，使用的是 new ActiveXObject来实现</span></span><br><span class="line"><span class="comment">// 打开请求：发送请求之前的配置项</span></span><br><span class="line"><span class="comment">//HTTP METHOD请求方式： get/delete/head/options/trace/connect</span></span><br><span class="line"><span class="comment">// post/put</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2,url,向服务器发送请求的API（Application Programing Interface）接口地址</span></span><br><span class="line"><span class="comment">//3,async 设置请求的同步异步，默认是异步（true）,false是同步，项目中使用异步，防止阻塞</span></span><br><span class="line"><span class="comment">// username,userpass 用户名和密码，一般不用</span></span><br><span class="line">xhr.open(&#123;</span><br><span class="line">    [HTTP METHOD],[URL],[ASYNC],[USER-NAME],[USER-PASS]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//事件监听，一般监听的都是READY-STATE-CHANGE 事件（AJAX状态改变事件），基于这个事件可以获取服务器返回的响应头响应的主体内容</span></span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span> &amp;&amp; xhr.status ==<span class="number">200</span>)&#123;</span><br><span class="line">        xhr.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//发送AJAX请求，从这步开始，当前AJAX任务开始，如果AJAX是同步的，后续代码不会执行，要等到AJAX状态成功后再执行，反之异步不会</span></span><br><span class="line">xhr.send([请求主题内容]);</span><br></pre></td></tr></table></figure></p>
+<p>4, 关于HTTP请求方式的一点学习<br>所有的请求都可以服务器端传递内容，也都可以从服务器端获取内容<br>GET：从服务器端获取数据（给的少，拿得多）<br>POST:(推送)，向服务器端推送数据（给得多，拿的少）<br>DELETE:删除服务器端的某些内容（一般是删除一些文件）<br>PUT:向服务器上存放一些内容（一般也是一些文件）<br>HEAD:只想获取服务器返回的响应头信息，不要响应主体中的内容<br>OPTIONS:一般使用它向服务器发送一个探测性请求，如果服务器端返回了信息，说明当前客户端和服务器端建立了连接，我们可以继续执行其他请求了（TRACE是干这件事的，但是AXIOX这个AJAX类库在基于cross domain进行跨域请求的时候，就是先发送options请求探测尝试，如果能连通服务器，才会继续发送其他请求）<br>CONNECT:保留协议，暂时不用</p>
+<p>GET VS POST<br>【传递给服务器信息的方式不一样】<br>    GET是基于URL地址 问号传参 的方式把信息传递给服务器<br>    POST是基于请求主体把信息传递给服务器<br>    (easy-mock)<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[GET]</span><br><span class="line">xhr.open(&apos;get&apos;,&apos;url?xx=xxx&amp;xx=xxx&apos;)</span><br><span class="line">[POST]</span><br><span class="line">xhr.send(&apos;xx=xxx&amp;xx=xxx&apos;);</span><br></pre></td></tr></table></figure></p>
+<pre><code>GET一般应用于拿，给服务器的少一些，而POST给服务器的多，如果POST是基于问号传参的方式来搞，会出现一些问题，url会拼很长。浏览器对于URL的长度都有最大限度（谷歌是8KB,火狐是7kb,ie是2kb）,超过的部分浏览器就把它截下了 =&gt; 所以GET请求可以基于URL传参，而POST都是使用请求主体传递（请求主体理论上是没有限制的，但是真实项目中我们会自己做大小限制，防止上传过大信息，导致请求迟迟完不成）
+</code></pre><p> 【GET不安全，POST相对安全】<br>    因为GET是基于问号传参把信息传递给服务器的，容易被骇客进行URL劫持，POST是基于请求主体传递的，相对来说不好被劫持。所以登录注册等涉及安全性的交互操作，我们都应该用POST请求。<br> 【GET请求会产生不可控制的缓存，POST不会】<br>    不可控：不是想要就要，想不要就不要的，这是浏览器自主记忆的缓存，我们无法基于JS控制，真实项目中，我们都会把这个缓存干掉<br>    GET请求产生缓存是因为连续多次向相同的地址，并且连续多次传递的信息也是相同的，浏览器会把之前获取的数据从缓存中拿到返回，导致无法获取服务器最新的数据<br>    POST不会<br>    解决方案：<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(&apos;get&apos;, &apos;/temp/list?id=1000&amp;lx=2000&amp;_=$(Math.random()));</span><br><span class="line">//保证每次请求的地址不完全一致：在每一次请求的末尾追加一个随机数即可（使用_作为属性名就是不想和其他的属性名冲突）</span><br></pre></td></tr></table></figure></p>
+<p>5，ajax状态<br>    0   unsend 刚开始创建，还没有发送<br>    1   opened 已经执行了open这个操作<br>    2   headers_received 已经发送AJAX请求（AJAX任务开始），响应头信息已经被客户端接收了（响应头中包含了服务器的时间以及HTTP状态码）<br>    3   loading 响应主体内容正在返回<br>    4   done 响应主体内容已经被客户端接收</p>
+<p>6，HTTP网络状态码（STATUS）<br>根据状态码能够清楚的反映出当前交互的结果及原因<br>    200 ok 成功（只能证明服务器成功返回信息了，凡是信息不一定是你业务需要的）<br>    301 Move Permanently 永久转移（永久重定向）<br>            域名更改：访问原始域名重定向到新的域名<br>    302 Move Temporarily临时转移（临时重定向 =&gt; 307）<br>            网站是基于https协议，如果访问的是HTTP协议，会基于307重定向到https协议上<br>            302一般用作服务器负载均衡：当一台服务器达到最大并发数的时候，会把后续访问的用户临时转移到其他的服务器机组上处理<br>                真实项目中，会把所有的图片放到单独的服务器上（图片服务器），这样减少主服务器的压力，当用户向主服务器访问图片的时候，主服务器都把它转移到图片服务器上处理<br>    304 Not Modified 设置缓存<br>            对于不经常更新的资源文件，例如css js html img等，服务器会结合客户端设置304缓存，第一次加载过这些资源就缓存到客户端了，下次再获取的时候，是从缓存中获取，如果资源更新了，服务器端会通过最后修改时间来强制让客户端从服务器重新拉取。基于CTRL+F5强制刷新页面，304缓存就没有了<br>    400 Bad Request 请求参数错误<br>    401 无权限访问<br>    404 not found 找不到资源（地址不存在）<br>    407 代理无权限<br>    413 Request Entity Too Large 和服务器交互的资源超过服务器最大的限制</p>
+<pre><code>500 Internal Server Error 未知的服务器错误
+503 Service Unavailabe 服务器超负荷
+</code></pre><p>补充 visibility:hidden; display:none<br>同样是内容消失不见<br>visibility:hidden，依然占据位置<br>display:none 不会占据位置</p>
 
       
     </div>
@@ -612,7 +625,7 @@ B: 设置响应主体
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">堂主</p>
+              <p class="site-author-name" itemprop="name">卡而</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -701,7 +714,7 @@ B: 设置响应主体
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端和服务器交互模型"><span class="nav-number">1.</span> <span class="nav-text">客户端和服务器交互模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个完整的url的组成"><span class="nav-number">2.</span> <span class="nav-text">一个完整的url的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文"><span class="nav-number">3.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端新能优化方案"><span class="nav-number">4.</span> <span class="nav-text">前端新能优化方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端和服务器交互模型"><span class="nav-number">1.</span> <span class="nav-text">客户端和服务器交互模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个完整的url的组成"><span class="nav-number">2.</span> <span class="nav-text">一个完整的url的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文"><span class="nav-number">3.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端新能优化方案"><span class="nav-number">4.</span> <span class="nav-text">前端新能优化方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX"><span class="nav-number">5.</span> <span class="nav-text">AJAX</span></a></li></ol></div>
             
 
           </div>
@@ -726,7 +739,7 @@ B: 设置响应主体
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">堂主</span>
+  <span class="author" itemprop="copyrightHolder">卡而</span>
 
   
     <div class="powered-by">
@@ -741,7 +754,7 @@ B: 设置响应主体
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.1k</span>
+    <span title="Site words total count">76.2k</span>
   
 </div>
 
