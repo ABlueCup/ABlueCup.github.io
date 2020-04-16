@@ -118,7 +118,7 @@
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/HTTP通信图示.png">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/CDN.png">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/08/信息传输/全局刷新和局部刷新.png">
-<meta property="og:updated_time" content="2020-04-15T09:46:07.504Z">
+<meta property="og:updated_time" content="2020-04-16T09:41:16.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息传输">
 <meta name="twitter:description" content="本篇内容主要讲述服务器相关内容">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.9k
+                  7.5k
                 </span>
               
 
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  25
+                  28
                 </span>
               
             </div>
@@ -509,7 +509,19 @@ B: 设置响应主体
 <p>6，HTTP网络状态码（STATUS）<br>根据状态码能够清楚的反映出当前交互的结果及原因<br>    200 ok 成功（只能证明服务器成功返回信息了，凡是信息不一定是你业务需要的）<br>    301 Move Permanently 永久转移（永久重定向）<br>            域名更改：访问原始域名重定向到新的域名<br>    302 Move Temporarily临时转移（临时重定向 =&gt; 307）<br>            网站是基于https协议，如果访问的是HTTP协议，会基于307重定向到https协议上<br>            302一般用作服务器负载均衡：当一台服务器达到最大并发数的时候，会把后续访问的用户临时转移到其他的服务器机组上处理<br>                真实项目中，会把所有的图片放到单独的服务器上（图片服务器），这样减少主服务器的压力，当用户向主服务器访问图片的时候，主服务器都把它转移到图片服务器上处理<br>    304 Not Modified 设置缓存<br>            对于不经常更新的资源文件，例如css js html img等，服务器会结合客户端设置304缓存，第一次加载过这些资源就缓存到客户端了，下次再获取的时候，是从缓存中获取，如果资源更新了，服务器端会通过最后修改时间来强制让客户端从服务器重新拉取。基于CTRL+F5强制刷新页面，304缓存就没有了<br>    400 Bad Request 请求参数错误<br>    401 无权限访问<br>    404 not found 找不到资源（地址不存在）<br>    407 代理无权限<br>    413 Request Entity Too Large 和服务器交互的资源超过服务器最大的限制</p>
 <pre><code>500 Internal Server Error 未知的服务器错误
 503 Service Unavailabe 服务器超负荷
-</code></pre><p>补充 visibility:hidden; display:none<br>同样是内容消失不见<br>visibility:hidden，依然占据位置<br>display:none 不会占据位置</p>
+</code></pre><p>7, 关于XHR的属性和方法<br>xhr.reponse     响应主体内容<br>xhr.reponseText     响应主体内容是字符串（JSON或者XML格式字符串都可以）<br>xhr.reponseXML      响应主体内容是XML文档</p>
+<p>xhr.status  返回的HTTP状态码<br>xhr.statusText  返回的状态码的描述</p>
+<p>xhr.timeout     设置请求超时的时间 xhr.timeout = 3000 (毫秒)<br>                xhr.ontimeout = function(){“请求超时”}</p>
+<p>xhr.withCredentials     是否允许跨域</p>
+<p>xhr.abort()     强制中断AJAX请求<br>xhr.getAllResponseHeaders()     获取所有响应头信息<br>xhr.getResponseHeader([key])    获取Key对应的响应头信息<br>xhr.open()  打开URL请求<br>xhr.send()  发送请求<br>xhr.setRequestHeader()  设置请求头, 不能是中文<br>xhr.overrideMimeType()  重写MIME类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'temp.xml'</span>);</span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="comment">// 监听的是AJAX状态改变事件：设置监听之前有一个状态，当后续状态和设置之前的状态不相同的时候，才会触发这个状态</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(); <span class="comment">// 发送请求，这个执行才证明AJAX任务开始</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>主线程任务执行完成，才会执行异步任务<br>输出结果是 3,1,2</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'temp.xml'</span>, <span class="literal">false</span>);</span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">2</span>) &#123; <span class="comment">//当状态为2的时候，触发了事件，但是主任务AJAX正在执行，无法执行该任务</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123; <span class="comment">// 状态为4的时候，主任务AJAX已经执行完成，执行此任务</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(); <span class="comment">// 当AJAX开始，由于是同步编程，主任务队列在状态没有变成4（任务结束）之前一直被这件事占用着，其他事情都做不了（当服务器把响应头返回的时候，状态为2，触发了事件，但是由于主任务队列没有完成，被占着呢，绑定的方法也无法执行。。所以只有状态为4的时候执行这个方法）</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>2,3</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'temp.xml'</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">xhr.send();</span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="comment">//readystate一直是4</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;       </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>3</p>
+<h2 id="基于服务器时间做倒计时"><a href="#基于服务器时间做倒计时" class="headerlink" title="基于服务器时间做倒计时"></a>基于服务器时间做倒计时</h2><p>补充 visibility:hidden; display:none<br>同样是内容消失不见<br>visibility:hidden，依然占据位置<br>display:none 不会占据位置</p>
+<p>new Date() 获取当前客户端的时间<br>new Date(时间字符串) 把指定的时间字符串格式化为标准的当地时间（不再是字符串了）</p>
 
       
     </div>
@@ -714,7 +726,7 @@ B: 设置响应主体
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端和服务器交互模型"><span class="nav-number">1.</span> <span class="nav-text">客户端和服务器交互模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个完整的url的组成"><span class="nav-number">2.</span> <span class="nav-text">一个完整的url的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文"><span class="nav-number">3.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端新能优化方案"><span class="nav-number">4.</span> <span class="nav-text">前端新能优化方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX"><span class="nav-number">5.</span> <span class="nav-text">AJAX</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端和服务器交互模型"><span class="nav-number">1.</span> <span class="nav-text">客户端和服务器交互模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个完整的url的组成"><span class="nav-number">2.</span> <span class="nav-text">一个完整的url的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文"><span class="nav-number">3.</span> <span class="nav-text">HTTP报文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端新能优化方案"><span class="nav-number">4.</span> <span class="nav-text">前端新能优化方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX"><span class="nav-number">5.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于服务器时间做倒计时"><span class="nav-number">6.</span> <span class="nav-text">基于服务器时间做倒计时</span></a></li></ol></div>
             
 
           </div>
@@ -754,7 +766,7 @@ B: 设置响应主体
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">76.2k</span>
+    <span title="Site words total count">76.8k</span>
   
 </div>
 
