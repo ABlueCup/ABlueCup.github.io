@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="参考链接http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/https://coolshell.cn/articles/5426.html上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。 vim是什么？Vim is a highly configurable text editor for effic">
+<meta name="description" content="Vim 是高度可配置的编辑器，用于高效创建和修改各类文本。它包含在UNIX系统和苹果 OS X 系统的 vi中。">
 <meta name="keywords" content="vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim的使用">
 <meta property="og:url" content="https://abluecup.github.io/2018/06/04/vim的使用/index.html">
 <meta property="og:site_name" content="积步堂">
-<meta property="og:description" content="参考链接http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/https://coolshell.cn/articles/5426.html上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。 vim是什么？Vim is a highly configurable text editor for effic">
+<meta property="og:description" content="Vim 是高度可配置的编辑器，用于高效创建和修改各类文本。它包含在UNIX系统和苹果 OS X 系统的 vi中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-14T08:19:44.888Z">
+<meta property="og:updated_time" content="2020-04-23T05:04:16.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim的使用">
-<meta name="twitter:description" content="参考链接http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/https://coolshell.cn/articles/5426.html上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。 vim是什么？Vim is a highly configurable text editor for effic">
+<meta name="twitter:description" content="Vim 是高度可配置的编辑器，用于高效创建和修改各类文本。它包含在UNIX系统和苹果 OS X 系统的 vi中。">
 
 
 
@@ -431,7 +431,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/06/04/vim的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://abluecup.github.io/2018/06/04/vim的使用/" itemprop="commentCount">0</span> comments
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/04/vim的使用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -458,7 +458,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  895
+                  936
                 </span>
               
 
@@ -495,8 +495,9 @@
       
 
       
-        <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="noopener">http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/</a><br><a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">https://coolshell.cn/articles/5426.html</a><br>上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。</p>
-<h2 id="vim是什么？"><a href="#vim是什么？" class="headerlink" title="vim是什么？"></a>vim是什么？</h2><p>Vim is a highly configurable text editor for efficiently creating and changing any kind of text. It is included as “vi” with most UNIX systems and with Apple OS X.<br>官网上的解释如上，翻译下就是： Vim 是高度可配置的编辑器，用于高效创建和修改各类文本。它包含在UNIX系统和苹果 OS X 系统的 vi中。<br><a id="more"></a></p>
+        <p>Vim 是高度可配置的编辑器，用于高效创建和修改各类文本。它包含在UNIX系统和苹果 OS X 系统的 vi中。<br><a id="more"></a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="noopener">http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/</a><br><a href="https://coolshell.cn/articles/5426.html" target="_blank" rel="noopener">https://coolshell.cn/articles/5426.html</a><br>上面的博客无论是原文还是翻译都比较有趣，本文是对这两篇博客的阅读笔记。</p>
+<h2 id="vim是什么？"><a href="#vim是什么？" class="headerlink" title="vim是什么？"></a>vim是什么？</h2><p>Vim is a highly configurable text editor for efficiently creating and changing any kind of text. It is included as “vi” with most UNIX systems and with Apple OS X.<br>官网上的解释如上，翻译下就是： Vim 是高度可配置的编辑器，用于高效创建和修改各类文本。它包含在UNIX系统和苹果 OS X 系统的 vi中。</p>
 <h2 id="学习VIM的四个阶段"><a href="#学习VIM的四个阶段" class="headerlink" title="学习VIM的四个阶段"></a>学习VIM的四个阶段</h2><h3 id="（Survive）存活"><a href="#（Survive）存活" class="headerlink" title="（Survive）存活"></a>（Survive）存活</h3><blockquote>
 <p>i 进入insert模式（插入模式），按Esc回到Normal模式（普通模式）；<br>x 删除当前光标所在的一个字符；<br>:wq w(存盘) q(退出)；<br>dd 删除当前行；<br>p 粘贴<br>hjkl 按照左下上右的顺序移动光标<br>:help <command> 命令的说明</p>
 </blockquote>
@@ -800,7 +801,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">81.1k</span>
+    <span title="站点字数总计">81.2k</span>
   
 </div>
 

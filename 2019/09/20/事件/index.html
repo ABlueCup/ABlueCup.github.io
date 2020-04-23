@@ -107,21 +107,21 @@
 
 
 
-<meta name="description" content="什么是事件？事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
+<meta name="description" content="事件是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
 <meta name="keywords" content="前端，积步堂，学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事件">
 <meta property="og:url" content="https://abluecup.github.io/2019/09/20/事件/index.html">
 <meta property="og:site_name" content="积步堂">
-<meta property="og:description" content="什么是事件？事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
+<meta property="og:description" content="事件是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/event.jpg">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/maopao.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/09/20/事件/事件池.bmp">
-<meta property="og:updated_time" content="2019-11-19T07:57:10.983Z">
+<meta property="og:updated_time" content="2020-04-23T05:04:38.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件">
-<meta name="twitter:description" content="什么是事件？事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
+<meta name="twitter:description" content="事件是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为“事件是天生自带的行为，我们操作元素，就会触发相关行为”">
 <meta name="twitter:image" content="https://abluecup.github.io/2019/09/20/事件/event.jpg">
 
 
@@ -413,7 +413,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2019/09/20/事件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://abluecup.github.io/2019/09/20/事件/" itemprop="commentCount">0</span> comments
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/09/20/事件/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.7k
+                  3.8k
                 </span>
               
 
@@ -477,7 +477,8 @@
       
 
       
-        <h2 id="什么是事件？"><a href="#什么是事件？" class="headerlink" title="什么是事件？"></a>什么是事件？</h2><p>事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为<br>“事件是天生自带的行为，我们操作元素，就会触发相关行为”<br><a id="more"></a></p>
+        <p>事件是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为<br>“事件是天生自带的行为，我们操作元素，就会触发相关行为”<br><a id="more"></a></p>
+<h2 id="什么是事件？"><a href="#什么是事件？" class="headerlink" title="什么是事件？"></a>什么是事件？</h2><p>事件就是一件事情或者一个行为（对于元素来说，它的很多事件都是天生自带的），只要我们去操作这个元素，就会触发这些行为<br>“事件是天生自带的行为，我们操作元素，就会触发相关行为”</p>
 <h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><p>给元素天生自带的事件行为绑定方法，当事件触发，会把相应的行为执行。<br>    1, DOM 0级事件绑定： [element].onxxx=function(){};<br>    2, DOM 2级事件绑定： [element].addEventListener(‘xxx’, function(){});<br>                        [element].attachEvent(‘onxxx’,function(){}); [IE6-8]<br>            attachEvent只能存在于IE5-10中， addEventListener存在于IE9及以上</p>
 <pre><code>目的：给当前元素的某个事件绑定方法（不管是基于DOM0还是DOM2）,都是为了触发元素的相关行为的时候，能做点事情（也就是把绑定的方法执行），不仅把方法执行了，而且浏览器还给方法穿了一个实参信息===&gt; 这个值就是事件对象
 </code></pre><h2 id="元素天生自带的事件"><a href="#元素天生自带的事件" class="headerlink" title="元素天生自带的事件"></a>元素天生自带的事件</h2><h3 id="常用的元素天生自带的事件"><a href="#常用的元素天生自带的事件" class="headerlink" title="常用的元素天生自带的事件"></a>常用的元素天生自带的事件</h3><p>【鼠标事件】<br>        click : 点击（PC端是点击，移动端代表单击[移动端使用click会有300毫秒延迟]）<br>        dblclick: 双击<br>        mouseover: 鼠标经过<br>        mouseout:   鼠标移出<br>        mouseenter:  鼠标进入<br>        mouseleave:  鼠标离开<br>        mousemove: 鼠标移动<br>        mousedown:  鼠标按下（左右键都起作用，它是按下即触发，<br>                        click是按下抬起才触发，先触发down和up,然后才触发click）<br>        mouseup: 鼠标抬起<br>        mousewheel:鼠标滚轮滚动</p>
@@ -554,8 +555,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/06/常用代码段/" rel="next" title="常用代码段">
-                <i class="fa fa-chevron-left"></i> 常用代码段
+              <a href="/2019/09/06/常用代码段/" rel="next" title="选项卡封装">
+                <i class="fa fa-chevron-left"></i> 选项卡封装
               </a>
             
           </div>
@@ -769,7 +770,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">81.1k</span>
+    <span title="站点字数总计">81.2k</span>
   
 </div>
 

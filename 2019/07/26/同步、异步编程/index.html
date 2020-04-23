@@ -107,19 +107,19 @@
 
 
 
-<meta name="description" content="定时器定时器；设定一个定时器，并且设定了等待的时间，当到达设定的时间时，浏览器会执行对应的方法 【常用的定时器】setTimeout([function],[interval])setInterval([function],[interval])[function],到达时间后执行的方法（设定时方法没有执行，到时间浏览器会帮我们执行）[interval],时间因子（需要等待的时间），单位：毫秒 s">
+<meta name="description" content="本篇是对JS同步、异步编程的介绍，以及定时器原理的解析：">
 <meta name="keywords" content="前端，积步堂，学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="同步、异步编程">
 <meta property="og:url" content="https://abluecup.github.io/2019/07/26/同步、异步编程/index.html">
 <meta property="og:site_name" content="积步堂">
-<meta property="og:description" content="定时器定时器；设定一个定时器，并且设定了等待的时间，当到达设定的时间时，浏览器会执行对应的方法 【常用的定时器】setTimeout([function],[interval])setInterval([function],[interval])[function],到达时间后执行的方法（设定时方法没有执行，到时间浏览器会帮我们执行）[interval],时间因子（需要等待的时间），单位：毫秒 s">
+<meta property="og:description" content="本篇是对JS同步、异步编程的介绍，以及定时器原理的解析：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://abluecup.github.io/2019/07/26/同步、异步编程/aa.png">
-<meta property="og:updated_time" content="2019-08-19T08:22:45.557Z">
+<meta property="og:updated_time" content="2020-04-23T05:07:47.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同步、异步编程">
-<meta name="twitter:description" content="定时器定时器；设定一个定时器，并且设定了等待的时间，当到达设定的时间时，浏览器会执行对应的方法 【常用的定时器】setTimeout([function],[interval])setInterval([function],[interval])[function],到达时间后执行的方法（设定时方法没有执行，到时间浏览器会帮我们执行）[interval],时间因子（需要等待的时间），单位：毫秒 s">
+<meta name="twitter:description" content="本篇是对JS同步、异步编程的介绍，以及定时器原理的解析：">
 <meta name="twitter:image" content="https://abluecup.github.io/2019/07/26/同步、异步编程/aa.png">
 
 
@@ -411,7 +411,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2019/07/26/同步、异步编程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://abluecup.github.io/2019/07/26/同步、异步编程/" itemprop="commentCount">0</span> comments
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/26/同步、异步编程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -475,7 +475,8 @@
       
 
       
-        <h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>定时器；设定一个定时器，并且设定了等待的时间，当到达设定的时间时，浏览器会执行对应的方法</p>
+        <p>本篇是对JS同步、异步编程的介绍，以及定时器原理的解析：<br><a id="more"></a></p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>定时器；设定一个定时器，并且设定了等待的时间，当到达设定的时间时，浏览器会执行对应的方法</p>
 <p>【常用的定时器】<br>setTimeout([function],[interval])<br>setInterval([function],[interval])<br>[function],到达时间后执行的方法（设定时方法没有执行，到时间浏览器会帮我们执行）<br>[interval],时间因子（需要等待的时间），单位：毫秒</p>
 <p>setTimeout是执行一次定时器，setInterval是可以多次执行的(轮循定时器)</p>
 <p>清除定时器：<br>clearTimeout([序号]) / clearInterval([序号]) 这两种方法中的任何一个都可以清除用任何方法创建的定时器</p>
@@ -544,8 +545,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/06/常用代码段/" rel="prev" title="常用代码段">
-                常用代码段 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/06/常用代码段/" rel="prev" title="选项卡封装">
+                选项卡封装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -749,7 +750,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">81.1k</span>
+    <span title="站点字数总计">81.2k</span>
   
 </div>
 
