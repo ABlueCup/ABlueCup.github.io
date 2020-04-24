@@ -107,18 +107,22 @@
 
 
 
-<meta name="description" content="Git 版本控制系统    1.版本控制系统        开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。        常用的版本控制系统：SVN(集中式) / Git(分布式) 2.分布式版本管理系统的特点">
+<meta name="description" content="本篇是对Git的介绍">
 <meta name="keywords" content="前端，积步堂，学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git">
 <meta property="og:url" content="https://abluecup.github.io/2020/04/23/Git/index.html">
 <meta property="og:site_name" content="积步堂">
-<meta property="og:description" content="Git 版本控制系统    1.版本控制系统        开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。        常用的版本控制系统：SVN(集中式) / Git(分布式) 2.分布式版本管理系统的特点">
+<meta property="og:description" content="本篇是对Git的介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-23T09:42:50.129Z">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/1.jpg">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/2.png">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/3.png">
+<meta property="og:updated_time" content="2020-04-24T10:12:43.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="Git 版本控制系统    1.版本控制系统        开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。        常用的版本控制系统：SVN(集中式) / Git(分布式) 2.分布式版本管理系统的特点">
+<meta name="twitter:description" content="本篇是对Git的介绍">
+<meta name="twitter:image" content="https://abluecup.github.io/2020/04/23/Git/1.jpg">
 
 
 
@@ -436,7 +440,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  114
+                  1.4k
                 </span>
               
 
@@ -452,7 +456,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -473,8 +477,26 @@
       
 
       
-        <p>Git 版本控制系统<br>    1.版本控制系统<br>        开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。<br>        常用的版本控制系统：SVN(集中式) / Git(分布式)</p>
-<pre><code>2.分布式版本管理系统的特点
+        <p>本篇是对Git的介绍<br><a id="more"></a></p>
+<h2 id="Git-版本控制系统"><a href="#Git-版本控制系统" class="headerlink" title="Git 版本控制系统"></a>Git 版本控制系统</h2><p>1.版本控制系统<br>    开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。<br>    常用的版本控制系统：SVN(集中式) / Git(分布式)<br>2.分布式版本管理系统的特点<br>    <img src="/2020/04/23/Git/1.jpg" alt="分布式集中式对比"><br>3.Linux团队开发的Git,所以Git中的命令大部分都是linux命令</p>
+<h2 id="常用的Git命令"><a href="#常用的Git命令" class="headerlink" title="常用的Git命令"></a>常用的Git命令</h2><p>后期我们更多的是基于命令完成Git管理，所以我们需要学习一些常用的Linux命令。<br>    Windows操作系统：DOS窗口和DOS命令<br>    LINUX服务器操作系统：LINUX命令（MAC终端使用的也是LINUX命令）<br>常用的命令有：<br>ls -l/-a 查看当前目录结构(-a是可以看见所有的：包含隐藏的)<br>cd      切换到指定的目录中（进入的地址可以粘贴到对应的操作系统命令窗口中）<br>cd ./   当前目录<br>cd ../  上级目录<br>cd /    根目录<br>clear:  清屏<br>mkdir:  创建目录<br>touch:  创建文件<br>vi:     想文件中插入或者管理一些内容<br>    i 进入到插入模式<br>    ESC+:wq: 退出内容胡插入模式，把刚才编辑的内容进行保存<br>echo xxx &gt; xxx.txt  在指定的文件中，删除原来的内容，添加新的内容<br>ehco xxx &gt;&gt; xxx.txt 向指定的文件末尾田间新的内容<br>cp 拷贝、复制<br>rm 删除文件 -r(递归删除) -f(强制删除)，一旦删除无法还原</p>
+<h2 id="Git的常规流程"><a href="#Git的常规流程" class="headerlink" title="Git的常规流程"></a>Git的常规流程</h2><p>1.每一个GIT仓库都有三个区<br>    工作区：写代码<br>    暂存区：临时存放每一次修改的代码，但是并没有生成历史版本<br>    历史区：存放所有历史版本的地方(提交到历史区，就会生成历史版本)<br>    <img src="/2020/04/23/Git/2.png" alt="Git的常规流程"><br>2.把暂存区胡某一个文件撤回到工作区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cache [file] 删除暂存区的文件</span><br><span class="line">$ git rm --cache . -r 删除暂存区中所有提交的</span><br><span class="line">    如果在撤销过程中，发现从暂存区撤销的文件，在工作区已经被修改了，只有加上-f才能强制从暂存区把内容删除</span><br><span class="line">$ git rm --cache [file] -r -f</span><br></pre></td></tr></table></figure></p>
+<p>3.提交到暂存区一份，把工作区内容改了，但是改的东西不好，想把暂存区上次提交的内容撤回到工作区(覆盖工作区新写的内容)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [file] 把暂存区的内容覆盖工作区的内容，暂存区的内容并没有消失，只是把工作区的最新修改的内容更改了，工作区和暂存区保持了一致。</span><br></pre></td></tr></table></figure></p>
+<p>4<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff [file] 比较暂存区和工作区的差别</span><br><span class="line">$ git diff  --cached</span><br><span class="line">$ git diff master 比较工作区和历史区master的差别</span><br></pre></td></tr></table></figure></p>
+<h2 id="一些细节问题"><a href="#一些细节问题" class="headerlink" title="一些细节问题"></a>一些细节问题</h2><p>1.如果是第一次使用git，生成历史版本的时候，需要提供身份认证<br>需要在本地GIT全局作用域下设置一些信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">'xxx'</span></span><br><span class="line">$ git config  --global user.email <span class="string">'xxx@xx.com'</span></span><br></pre></td></tr></table></figure></p>
+<p>2.真实项目中并不是所有的文件都和项目有关系(例如.idea是WS生成的配置文件夹和项目没关系)，也不是所有的文件都提交(例如node_modules中的内容太大了，也不需要提交)</p>
+<p>.gitignore =&gt;git提交的忽略文件</p>
+<p>3.查看历史版本信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
+<h2 id="代码回滚操作"><a href="#代码回滚操作" class="headerlink" title="代码回滚操作"></a>代码回滚操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout . 把暂存区内容回滚到工作区(一旦回滚，工作区内容无法恢复)</span><br><span class="line">$ git reset HEAD . 把当前暂存区的内容回滚到上一个暂存区，目的是为了把上一个暂存区的内容回滚到工作区</span><br><span class="line">$ git reset --hard 版本号 在历史区中回退到某一个版本(强制把暂存区和工作区都变成回退后的版本)</span><br><span class="line">$ <span class="built_in">history</span> &gt; xx.txt 把历史操作步骤输出到xx.txt中</span><br></pre></td></tr></table></figure>
+<h2 id="团队开发的工作流程"><a href="#团队开发的工作流程" class="headerlink" title="团队开发的工作流程"></a>团队开发的工作流程</h2><p><img src="/2020/04/23/Git/3.png" alt="团队协作流程">;</p>
+<p>1.基础流程<br>    1) 首先创建中央仓库：可以基于github/codding来创建<br>            把开发者都列入仓库的开发群组中，这样每一个开发者用自己的github账号都有权限操作这个仓库了(不这样做也可以，所有开发者用同一个账号也可以，为了防止不知道是谁提交的，我们需要让每一个客户端在本地的GIT全局配置中，设置和GITHUB相同的用户名和邮箱)<br>    2) 创建客户端本地仓库(一个开发者就是一个单独的仓库)，还需要让本地的仓库和远程仓库保持关联，这样才可以实现后续的信息同步<br>    $ git init 创建本地仓库<br>    $ git remote add origin “远程仓库地址” 让本地仓库肯远程仓库保持连接<br>    $ git remote -v 查看链接信息(origin是连接的名称，一般都用这个名字，当然自己可以随便设置)<br>    $ git remote rm origin 移除链接</p>
+<pre><code>$ git remote update origin  更新便捷通道
+-----
+有更简单胡方式，只要把远程仓库克隆到本地，就相当于创建本地仓库，而且自动建立了链接，并且把远程仓库的内容衣同步到了本地
+$ git clone &quot;远程仓库地址&quot; “本地仓库目录名字（不写，默认椒仓库名）”
+3) 各自和中央服务器同步信息
+推送： $git push origin master  (每次push之前最好pull一下,如果有冲突，在本地处理冲突，然后再提交);
+拉取： $ git pull origin master
 </code></pre>
       
     </div>
@@ -576,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -661,6 +692,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-版本控制系统"><span class="nav-number">1.</span> <span class="nav-text">Git 版本控制系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的Git命令"><span class="nav-number">2.</span> <span class="nav-text">常用的Git命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的常规流程"><span class="nav-number">3.</span> <span class="nav-text">Git的常规流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些细节问题"><span class="nav-number">4.</span> <span class="nav-text">一些细节问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码回滚操作"><span class="nav-number">5.</span> <span class="nav-text">代码回滚操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#团队开发的工作流程"><span class="nav-number">6.</span> <span class="nav-text">团队开发的工作流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -694,7 +741,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">81.2k</span>
+    <span title="站点字数总计">82.6k</span>
   
 </div>
 
