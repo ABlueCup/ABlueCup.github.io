@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="本片是对node基础概念的介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-27T08:24:20.683Z">
+<meta property="og:updated_time" content="2020-04-28T10:08:17.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NODE">
 <meta name="twitter:description" content="本片是对node基础概念的介绍">
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.7k
+                  3k
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  11
                 </span>
               
             </div>
@@ -517,6 +517,9 @@
 <p>默认module.exports = exports， 所以我们在导出的时候，不能直接写module.exports={}或者exports={},这样会使两者指向的堆内存不同。</p>
 <p>require 导入规则<br>    require(‘./xxx’); 查找当前目录下的自定义模块<br>    require(‘xxx’)首先到当前项目的node-module中查找是否存在这个模块，不存在着node提供的内置模块</p>
 <p>_dirname: 模块中这个内置变量是当前所在的绝对路径<br>_filename: 包含绝对路径的文件名称 _dirname[a.js]</p>
+<h2 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h2><h3 id="FS"><a href="#FS" class="headerlink" title="FS"></a>FS</h3><p>实现IO操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let fs = require(&apos;fs&apos;);</span><br><span class="line">1. fs.mkdir / fs.mkdirSync 创建目录, 有Sync的是同步创建，没有是异步。想要实现无阻塞，我们一般都使用异步操作完成要处理的事情。</span><br><span class="line">2. fs.readdir / fs.readdirSync: 读取文件目录中的内容, 返回的结果是一个数组</span><br><span class="line">3. fs.rmdir / fs.rmdirSync :删除目录，但是如果目录中有文件，无法删除，会报错</span><br><span class="line">4. fs.readFile: 读取文件中的内容</span><br><span class="line">5. fs.writeFile: 向文件中写入内容(覆盖式写入：原有的内容都没了)</span><br><span class="line">6. fs.appendFile: 追加写入内容，原有内容还在</span><br><span class="line">7. fs.copyFile: 复制文件到新的目录下</span><br><span class="line">8. fs.unlink: 删除文件</span><br></pre></td></tr></table></figure></p>
+<h3 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a>PATH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let path = require(&apos;path);</span><br><span class="line">path.resolve(); 返回当前的绝对地址(不包含模块名)</span><br><span class="line"></span><br><span class="line">path.resolve(__dirname, &apos;less/tt&apos;) 可以把一个相对路径拼接到绝对路径上，第一个参数是绝对路径，第二个是相对的，如果都是绝对路径，以后一个为主</span><br></pre></td></tr></table></figure>
+<p>__dirname是当前模块所在的绝对路径，跟模块在哪里执行没有关系。<br>path.resolve() 当前模块中的方法在哪个模块中执行的，那么对应的绝对路径是执行模块的绝对路径。</p>
 
       
     </div>
@@ -721,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE介绍"><span class="nav-number">1.</span> <span class="nav-text">NODE介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM的应用"><span class="nav-number">2.</span> <span class="nav-text">NPM的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE入门"><span class="nav-number">3.</span> <span class="nav-text">NODE入门</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE介绍"><span class="nav-number">1.</span> <span class="nav-text">NODE介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM的应用"><span class="nav-number">2.</span> <span class="nav-text">NPM的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE入门"><span class="nav-number">3.</span> <span class="nav-text">NODE入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置模块"><span class="nav-number">4.</span> <span class="nav-text">内置模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FS"><span class="nav-number">4.1.</span> <span class="nav-text">FS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PATH"><span class="nav-number">4.2.</span> <span class="nav-text">PATH</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -761,7 +764,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">85.6k</span>
+    <span title="站点字数总计">86.6k</span>
   
 </div>
 
