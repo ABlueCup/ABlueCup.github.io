@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="本片是对node基础概念的介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-28T10:08:17.030Z">
+<meta property="og:updated_time" content="2020-05-08T09:13:58.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NODE">
 <meta name="twitter:description" content="本片是对node基础概念的介绍">
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3k
+                  3.9k
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  15
                 </span>
               
             </div>
@@ -520,6 +520,14 @@
 <h2 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h2><h3 id="FS"><a href="#FS" class="headerlink" title="FS"></a>FS</h3><p>实现IO操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let fs = require(&apos;fs&apos;);</span><br><span class="line">1. fs.mkdir / fs.mkdirSync 创建目录, 有Sync的是同步创建，没有是异步。想要实现无阻塞，我们一般都使用异步操作完成要处理的事情。</span><br><span class="line">2. fs.readdir / fs.readdirSync: 读取文件目录中的内容, 返回的结果是一个数组</span><br><span class="line">3. fs.rmdir / fs.rmdirSync :删除目录，但是如果目录中有文件，无法删除，会报错</span><br><span class="line">4. fs.readFile: 读取文件中的内容</span><br><span class="line">5. fs.writeFile: 向文件中写入内容(覆盖式写入：原有的内容都没了)</span><br><span class="line">6. fs.appendFile: 追加写入内容，原有内容还在</span><br><span class="line">7. fs.copyFile: 复制文件到新的目录下</span><br><span class="line">8. fs.unlink: 删除文件</span><br></pre></td></tr></table></figure></p>
 <h3 id="PATH"><a href="#PATH" class="headerlink" title="PATH"></a>PATH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let path = require(&apos;path);</span><br><span class="line">path.resolve(); 返回当前的绝对地址(不包含模块名)</span><br><span class="line"></span><br><span class="line">path.resolve(__dirname, &apos;less/tt&apos;) 可以把一个相对路径拼接到绝对路径上，第一个参数是绝对路径，第二个是相对的，如果都是绝对路径，以后一个为主</span><br></pre></td></tr></table></figure>
 <p>__dirname是当前模块所在的绝对路径，跟模块在哪里执行没有关系。<br>path.resolve() 当前模块中的方法在哪个模块中执行的，那么对应的绝对路径是执行模块的绝对路径。</p>
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p>1, url.parse(url[, flag]) 把一个url地址进行解析，把地址中的每一部分按照对象键值对的方式存储起来，第二个参数默认是false，设置为true可以把?传参的部分也解析为键值对的方式<br>Url {<br>  protocol: ‘https:’,  协议<br>  slashes: true, 是否有双斜线<br>  auth: null,<br>  host: ‘<a href="http://www.zhufengpeixun.cn&#39;" target="_blank" rel="noopener">www.zhufengpeixun.cn&#39;</a>, 主机<br>  port: null, 端口<br>  hostname: ‘<a href="http://www.zhufengpeixun.cn&#39;" target="_blank" rel="noopener">www.zhufengpeixun.cn&#39;</a>, 域名<br>  hash: ‘#video’,哈希值<br>  search: ‘?form=qq&amp;lx=stu’, ？传参<br>  query: ‘form=qq&amp;lx=stu’, ?传参不包含?<br>  pathname: ‘/main/guide/index.html’, 请求的资源路径名称<br>  path: ‘/main/guide/index.html?form=qq&amp;lx=stu’,<br>  href:<br>   ‘<a href="https://www.zhufengpeixun.cn/main/guide/index.html?form=qq&amp;lx=stu#video&#39;" target="_blank" rel="noopener">https://www.zhufengpeixun.cn/main/guide/index.html?form=qq&amp;lx=stu#video&#39;</a><br>}</p>
+<p>Url {<br>  protocol: ‘https:’,<br>  slashes: true,<br>  auth: null,<br>  host: ‘<a href="http://www.zhufengpeixun.cn&#39;" target="_blank" rel="noopener">www.zhufengpeixun.cn&#39;</a>,<br>  port: null,<br>  hostname: ‘<a href="http://www.zhufengpeixun.cn&#39;" target="_blank" rel="noopener">www.zhufengpeixun.cn&#39;</a>,<br>  hash: ‘#video’,<br>  search: ‘?form=qq&amp;lx=stu’,<br>  query: [Object: null prototype] { form: ‘qq’, lx: ‘stu’ }, // 区别就是query的值是一个对象<br>  pathname: ‘/main/guide/index.html’,<br>  path: ‘/main/guide/index.html?form=qq&amp;lx=stu’,<br>  href:<br>   ‘<a href="https://www.zhufengpeixun.cn/main/guide/index.html?form=qq&amp;lx=stu#video&#39;" target="_blank" rel="noopener">https://www.zhufengpeixun.cn/main/guide/index.html?form=qq&amp;lx=stu#video&#39;</a> }</p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>let server = http.createServer(); //创建服务<br>server.listen(); //监听端口</p>
+<p>注意：基于NODE创建后台程序，我们一般都创建一个server模块，在模块当中实现创建WEB服务，和对于请求的处理(并且我们一般都会把server模块放在当前项目的根目录下)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">let http = require(&apos;http&apos;);</span><br><span class="line"></span><br><span class="line">// 创建WEB服务</span><br><span class="line">let server = http.createServer();</span><br><span class="line">server.listen(&apos;8989&apos;, ()=&gt;&#123;</span><br><span class="line">    // 服务创建成功，并且端口号已经监听成功后，触发的回调函数</span><br><span class="line">    console.log(&apos;server is successful, listen on 8989&apos;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// listen EACCES 0.0.0.0:8989 这种错误是端口号被占用了，我们需要重新修改端口号</span><br><span class="line"></span><br><span class="line">// 当服务创建成功，命令行中会一直存在光标闪烁，证明服务器正在运行中(一定要保证服务是运行的), 按 ctrl + c 可以结束正在运行的服务</span><br><span class="line">// 客户端如何向服务端发送请求，</span><br><span class="line">//  对应协议、域名、端口号等信息，在浏览器中或者AJAX中发送请求即可</span><br><span class="line">// http://localhost:8686/... 服务在当前电脑上</span><br><span class="line">// http://ip:8989/..IP做域名访问，如果是内网IP，相同局域网下的用户可以访问这个服务，如果是外网IP,所有能联网的都可以访问这个服务， 局域网下访问需要互相关掉防火墙</span><br><span class="line">// 把请求的URL地址中：路径名称&amp;问号传参分别解析出来</span><br></pre></td></tr></table></figure>
+<p>createServer((req, res)=&gt;{<br>    req: request 请求对象，包含了客户端请求的信息<br>        req.url 存储的是请求资源的路径地址及问号传参（没有哈希值）<br>        req.method 客户端请求方式<br>        req.headers 客户端的请求头信息，是一个对象<br>    res: response 相应对象，包含了一些属性和方法，可以让服务器端返回给客户端的内容<br>        res.write() 基于这个方法，服务器端可以向客户端返回内容<br>        res.end 结束响应<br>        res.writeHead 重写响应头信息<br>        。。。<br>})</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>),</span><br><span class="line">url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">let</span> count=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> handle = <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> server = http.createServer(handle);</span><br><span class="line">server.listen(<span class="string">'8989'</span>, ()=&gt;&#123;</span><br><span class="line">    <span class="comment">// 服务创建成功，并且端口号已经监听成功后，触发的回调函数</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server is successful, listen on 8989'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="创建静态资源服务器"><a href="#创建静态资源服务器" class="headerlink" title="创建静态资源服务器"></a>创建静态资源服务器</h2><p>服务器上有一堆代码，这对项目代码中即可能有服务器端的程序代码，也可能有客户端的程序代码，而客户端的程序代码我们一般都放到static这个目录下<br>static<br>    都是服务器端需要返回给客户端，由客户端浏览器渲染和解析的(前端项目：包括页面、CSS、JS、图片等)<br>server.js<br>    都是需要在服务器端基于NODE执行的(后端项目，一般只有JS)</p>
 
       
     </div>
@@ -724,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE介绍"><span class="nav-number">1.</span> <span class="nav-text">NODE介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM的应用"><span class="nav-number">2.</span> <span class="nav-text">NPM的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE入门"><span class="nav-number">3.</span> <span class="nav-text">NODE入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置模块"><span class="nav-number">4.</span> <span class="nav-text">内置模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FS"><span class="nav-number">4.1.</span> <span class="nav-text">FS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PATH"><span class="nav-number">4.2.</span> <span class="nav-text">PATH</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE介绍"><span class="nav-number">1.</span> <span class="nav-text">NODE介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM的应用"><span class="nav-number">2.</span> <span class="nav-text">NPM的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NODE入门"><span class="nav-number">3.</span> <span class="nav-text">NODE入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置模块"><span class="nav-number">4.</span> <span class="nav-text">内置模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FS"><span class="nav-number">4.1.</span> <span class="nav-text">FS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PATH"><span class="nav-number">4.2.</span> <span class="nav-text">PATH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL"><span class="nav-number">4.3.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">4.4.</span> <span class="nav-text">HTTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建静态资源服务器"><span class="nav-number">5.</span> <span class="nav-text">创建静态资源服务器</span></a></li></ol></div>
             
 
           </div>
@@ -764,7 +772,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">86.6k</span>
+    <span title="站点字数总计">87.5k</span>
   
 </div>
 
