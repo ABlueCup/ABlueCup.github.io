@@ -107,18 +107,18 @@
 
 
 
-<meta name="description" content="map作用：生成一个新的数组参数：currentValue[,index[,array]]返回值：新的数组原有数组不改变1234567var new_array = arr.map(function callback(currentValue[, index[, array]]) &amp;#123; // Return element for new_array &amp;#125;[, thisArg])le">
+<meta name="description" content="本篇补充了一些数组方法的介绍">
 <meta name="keywords" content="前端，积步堂，学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数组方法">
 <meta property="og:url" content="https://abluecup.github.io/2020/05/09/数组方法/index.html">
 <meta property="og:site_name" content="积步堂">
-<meta property="og:description" content="map作用：生成一个新的数组参数：currentValue[,index[,array]]返回值：新的数组原有数组不改变1234567var new_array = arr.map(function callback(currentValue[, index[, array]]) &amp;#123; // Return element for new_array &amp;#125;[, thisArg])le">
+<meta property="og:description" content="本篇补充了一些数组方法的介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-09T09:54:12.394Z">
+<meta property="og:updated_time" content="2020-05-11T02:33:38.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组方法">
-<meta name="twitter:description" content="map作用：生成一个新的数组参数：currentValue[,index[,array]]返回值：新的数组原有数组不改变1234567var new_array = arr.map(function callback(currentValue[, index[, array]]) &amp;#123; // Return element for new_array &amp;#125;[, thisArg])le">
+<meta name="twitter:description" content="本篇补充了一些数组方法的介绍">
 
 
 
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  642
+                  953
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -473,7 +473,8 @@
       
 
       
-        <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>作用：生成一个新的数组<br>参数：currentValue[,index[,array]]<br>返回值：新的数组<br>原有数组不改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var new_array = arr.map(function callback(currentValue[, index[, array]]) &#123;</span><br><span class="line"> // Return element for new_array </span><br><span class="line">&#125;[, thisArg])</span><br><span class="line"></span><br><span class="line">let _arr = arr.map(function(x,y,z)&#123;</span><br><span class="line">    return x = x * 2;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+        <p>本篇补充了一些数组方法的介绍<br><a id="more"></a></p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>作用：生成一个新的数组<br>参数：currentValue[,index[,array]]<br>返回值：新的数组<br>原有数组不改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var new_array = arr.map(function callback(currentValue[, index[, array]]) &#123;</span><br><span class="line"> // Return element for new_array </span><br><span class="line">&#125;[, thisArg])</span><br><span class="line"></span><br><span class="line">let _arr = arr.map(function(x,y,z)&#123;</span><br><span class="line">    return x = x * 2;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>作用：遍历数组，当数组中的当前值满足筛选条件的时候，返回给新数组<br>参数：element[,index[,array]]<br>返回值：新的数组<br>原有数组不改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newArray = arr.filter(callback(element[, index[, array]])[, thisArg])</span><br><span class="line">let _arr = arr.filter((ele, index, array) =&gt; &#123;</span><br><span class="line">            return ele &gt; 2 //返回的必须是布尔值，true时，当前值返回给新数组</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>作用：遍历数组，当数组中的当前值满足筛选条件的时候，返回当前值<br>参数：element[,index[,array]]<br>返回值：满足条件的项<br>原有数组不改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const array1 = [5, 12, 8, 130, 44];</span><br><span class="line">const found = array1.find(element =&gt; element &gt; 10);</span><br><span class="line">console.log(found);</span><br><span class="line">// expected output: 12</span><br></pre></td></tr></table></figure></p>
 <h3 id="every"><a href="#every" class="headerlink" title="every"></a>every</h3><p>作用：测试一个数组内的所有元素是否都能通过某个指定函数的测试。<br>参数：element[,index[,array]]<br>返回值：布尔值<br>原有数组不改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">arr.every(callback[, thisArg])</span><br><span class="line"></span><br><span class="line">const isBelowThreshold = (currentValue) =&gt; currentValue &lt; 40;</span><br><span class="line">const array1 = [1, 30, 39, 29, 10, 41];</span><br><span class="line">console.log(array1.every(isBelowThreshold));</span><br><span class="line">// expected output: false</span><br></pre></td></tr></table></figure></p>
@@ -481,6 +482,9 @@
 <h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>作用：对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。<br>参数：element[,index[,array]]<br>返回值：单个返回值<br>原有数组不改变<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])</span><br><span class="line">// accumulator 累计器累计回调的返回值; 它是上一次调用回调时返回的累积值，或initialValue</span><br><span class="line">// currentValue 数组中正在处理的元素。</span><br><span class="line">// initialValue 设置累积值的初始值</span><br><span class="line"></span><br><span class="line">let arr = [1, 2, 3, 4];</span><br><span class="line">        let total = arr.reduce((result, curval)=&gt;&#123;</span><br><span class="line">            result += curval;</span><br><span class="line">            return result;</span><br><span class="line">        &#125;,10);</span><br><span class="line">console.log(total); //20</span><br></pre></td></tr></table></figure></p>
 <h3 id="fill"><a href="#fill" class="headerlink" title="fill"></a>fill</h3><p>作用：用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。<br>参数：element[,index[,array]]<br>返回值：新数组<br>原有数组改变<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr.fill(value[, start[, end]])</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line">        arr.fill(<span class="string">'值'</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(arr); <span class="comment">// [1, 2, "值", 4]</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h3><p>作用：数组是否包含某个值<br>参数：特定值<br>返回值：布尔值<br>原有数组不改变</p>
+<h3 id="isArray"><a href="#isArray" class="headerlink" title="isArray"></a>isArray</h3><p>作用：是否是数组<br>参数：某个值<br>返回值：布尔值<br>原有数组不改变</p>
+<h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of();"></a>Array.of();</h3><p>作用：方法创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。<br>参数：某个或者某些值<br>返回值：新数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Array.of(7);       // [7] </span><br><span class="line">Array.of(1, 2, 3); // [1, 2, 3]</span><br><span class="line"></span><br><span class="line">Array(7) //// [ , , , , , , ] 创建长度为7的数组，元素为空，而不是undefined</span><br><span class="line">Array(1, 2, 3);    // [1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+<h3 id="flat"><a href="#flat" class="headerlink" title="flat"></a>flat</h3><p>IE不支持<br>作用：会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。<br>参数：某个值<br>返回值：新的数组<br>原有数组不改变<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = arr.flat([depth])</span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]];</span><br><span class="line">arr1.flat(); </span><br><span class="line"><span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]];</span><br><span class="line">arr2.flat();</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, [5, 6]]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]];</span><br><span class="line">arr3.flat(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 Infinity，可展开任意深度的嵌套数组</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>, [<span class="number">9</span>, <span class="number">10</span>]]]]];</span><br><span class="line">arr4.flat(<span class="literal">Infinity</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br><span class="line"></span><br><span class="line">flat会移除空元素</span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, , <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr4.flat();</span><br><span class="line"><span class="comment">// [1, 2, 4, 5]</span></span><br><span class="line"></span><br><span class="line">[].contact(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">// [1,2],</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -607,7 +611,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -685,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find"><span class="nav-number">3.</span> <span class="nav-text">find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#every"><span class="nav-number">4.</span> <span class="nav-text">every</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some"><span class="nav-number">5.</span> <span class="nav-text">some</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce"><span class="nav-number">6.</span> <span class="nav-text">reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fill"><span class="nav-number">7.</span> <span class="nav-text">fill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#includes"><span class="nav-number">8.</span> <span class="nav-text">includes</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find"><span class="nav-number">3.</span> <span class="nav-text">find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#every"><span class="nav-number">4.</span> <span class="nav-text">every</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some"><span class="nav-number">5.</span> <span class="nav-text">some</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce"><span class="nav-number">6.</span> <span class="nav-text">reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fill"><span class="nav-number">7.</span> <span class="nav-text">fill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#includes"><span class="nav-number">8.</span> <span class="nav-text">includes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isArray"><span class="nav-number">9.</span> <span class="nav-text">isArray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-of"><span class="nav-number">10.</span> <span class="nav-text">Array.of();</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flat"><span class="nav-number">11.</span> <span class="nav-text">flat</span></a></li></ol></div>
             
 
           </div>
@@ -725,7 +729,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">89.3k</span>
+    <span title="站点字数总计">91.8k</span>
   
 </div>
 
