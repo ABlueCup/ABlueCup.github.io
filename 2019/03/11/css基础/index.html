@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="本篇是对CSS基础知识的阐述。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-11T09:29:21.117Z">
+<meta property="og:updated_time" content="2020-05-15T09:44:18.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css基础">
 <meta name="twitter:description" content="本篇是对CSS基础知识的阐述。">
@@ -271,7 +271,7 @@
       
         
         <li class="menu-item menu-item-公益">
-          <a href="https://www.qq.com/404/" rel="section">
+          <a href="/about/404.html" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
             
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  675
+                  968
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -480,7 +480,10 @@
 <h4 id="标签语义化"><a href="#标签语义化" class="headerlink" title="标签语义化"></a>标签语义化</h4><p>1，有利于SEO优化<br>2，样式丢失的时候，也可以很好的呈现结构<br>3，更好的支持各种终端，例如无障碍阅读和有声小说<br>4，增强代码可读性，利于团队开发和维护</p>
 <p>技巧<br>1，尽量减少无意义标签的使用 div, span<br>2, 尽量不使用标签本身的css属性，例如b, s等标签，如果需要，那么使用css样式进行添加<br>3，在需要强调的部分，使用strong,em， 但是样式尽量用css样式描述<br>4，表格搭建时，使用<thead>表格头部</thead><tbody>表格内容</tbody><tfoot>表格尾部</tfoot><br>5，列表搭建时，使用ul ol dl列表</p>
 <h4 id="css引入方式-外链式和导入式的区别"><a href="#css引入方式-外链式和导入式的区别" class="headerlink" title="css引入方式-外链式和导入式的区别"></a>css引入方式-外链式和导入式的区别</h4><p>1，link是html标签，@import完全是css提供的方式，要卸载css文件或者style标签中<br>2，加载顺序不同，页面加载的时候，link引入的css文件会同时加载，而@import导入的文件则需要在页面加载完成后再加载<br>3，使用js控制DOM去改变css样式的时候，只能使用link标签，因为import不受DOM控制<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">'index.css'</span>;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="css常用命名"><a href="#css常用命名" class="headerlink" title="css常用命名"></a>css常用命名</h4><p>头： header<br>内容： content | container<br>尾部： footer<br>导航： nav<br>侧栏： sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中： left right center<br>登录条； loginbar<br>标志： logo<br>广告： banner<br>页面主体： main<br>热点：hot<br>新闻：news<br>下载：download<br>子导航： subnav<br>菜单： menu<br>子菜单： submenu<br>搜索：search<br>友情链接： friendlink<br>版权： copyright<br>投票：vote<br>合作伙伴 partner</p>
+<h4 id="css常用命名"><a href="#css常用命名" class="headerlink" title="css常用命名"></a>css常用命名</h4><p>头： header<br>内容： content | container<br>尾部： footer<br>导航： nav<br>侧栏： sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中： left right center<br>登录条； loginbar<br>标志： logo<br>广告： banner<br>页面主体： main<br>热点：hot<br>新闻：news<br>下载：download<br>子导航： subnav<br>菜单： menu<br>子菜单： submenu<br>搜索：search<br>友情链接： friendlink<br>版权： copyright<br>投票：vote<br>合作伙伴 partner<br>滚动：scroll<br>内容：content<br>标签页：tab<br>文章列表: list<br>提示信息: msg<br>小技巧： tips<br>栏目标题：title<br>加入： joinUs<br>指南：guild<br>服务：service<br>注册: register<br>状态：status</p>
+<h4 id="css伪类"><a href="#css伪类" class="headerlink" title="css伪类"></a>css伪类</h4><p>a:link 没有访问之前a的样式，一般不用<br>a:visited<br>a:hover<br>a:active<br>input:focus</p>
+<p>css3新增的选择器：<br>:not()<br>:nth-of-type(1) 集合中第一个元素<br>:first-of-type<br>:last-of-type<br>:nth-child(n) n表示数字，odd/2n+1表示奇数，even/2n表示偶数 ,第几个子元素<br>:first-child 第一个子元素<br>:last-child 最后一个子元素<br>:only-child 匹配没有任何兄弟元素的元素.等效的选择器还可以写成 :first-child:last-child或者:nth-child(1):nth-last-child(1)<br>:only-of-type 没有兄弟元素的元素<br>:empty 内容为空的元素<br>:checked 被选中</p>
+<h4 id="css元素"><a href="#css元素" class="headerlink" title="css元素"></a>css元素</h4><p>p:first-line 第一行<br>p:last-line 最后一行<br>p:first-letter 第一个字母/数字/汉字<br>:before{   元素之前添加内容<br>    content:’’ // 不能省略，即使没有内容<br>}<br>:after{   元素之后添加内容<br>    content:’’ // 不能省略，即使没有内容<br>}<br>只要碰到:before, :after 就要加content:’’,只要宽度不起作用，就要设置display:block|inline-block;</p>
 
       
     </div>
@@ -689,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#行内元素和块级元素的特点"><span class="nav-number">1.</span> <span class="nav-text">行内元素和块级元素的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签语义化"><span class="nav-number">2.</span> <span class="nav-text">标签语义化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css引入方式-外链式和导入式的区别"><span class="nav-number">3.</span> <span class="nav-text">css引入方式-外链式和导入式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css常用命名"><span class="nav-number">4.</span> <span class="nav-text">css常用命名</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#行内元素和块级元素的特点"><span class="nav-number">1.</span> <span class="nav-text">行内元素和块级元素的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签语义化"><span class="nav-number">2.</span> <span class="nav-text">标签语义化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css引入方式-外链式和导入式的区别"><span class="nav-number">3.</span> <span class="nav-text">css引入方式-外链式和导入式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css常用命名"><span class="nav-number">4.</span> <span class="nav-text">css常用命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css伪类"><span class="nav-number">5.</span> <span class="nav-text">css伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css元素"><span class="nav-number">6.</span> <span class="nav-text">css元素</span></a></li></ol></div>
             
 
           </div>
@@ -729,7 +732,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">93.1k</span>
+    <span title="站点字数总计">94.6k</span>
   
 </div>
 
