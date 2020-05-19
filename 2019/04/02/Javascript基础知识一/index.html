@@ -115,17 +115,18 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Javascript.jpg">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Picture1.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Picture2.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Picture3.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Picture4.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Picture5.png">
 <meta property="og:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/20190704175957.png">
-<meta property="og:updated_time" content="2020-05-09T09:27:18.873Z">
+<meta property="og:updated_time" content="2020-05-19T09:25:30.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript基础知识一">
 <meta name="twitter:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
-<meta name="twitter:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Picture1.png">
+<meta name="twitter:image" content="https://abluecup.github.io/2019/04/02/Javascript基础知识一/Javascript.jpg">
 
 
 
@@ -480,7 +481,7 @@
       
 
       
-        <p>JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。<br><a id="more"></a></p>
+        <p>JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。<br><a id="more"></a><br><img src="/2019/04/02/Javascript基础知识一/Javascript.jpg" alt="文章结构图示"></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>javascript是轻量级的客户端脚本编程语言。</p>
 <ol>
 <li>编程语言<br>编程语言是具备一定逻辑的，拥有自己的编程思想（面向对象编程[oop]、 面向过程编程）（HTML + CSS是标记语言）<ul>
@@ -578,7 +579,7 @@
 <li>console.table: 把一个JSON数据按照表格的方式输出<br>.. (更多的console输出方法)</li>
 </ul>
 <hr>
-<h3 id="数据类型的详细剖析"><a href="#数据类型的详细剖析" class="headerlink" title="数据类型的详细剖析"></a>数据类型的详细剖析</h3><h4 id="number数字类型"><a href="#number数字类型" class="headerlink" title="number数字类型"></a>number数字类型</h4><p>NaN： not a number， 但它是数字类型<br>isNaN: 检测当前值是否不是有效数字，返回true 代表不是有效数字，返回false代表是有效数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">isNaN([value])</span><br><span class="line">isNaN(&apos;13&apos;) =&gt; false</span><br><span class="line">isNaN(&apos;AA&apos;) =&gt; true</span><br><span class="line">isNaN(true) =&gt; false</span><br><span class="line">isNaN(false) =&gt; false</span><br><span class="line">isNaN(null) =&gt; false</span><br><span class="line">isNaN(undefined) =&gt; true</span><br><span class="line">isNaN(&#123;age:9&#125;) =&gt; true</span><br><span class="line">isNaN([12,23]) =&gt; true</span><br><span class="line">isNaN([12]) =&gt; false</span><br><span class="line">isNaN(/DS/) =&gt; true</span><br><span class="line">isNaN(function()&#123;&#125;) =&gt; true</span><br><span class="line"></span><br><span class="line">重要： isNaN检测的机制</span><br><span class="line">1、首先验证当前要检测的值是否为数字类型的值，如果不是，浏览器会默认的把值转换为数字类型；</span><br><span class="line">    把非数字类型转化为数字</span><br><span class="line">    -其他基本类型转换为数字： 直接使用Number这个方法；</span><br><span class="line">    </span><br><span class="line">        [字符串转化为数字] 如果当前字符串中出现任意一个非有效数字字符，结果为NaN</span><br><span class="line">            Number(&apos;13&apos;) =&gt; 13 </span><br><span class="line">            Number(&apos;13a&apos;) =&gt; NaN</span><br><span class="line">            Number(&apos;13.5&apos;) =&gt; 13.5 可以识别小数点</span><br><span class="line">        [布尔转数字]</span><br><span class="line">            Number(true) =&gt; 1</span><br><span class="line">            Number(false) =&gt; 0</span><br><span class="line">        [其他]</span><br><span class="line">            Number(null) =&gt; 0</span><br><span class="line">            Number(undefined) =&gt; NaN</span><br><span class="line">    - 把引用数据类型值转换为数字： 先把引用值调取toString转化为字符串，然后把字符串调取Number转化为数字</span><br><span class="line">    Number(&apos;&apos;) =&gt; 0</span><br><span class="line">    ([]).toString =&gt; &apos;&apos;;</span><br><span class="line">    isNaN([]) =&gt; false</span><br><span class="line">        </span><br><span class="line">2、当前检测的值已经是数字类型，是有效数字返回false,不是返回true  (数字类型中只有NaN不是有效数字，其余都是有效数字)</span><br></pre></td></tr></table></figure></p>
+<h3 id="数据类型的详细剖析"><a href="#数据类型的详细剖析" class="headerlink" title="数据类型的详细剖析"></a>数据类型的详细剖析</h3><h4 id="number数字类型"><a href="#number数字类型" class="headerlink" title="number数字类型"></a>number数字类型</h4><p>NaN： not a number， 但它是数字类型<br>isNaN: 检测当前值是否不是有效数字，返回true 代表不是有效数字，返回false代表是有效数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">isNaN([value])</span><br><span class="line">isNaN(&apos;13&apos;) =&gt; false</span><br><span class="line">isNaN(&apos;AA&apos;) =&gt; true</span><br><span class="line">isNaN(true) =&gt; false</span><br><span class="line">isNaN(false) =&gt; false</span><br><span class="line">isNaN(null) =&gt; false</span><br><span class="line">isNaN(undefined) =&gt; true</span><br><span class="line">isNaN(&#123;age:9&#125;) =&gt; true</span><br><span class="line">isNaN([12,23]) =&gt; true</span><br><span class="line">isNaN([12]) =&gt; false</span><br><span class="line">isNaN(/DS/) =&gt; true</span><br><span class="line">isNaN(function()&#123;&#125;) =&gt; true</span><br><span class="line"></span><br><span class="line">重要： isNaN检测的机制</span><br><span class="line">1、首先验证当前要检测的值是否为数字类型的值，如果不是，浏览器会默认的把值转换为数字类型；</span><br><span class="line">    把非数字类型转化为数字</span><br><span class="line">    -其他基本类型转换为数字： 直接使用Number这个方法；</span><br><span class="line">    </span><br><span class="line">        [字符串转化为数字] 如果当前字符串中出现任意一个非有效数字字符，结果为NaN</span><br><span class="line">            Number(&apos;13&apos;) =&gt; 13 </span><br><span class="line">            Number(&apos;13a&apos;) =&gt; NaN</span><br><span class="line">            Number(&apos;13.5&apos;) =&gt; 13.5 可以识别小数点</span><br><span class="line">        [布尔转数字]</span><br><span class="line">            Number(true) =&gt; 1</span><br><span class="line">            Number(false) =&gt; 0</span><br><span class="line">        [其他]</span><br><span class="line">            Number(null) =&gt; 0</span><br><span class="line">            Number(undefined) =&gt; NaN</span><br><span class="line">    - 把引用数据类型值转换为数字： 先把引用值调取toString转化为字符串，然后把字符串调取Number转化为数字</span><br><span class="line">    Number(&apos;&apos;) =&gt; 0</span><br><span class="line">    ([]).toString =&gt; &apos;&apos;;</span><br><span class="line">    isNaN([]) =&gt; false</span><br><span class="line">        </span><br><span class="line">2、当前检测的值已经是数字类型，是有效数字返回false,不是返回true  (数字类型中只有NaN不是有效数字，其余都是有效数字)</span><br><span class="line"></span><br><span class="line">其他类型转换为数字类型为0的是： null [] &apos;&apos; false, &apos;         &apos;,</span><br></pre></td></tr></table></figure></p>
 <ol start="2">
 <li>parseInt parseFloat<blockquote>
 <p>等同于Number,也是为了把其他值转化为数字类型<br>和Number的区别在于字符串转换分析上<br>Number出现任意非有效字符，即为NaN<br>parseInt: 把一个字符串中的整数部分解析出来<br>parseFloat: 把一个字符串中的小数（浮点数）解析出来</p>
@@ -634,7 +635,7 @@
 <h4 id="数组对象（对象由键值对组成）"><a href="#数组对象（对象由键值对组成）" class="headerlink" title="数组对象（对象由键值对组成）"></a>数组对象（对象由键值对组成）</h4><p>var oo = {a:12}<br>var ary=[12,23];//=&gt; 12,23都是属性值，属性名呢？<br>通过观察结果：数组对象的属性名是数字，我们把数字属性名成为当前对象的索引。<br>ary[0], ary[‘0’]</p>
 <p>数组和对象的关系： 数组是一种特殊的对象，属性名是数字</p>
 <hr>
-<h4 id="浅分析js的运行机制"><a href="#浅分析js的运行机制" class="headerlink" title="浅分析js的运行机制"></a>浅分析js的运行机制</h4><p>1、当浏览器(他的内核/引擎)解析和渲染JS的时候，会提供一个供JS代码运行的环境，我们把这个环境称为全局作用域(global scope);<br>2、代码自上而下执行（之前还有一个变量提升阶段）<br>    =&gt;基本数据类型的值会存储在当前作用域下<br>    var a =12; 有三步操作<br>    1）在当前环境下开辟一个空间存储12；<br>    2）声明一个变量名 a;<br>    3) 把声明的变量和值关联起来，赋值操作叫做定义<br>    var b=a; 基本数据类型值也叫值类型，是按照值来操作的：把原有的值复制一份放到新的空间或位置上，和原来的值没有关系.<br>    1) 在当前环境下开辟一个空间存储12；<br>    2） 声明变量 b<br>    3) b 和 12 关联； a 和 b 没有关系；<br>    b =23<br>    1) 开辟空间存储13;<br>    2) b和13关联<br>    变量和基本类型数据是一一对应关系；<br>    =&gt; 引用数据类型的值不能存储在当前的作用域下，因为可能存储的内容过于复杂，我们需要先开辟一个新的空间，把内容存储到这个空间中<br>    1）开辟一个新的空间，把对象中的键值对依次存储起来（为了保证后面可以找到这个空间，此空间有一个16进制的地址）<br>    2）声明一个变量<br>    3）让变量和空间地址关联在一起（把空间的地址赋值给变量）<br>    引用类型不是按值操作，是按照引用的地址操作：把原来空间的地址赋值给新的变量，但是原来的空间没有被克隆。这样就会出现多个变量关联的是同一个空间，相互之间就会存在影响。</p>
+<h4 id="浅分析js的运行机制"><a href="#浅分析js的运行机制" class="headerlink" title="浅分析js的运行机制"></a>浅分析js的运行机制</h4><p>1、当浏览器(他的内核/引擎)解析和渲染JS的时候，会提供一个供JS代码运行的环境，我们把这个环境称为全局作用域(global scope);<br>2、代码自上而下执行（之前还有一个变量提升阶段）<br>    =&gt;基本数据类型的值会存储在当前作用域下<br>    var a =12; 有三步操作<br>    1）在当前环境下开辟一个空间存储12；<br>    2）声明一个变量名 a;<br>    3) 把声明的变量和值关联起来，赋值操作叫做定义<br>    var b=a; 基本数据类型值也叫值类型，是按照值来操作的：把原有的值复制一份放到新的空间或位置上，和原来的值没有关系.<br>    1) 在当前环境下开辟一个空间存储12；<br>    2） 声明变量 b<br>    3) b 和 12 关联； a 和 b 没有关系；<br>    b =13<br>    1) 开辟空间存储13;<br>    2) b和13关联<br>    变量和基本类型数据是一一对应关系；<br>    =&gt; 引用数据类型的值不能存储在当前的作用域下，因为可能存储的内容过于复杂，我们需要先开辟一个新的空间，把内容存储到这个空间中<br>    1）开辟一个新的空间，把对象中的键值对依次存储起来（为了保证后面可以找到这个空间，此空间有一个16进制的地址）<br>    2）声明一个变量<br>    3）让变量和空间地址关联在一起（把空间的地址赋值给变量）<br>    引用类型不是按值操作，是按照引用的地址操作：把原来空间的地址赋值给新的变量，但是原来的空间没有被克隆。这样就会出现多个变量关联的是同一个空间，相互之间就会存在影响。</p>
 <hr>
 <p>作用域叫栈内存，存储引用类型数据值的叫堆内存<br>栈内存：本身就是供JS代码执行的环境，所有的基本类型值都会直接在栈内存中开辟一个位置；<br>堆内存：独立于栈内存的内存，存储引用类型中的数据值；对象存储的键值对，函数存储的是代码字符串</p>
 <hr>
@@ -1047,7 +1048,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1069,7 +1070,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1165,7 +1166,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">94.6k</span>
+    <span title="站点字数总计">96.3k</span>
   
 </div>
 

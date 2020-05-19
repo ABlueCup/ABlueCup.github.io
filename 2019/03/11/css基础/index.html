@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="本篇是对CSS基础知识的阐述。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-15T09:44:18.668Z">
+<meta property="og:updated_time" content="2020-05-18T07:11:49.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css基础">
 <meta name="twitter:description" content="本篇是对CSS基础知识的阐述。">
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  968
+                  2.3k
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  8
                 </span>
               
             </div>
@@ -484,6 +484,34 @@
 <h4 id="css伪类"><a href="#css伪类" class="headerlink" title="css伪类"></a>css伪类</h4><p>a:link 没有访问之前a的样式，一般不用<br>a:visited<br>a:hover<br>a:active<br>input:focus</p>
 <p>css3新增的选择器：<br>:not()<br>:nth-of-type(1) 集合中第一个元素<br>:first-of-type<br>:last-of-type<br>:nth-child(n) n表示数字，odd/2n+1表示奇数，even/2n表示偶数 ,第几个子元素<br>:first-child 第一个子元素<br>:last-child 最后一个子元素<br>:only-child 匹配没有任何兄弟元素的元素.等效的选择器还可以写成 :first-child:last-child或者:nth-child(1):nth-last-child(1)<br>:only-of-type 没有兄弟元素的元素<br>:empty 内容为空的元素<br>:checked 被选中</p>
 <h4 id="css元素"><a href="#css元素" class="headerlink" title="css元素"></a>css元素</h4><p>p:first-line 第一行<br>p:last-line 最后一行<br>p:first-letter 第一个字母/数字/汉字<br>:before{   元素之前添加内容<br>    content:’’ // 不能省略，即使没有内容<br>}<br>:after{   元素之后添加内容<br>    content:’’ // 不能省略，即使没有内容<br>}<br>只要碰到:before, :after 就要加content:’’,只要宽度不起作用，就要设置display:block|inline-block;</p>
+<h4 id="权重和权重计算"><a href="#权重和权重计算" class="headerlink" title="权重和权重计算"></a>权重和权重计算</h4><p>【基本选择器】<br>标签选择器  1<br>类选择器    10<br>id选择器    100<br>通配符选择器*   0-1</p>
+<p>后代<br>子代<br>交集<br>并集<br>相邻兄弟<br>兄弟<br>                =&gt; 权重：每个单独的基本选择器的相加之和</p>
+<p>属性<br>伪类<br>伪元素</p>
+<p>权重相同的情况下：遵循就近原则，下面的会覆盖上面的<br>权重相同的情况下，不遵循就近原则，就想遵循上面的样式，加!important;</p>
+<h4 id="css中可继承和不可继承的属性"><a href="#css中可继承和不可继承的属性" class="headerlink" title="css中可继承和不可继承的属性"></a>css中可继承和不可继承的属性</h4><p>无继承的属性<br>1, diplay<br>2, 文本属性<br>vertical-align<br>text-decoration<br>text-shadow<br>white-space<br>unicode-bidi<br>…</p>
+<p>3盒子模型属性<br>width,height,margin,padding,border…</p>
+<p>4,背景属性<br>background,background-color…</p>
+<p>5，浮动</p>
+<p>6，定位类</p>
+<p>可继承属性<br>1，字体系列属性<br>font,font-size,color,font-weight,…<br>2, 文本系列属性<br>text-align<br>line-height<br>word-spacing<br>text-indent</p>
+<h4 id="margin的兼容和传递"><a href="#margin的兼容和传递" class="headerlink" title="margin的兼容和传递"></a>margin的兼容和传递</h4><p>margin的兼容问题：margin-top的传递问题<br>大盒子里面嵌套小盒子，给小盒子加margin-top值，不但没有实现和大盒子之间的间距，反而传递到大盒子上，导致机体下移。<br>解决方法<br>1，父元素overflow:hidden; 不是溢出隐藏，是为了解决margin-top的传递问题<br>2，父元素padding-top: 20px; 这种方法会影响最后实际的宽高，需要在width/height的基础上减掉，才不会影响实际的宽高。<br>3，父元素添加边框 border: 颜色最好使用通明， transparent</p>
+<h4 id="overflow-hidden的多种作用"><a href="#overflow-hidden的多种作用" class="headerlink" title="overflow:hidden的多种作用"></a>overflow:hidden的多种作用</h4><p>1，溢出隐藏<br>2，清除子元素浮动对父元素产生的影响<br>3，解决子元素margin-top的传递问题</p>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><p>多个元素在一行显示<br>1，display: inline | inline-block.<br>    inline-block 中间会有空格, 给父元素添加 font-size:0;的属性，此时子元素的字体继承了父元素的font-size属性，需要重新设置 (推荐使用)<br>    display:inline-block;在IE(6-7)中不兼容： <em>dispaly:inline;(css hack) </em>zoom:1;(触发layout)<br>2，利用浮动<br>，需要清浮动</p>
+<p>单行文本出现省略号<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*设置一定的宽度*/</span></span><br><span class="line">    <span class="attribute">overflow</span>:hidden;  <span class="comment">/*溢出隐藏*/</span></span><br><span class="line">    <span class="attribute">white-space</span>:nowrap; <span class="comment">/*强制不换行*/</span></span><br><span class="line">    <span class="attribute">text-overflow</span>:ellipsis; <span class="comment">/*文字以省略号的样式隐藏*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>多行文本出现省略号<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attribute">display</span>:-webkit-box; <span class="comment">/*弹性盒子模型*/</span></span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>:vertical; <span class="comment">/*规定元素的排列方式：垂直方向*/</span></span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>:<span class="number">2</span>; <span class="comment">/*文字的行数*/</span></span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4><p>浮动元素的特点<br>1，在一行显示<br>2，设置left,从左向右排列；right,从右向左浮动<br>3，脱离文档流，导致下面没有浮动的元素会往上跑，占领浮动元素的位置<br>4，父元素浮动，子元素会跟随父元素的浮动来到新的位置，但是子元素不会继承浮动属性，子元素之间的排列不会发生变化；如果也让子元素在一行显示，那就给子元素也加上浮动。<br>5，浮动元素自动具有块元素的特点，可以设置行高.不管浮动元素是块元素还是行内元素<br>6，所有元素都可以使用浮动属性，浮动元素下面的元素无法识别浮动元素的位置和高度。</p>
+<h4 id="文档流和脱离文档流"><a href="#文档流和脱离文档流" class="headerlink" title="文档流和脱离文档流"></a>文档流和脱离文档流</h4><p>文档流：指的是元素的排列方式，正常情况下，从左往右，从上往下排。</p>
+<p>行内元素和块级元素的特点</p>
+<p>需求：多个块级元素在一行显示 </p>
+<p>脱离文档流：元素的正常排列方式会被打破<br>1，float<br>2, 定位</p>
+<h4 id="浮动产生的影响"><a href="#浮动产生的影响" class="headerlink" title="浮动产生的影响"></a>浮动产生的影响</h4><p>1，给父元素设置背景颜色不起作用；<br>2，给父元素设置边框border属性没有被撑开；<br>3，给父元素设置内边距padding属性也没有被撑开</p>
+<p>clear:left; 元素的左边不允许有浮动元素；<br>clear:right; 元素的右边不允许有浮动元素；<br>clear:both; 元素的两边不允许有浮动元素；<br>clear:none; 元素两边允许有浮动元素</p>
+<p>清除浮动的方法</p>
+<p>1, 给父元素手动添加一个height;(不推荐使用)<br>2, 给父元素设置 overflow:hidden|auto;<br>3, 在浮动元素结束标签之前加一个具有块元素特点的标签，给元素添加一个 clear:both; <code>&lt;span style=&quot;display:block;clear:both;&quot;&gt;&lt;/span&gt;</code><br>4, clearfix<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">''</span>;</span><br><span class="line">    <span class="attribute">display</span>:block;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 可以省略的属性 */</span></span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">    <span class="attribute">visibility</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clear</span>&#123;</span><br><span class="line">    *zoom:1; /*兼容IE7及以下*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>overflow:hidden, visibility:hidden, display:none之间的区别</p>
+<p>overflow:hidden 是超出盒子的内容隐藏；<br>display:none; 盒子完全从页面中消失，不在占据文档流；<br>visibility:hidden; 盒子隐藏，但是所占的大小依然还在<br>opacity:0; 不透明度为0</p>
+<p>:before, :after都是行内元素</p>
+<h4 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h4><p>1，默认是书写顺序在后的元素覆盖书写在前的元素；<br>2，可以使用z-index属性修改层级关系；<br>3，所有定位元素的默认值都是一样的；<br>4，没有单位，支持负数；<br>5，一般都是同级元素进行比较<br>6， 当参照物是绝对或者相对定位的时候，父级元素之间没有z-index值，子元素的z-index值会出来做比较；</p>
 
       
     </div>
@@ -614,7 +642,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +664,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -692,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#行内元素和块级元素的特点"><span class="nav-number">1.</span> <span class="nav-text">行内元素和块级元素的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签语义化"><span class="nav-number">2.</span> <span class="nav-text">标签语义化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css引入方式-外链式和导入式的区别"><span class="nav-number">3.</span> <span class="nav-text">css引入方式-外链式和导入式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css常用命名"><span class="nav-number">4.</span> <span class="nav-text">css常用命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css伪类"><span class="nav-number">5.</span> <span class="nav-text">css伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css元素"><span class="nav-number">6.</span> <span class="nav-text">css元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#行内元素和块级元素的特点"><span class="nav-number">1.</span> <span class="nav-text">行内元素和块级元素的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签语义化"><span class="nav-number">2.</span> <span class="nav-text">标签语义化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css引入方式-外链式和导入式的区别"><span class="nav-number">3.</span> <span class="nav-text">css引入方式-外链式和导入式的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css常用命名"><span class="nav-number">4.</span> <span class="nav-text">css常用命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css伪类"><span class="nav-number">5.</span> <span class="nav-text">css伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css元素"><span class="nav-number">6.</span> <span class="nav-text">css元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权重和权重计算"><span class="nav-number">7.</span> <span class="nav-text">权重和权重计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css中可继承和不可继承的属性"><span class="nav-number">8.</span> <span class="nav-text">css中可继承和不可继承的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#margin的兼容和传递"><span class="nav-number">9.</span> <span class="nav-text">margin的兼容和传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#overflow-hidden的多种作用"><span class="nav-number">10.</span> <span class="nav-text">overflow:hidden的多种作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面试题"><span class="nav-number">11.</span> <span class="nav-text">面试题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float"><span class="nav-number">12.</span> <span class="nav-text">float</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档流和脱离文档流"><span class="nav-number">13.</span> <span class="nav-text">文档流和脱离文档流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动产生的影响"><span class="nav-number">14.</span> <span class="nav-text">浮动产生的影响</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#z-index"><span class="nav-number">15.</span> <span class="nav-text">z-index</span></a></li></ol></div>
             
 
           </div>
@@ -732,7 +760,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">94.6k</span>
+    <span title="站点字数总计">96.3k</span>
   
 </div>
 
