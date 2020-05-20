@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="本篇是对CSS基础知识的阐述。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-18T07:11:49.114Z">
+<meta property="og:updated_time" content="2020-05-20T01:56:39.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css基础">
 <meta name="twitter:description" content="本篇是对CSS基础知识的阐述。">
@@ -482,7 +482,7 @@
 <h4 id="css引入方式-外链式和导入式的区别"><a href="#css引入方式-外链式和导入式的区别" class="headerlink" title="css引入方式-外链式和导入式的区别"></a>css引入方式-外链式和导入式的区别</h4><p>1，link是html标签，@import完全是css提供的方式，要卸载css文件或者style标签中<br>2，加载顺序不同，页面加载的时候，link引入的css文件会同时加载，而@import导入的文件则需要在页面加载完成后再加载<br>3，使用js控制DOM去改变css样式的时候，只能使用link标签，因为import不受DOM控制<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">'index.css'</span>;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
 <h4 id="css常用命名"><a href="#css常用命名" class="headerlink" title="css常用命名"></a>css常用命名</h4><p>头： header<br>内容： content | container<br>尾部： footer<br>导航： nav<br>侧栏： sidebar<br>栏目：column<br>页面外围控制整体布局宽度：wrapper<br>左右中： left right center<br>登录条； loginbar<br>标志： logo<br>广告： banner<br>页面主体： main<br>热点：hot<br>新闻：news<br>下载：download<br>子导航： subnav<br>菜单： menu<br>子菜单： submenu<br>搜索：search<br>友情链接： friendlink<br>版权： copyright<br>投票：vote<br>合作伙伴 partner<br>滚动：scroll<br>内容：content<br>标签页：tab<br>文章列表: list<br>提示信息: msg<br>小技巧： tips<br>栏目标题：title<br>加入： joinUs<br>指南：guild<br>服务：service<br>注册: register<br>状态：status</p>
 <h4 id="css伪类"><a href="#css伪类" class="headerlink" title="css伪类"></a>css伪类</h4><p>a:link 没有访问之前a的样式，一般不用<br>a:visited<br>a:hover<br>a:active<br>input:focus</p>
-<p>css3新增的选择器：<br>:not()<br>:nth-of-type(1) 集合中第一个元素<br>:first-of-type<br>:last-of-type<br>:nth-child(n) n表示数字，odd/2n+1表示奇数，even/2n表示偶数 ,第几个子元素<br>:first-child 第一个子元素<br>:last-child 最后一个子元素<br>:only-child 匹配没有任何兄弟元素的元素.等效的选择器还可以写成 :first-child:last-child或者:nth-child(1):nth-last-child(1)<br>:only-of-type 没有兄弟元素的元素<br>:empty 内容为空的元素<br>:checked 被选中</p>
+<p>css3新增的选择器：<br>:not()<br>:nth-of-type(1) 集合中第一个元素<br>:first-of-type 第一个<br>:last-of-type 最后一个<br>:nth-child(n) n表示数字，odd/2n+1表示奇数，even/2n表示偶数 ,第几个子元素<br>:first-child 第一个子元素<br>:last-child 最后一个子元素<br>:only-child 匹配没有任何兄弟元素的元素.等效的选择器还可以写成 :first-child:last-child或者:nth-child(1):nth-last-child(1)<br>:only-of-type 没有兄弟元素的元素<br>:empty 内容为空的元素<br>:checked 被选中</p>
 <h4 id="css元素"><a href="#css元素" class="headerlink" title="css元素"></a>css元素</h4><p>p:first-line 第一行<br>p:last-line 最后一行<br>p:first-letter 第一个字母/数字/汉字<br>:before{   元素之前添加内容<br>    content:’’ // 不能省略，即使没有内容<br>}<br>:after{   元素之后添加内容<br>    content:’’ // 不能省略，即使没有内容<br>}<br>只要碰到:before, :after 就要加content:’’,只要宽度不起作用，就要设置display:block|inline-block;</p>
 <h4 id="权重和权重计算"><a href="#权重和权重计算" class="headerlink" title="权重和权重计算"></a>权重和权重计算</h4><p>【基本选择器】<br>标签选择器  1<br>类选择器    10<br>id选择器    100<br>通配符选择器*   0-1</p>
 <p>后代<br>子代<br>交集<br>并集<br>相邻兄弟<br>兄弟<br>                =&gt; 权重：每个单独的基本选择器的相加之和</p>
