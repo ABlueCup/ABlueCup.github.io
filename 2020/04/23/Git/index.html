@@ -115,15 +115,16 @@
 <meta property="og:site_name" content="积步堂">
 <meta property="og:description" content="本篇是对Git的介绍">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/Git.jpg">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/1.jpg">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/2.png">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/3.png">
 <meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/4.png">
-<meta property="og:updated_time" content="2020-04-26T06:41:15.882Z">
+<meta property="og:updated_time" content="2020-06-02T06:23:38.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="本篇是对Git的介绍">
-<meta name="twitter:image" content="https://abluecup.github.io/2020/04/23/Git/1.jpg">
+<meta name="twitter:image" content="https://abluecup.github.io/2020/04/23/Git/Git.jpg">
 
 
 
@@ -478,7 +479,7 @@
       
 
       
-        <p>本篇是对Git的介绍<br><a id="more"></a></p>
+        <p>本篇是对Git的介绍<br><a id="more"></a><br><img src="/2020/04/23/Git/Git.jpg" alt="导图"></p>
 <h2 id="Git-版本控制系统"><a href="#Git-版本控制系统" class="headerlink" title="Git 版本控制系统"></a>Git 版本控制系统</h2><p>1.版本控制系统<br>    开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。<br>    常用的版本控制系统：SVN(集中式) / Git(分布式)<br>2.分布式版本管理系统的特点<br>    <img src="/2020/04/23/Git/1.jpg" alt="分布式集中式对比"><br>3.Linux团队开发的Git,所以Git中的命令大部分都是linux命令</p>
 <h2 id="常用的Git命令"><a href="#常用的Git命令" class="headerlink" title="常用的Git命令"></a>常用的Git命令</h2><p>后期我们更多的是基于命令完成Git管理，所以我们需要学习一些常用的Linux命令。<br>    Windows操作系统：DOS窗口和DOS命令<br>    LINUX服务器操作系统：LINUX命令（MAC终端使用的也是LINUX命令）<br>常用的命令有：<br>ls -l/-a 查看当前目录结构(-a是可以看见所有的：包含隐藏的)<br>cd      切换到指定的目录中（进入的地址可以粘贴到对应的操作系统命令窗口中）<br>cd ./   当前目录<br>cd ../  上级目录<br>cd /    根目录<br>clear:  清屏<br>mkdir:  创建目录<br>touch:  创建文件<br>vi:     想文件中插入或者管理一些内容<br>    i 进入到插入模式<br>    ESC+:wq: 退出内容胡插入模式，把刚才编辑的内容进行保存<br>echo xxx &gt; xxx.txt  在指定的文件中，删除原来的内容，添加新的内容<br>ehco xxx &gt;&gt; xxx.txt 向指定的文件末尾田间新的内容<br>cp 拷贝、复制<br>rm 删除文件 -r(递归删除) -f(强制删除)，一旦删除无法还原</p>
 <h2 id="Git的常规流程"><a href="#Git的常规流程" class="headerlink" title="Git的常规流程"></a>Git的常规流程</h2><p>1.每一个GIT仓库都有三个区<br>    工作区：写代码<br>    暂存区：临时存放每一次修改的代码，但是并没有生成历史版本<br>    历史区：存放所有历史版本的地方(提交到历史区，就会生成历史版本)<br>    <img src="/2020/04/23/Git/2.png" alt="Git的常规流程"><br>2.把暂存区胡某一个文件撤回到工作区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cache [file] 删除暂存区的文件</span><br><span class="line">$ git rm --cache . -r 删除暂存区中所有提交的</span><br><span class="line">    如果在撤销过程中，发现从暂存区撤销的文件，在工作区已经被修改了，只有加上-f才能强制从暂存区把内容删除</span><br><span class="line">$ git rm --cache [file] -r -f</span><br></pre></td></tr></table></figure></p>
@@ -754,7 +755,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">96.6k</span>
+    <span title="站点字数总计">97.1k</span>
   
 </div>
 
