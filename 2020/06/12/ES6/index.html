@@ -107,24 +107,18 @@
 
 
 
-<meta name="description" content="本篇是对Git的介绍">
+<meta name="description" content="本篇是对ES6的讲解 声明方式 var 不支持封闭作用域，会声明到全局作用域上 let const基本一致 let 和{}配合可以产生一个作用域 let 支持块级作用域，声明的变量只会声明在当前作用域，可以解决作用域污染问题和局部作用域问题 在同一个作用域下，var可以多次声明变量，但是let不可以，只能声明一次。 域解释问题，变量提升 var存在，但是let不存在 暂存死区, 如果作用域内定义了">
 <meta name="keywords" content="前端，积步堂，学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git">
-<meta property="og:url" content="https://abluecup.github.io/2020/04/23/Git/index.html">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="https://abluecup.github.io/2020/06/12/ES6/index.html">
 <meta property="og:site_name" content="积步堂">
-<meta property="og:description" content="本篇是对Git的介绍">
+<meta property="og:description" content="本篇是对ES6的讲解 声明方式 var 不支持封闭作用域，会声明到全局作用域上 let const基本一致 let 和{}配合可以产生一个作用域 let 支持块级作用域，声明的变量只会声明在当前作用域，可以解决作用域污染问题和局部作用域问题 在同一个作用域下，var可以多次声明变量，但是let不可以，只能声明一次。 域解释问题，变量提升 var存在，但是let不存在 暂存死区, 如果作用域内定义了">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/Git.jpg">
-<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/1.jpg">
-<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/2.png">
-<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/3.png">
-<meta property="og:image" content="https://abluecup.github.io/2020/04/23/Git/4.png">
-<meta property="og:updated_time" content="2020-06-02T06:23:38.366Z">
+<meta property="og:updated_time" content="2020-07-07T09:28:33.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="本篇是对Git的介绍">
-<meta name="twitter:image" content="https://abluecup.github.io/2020/04/23/Git/Git.jpg">
+<meta name="twitter:title" content="ES6">
+<meta name="twitter:description" content="本篇是对ES6的讲解 声明方式 var 不支持封闭作用域，会声明到全局作用域上 let const基本一致 let 和{}配合可以产生一个作用域 let 支持块级作用域，声明的变量只会声明在当前作用域，可以解决作用域污染问题和局部作用域问题 在同一个作用域下，var可以多次声明变量，但是let不可以，只能声明一次。 域解释问题，变量提升 var存在，但是let不存在 暂存死区, 如果作用域内定义了">
 
 
 
@@ -154,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://abluecup.github.io/2020/04/23/Git/"/>
+  <link rel="canonical" href="https://abluecup.github.io/2020/06/12/ES6/"/>
 
 
 
 
 
-  <title>Git | 积步堂</title>
+  <title>ES6 | 积步堂</title>
   
 
 
@@ -366,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2020/04/23/Git/">
+    <link itemprop="mainEntityOfPage" href="https://abluecup.github.io/2020/06/12/ES6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="卡而">
@@ -383,7 +377,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Git</h2>
+          <h2 class="post-title" itemprop="name headline">ES6</h2>
         
 
         <div class="post-meta">
@@ -395,8 +389,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T17:38:11+08:00">
-                2020-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-12T14:46:19+08:00">
+                2020-06-12
               </time>
             
 
@@ -414,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/04/23/Git/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/04/23/Git/" itemprop="commentsCount"></span>
+                <a href="/2020/06/12/ES6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/06/12/ES6/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -442,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.7k
+                  948
                 </span>
               
 
@@ -458,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  4
                 </span>
               
             </div>
@@ -479,35 +473,50 @@
       
 
       
-        <p>本篇是对Git的介绍<br><a id="more"></a><br><img src="/2020/04/23/Git/Git.jpg" alt="导图"></p>
-<h2 id="Git-版本控制系统"><a href="#Git-版本控制系统" class="headerlink" title="Git 版本控制系统"></a>Git 版本控制系统</h2><p>1.版本控制系统<br>    开发中我们把每一次修改都有效的进行记录（记录成一个版本），后期如果需要回退到原有的某个版本或者是用当前的和某一个版本进行比较等，都可以有效的进行管理。<br>    常用的版本控制系统：SVN(集中式) / Git(分布式)<br>2.分布式版本管理系统的特点<br>    <img src="/2020/04/23/Git/1.jpg" alt="分布式集中式对比"><br>3.Linux团队开发的Git,所以Git中的命令大部分都是linux命令</p>
-<h2 id="常用的Git命令"><a href="#常用的Git命令" class="headerlink" title="常用的Git命令"></a>常用的Git命令</h2><p>后期我们更多的是基于命令完成Git管理，所以我们需要学习一些常用的Linux命令。<br>    Windows操作系统：DOS窗口和DOS命令<br>    LINUX服务器操作系统：LINUX命令（MAC终端使用的也是LINUX命令）<br>常用的命令有：<br>ls -l/-a 查看当前目录结构(-a是可以看见所有的：包含隐藏的)<br>cd      切换到指定的目录中（进入的地址可以粘贴到对应的操作系统命令窗口中）<br>cd ./   当前目录<br>cd ../  上级目录<br>cd /    根目录<br>clear:  清屏<br>mkdir:  创建目录<br>touch:  创建文件<br>vi:     想文件中插入或者管理一些内容<br>    i 进入到插入模式<br>    ESC+:wq: 退出内容胡插入模式，把刚才编辑的内容进行保存<br>echo xxx &gt; xxx.txt  在指定的文件中，删除原来的内容，添加新的内容<br>ehco xxx &gt;&gt; xxx.txt 向指定的文件末尾田间新的内容<br>cp 拷贝、复制<br>rm 删除文件 -r(递归删除) -f(强制删除)，一旦删除无法还原</p>
-<h2 id="Git的常规流程"><a href="#Git的常规流程" class="headerlink" title="Git的常规流程"></a>Git的常规流程</h2><p>1.每一个GIT仓库都有三个区<br>    工作区：写代码<br>    暂存区：临时存放每一次修改的代码，但是并没有生成历史版本<br>    历史区：存放所有历史版本的地方(提交到历史区，就会生成历史版本)<br>    <img src="/2020/04/23/Git/2.png" alt="Git的常规流程"><br>2.把暂存区胡某一个文件撤回到工作区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git rm --cache [file] 删除暂存区的文件</span><br><span class="line">$ git rm --cache . -r 删除暂存区中所有提交的</span><br><span class="line">    如果在撤销过程中，发现从暂存区撤销的文件，在工作区已经被修改了，只有加上-f才能强制从暂存区把内容删除</span><br><span class="line">$ git rm --cache [file] -r -f</span><br></pre></td></tr></table></figure></p>
-<p>3.提交到暂存区一份，把工作区内容改了，但是改的东西不好，想把暂存区上次提交的内容撤回到工作区(覆盖工作区新写的内容)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [file] 把暂存区的内容覆盖工作区的内容，暂存区的内容并没有消失，只是把工作区的最新修改的内容更改了，工作区和暂存区保持了一致。</span><br></pre></td></tr></table></figure></p>
-<p>4<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff [file] 比较暂存区和工作区的差别</span><br><span class="line">$ git diff  --cached</span><br><span class="line">$ git diff master 比较工作区和历史区master的差别</span><br></pre></td></tr></table></figure></p>
-<h2 id="一些细节问题"><a href="#一些细节问题" class="headerlink" title="一些细节问题"></a>一些细节问题</h2><p>1.如果是第一次使用git，生成历史版本的时候，需要提供身份认证<br>需要在本地GIT全局作用域下设置一些信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">'xxx'</span></span><br><span class="line">$ git config  --global user.email <span class="string">'xxx@xx.com'</span></span><br></pre></td></tr></table></figure></p>
-<p>2.真实项目中并不是所有的文件都和项目有关系(例如.idea是WS生成的配置文件夹和项目没关系)，也不是所有的文件都提交(例如node_modules中的内容太大了，也不需要提交)</p>
-<p>.gitignore =&gt;git提交的忽略文件</p>
-<p>3.查看历史版本信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
-<h2 id="代码回滚操作"><a href="#代码回滚操作" class="headerlink" title="代码回滚操作"></a>代码回滚操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout . 把暂存区内容回滚到工作区(一旦回滚，工作区内容无法恢复)</span><br><span class="line">$ git reset HEAD . 把当前暂存区的内容回滚到上一个暂存区，目的是为了把上一个暂存区的内容回滚到工作区</span><br><span class="line">$ git reset --hard 版本号 在历史区中回退到某一个版本(强制把暂存区和工作区都变成回退后的版本)</span><br><span class="line">$ <span class="built_in">history</span> &gt; xx.txt 把历史操作步骤输出到xx.txt中</span><br></pre></td></tr></table></figure>
-<h2 id="团队开发的工作流程"><a href="#团队开发的工作流程" class="headerlink" title="团队开发的工作流程"></a>团队开发的工作流程</h2><p><img src="/2020/04/23/Git/3.png" alt="团队协作流程">;</p>
-<p>1.基础流程<br>    1) 首先创建中央仓库：可以基于github/codding来创建<br>            把开发者都列入仓库的开发群组中，这样每一个开发者用自己的github账号都有权限操作这个仓库了(不这样做也可以，所有开发者用同一个账号也可以，为了防止不知道是谁提交的，我们需要让每一个客户端在本地的GIT全局配置中，设置和GITHUB相同的用户名和邮箱)<br>    2) 创建客户端本地仓库(一个开发者就是一个单独的仓库)，还需要让本地的仓库和远程仓库保持关联，这样才可以实现后续的信息同步<br>    $ git init 创建本地仓库<br>    $ git remote add origin “远程仓库地址” 让本地仓库肯远程仓库保持连接<br>    $ git remote -v 查看链接信息(origin是连接的名称，一般都用这个名字，当然自己可以随便设置)<br>    $ git remote rm origin 移除链接<br>    $ git remote update origin  更新便捷通道<br>    有更简单的方式，只要把远程仓库克隆到本地，就相当于创建本地仓库，而且自动建立了链接，并且把远程仓库的内容衣同步到了本地<br>    $ git clone “远程仓库地址” “本地仓库目录名字（不写，默认椒仓库名）”<br>    3) 各自和中央服务器同步信息<br>    推送： $git push origin master  (每次push之前最好pull一下,如果有冲突，在本地处理冲突，然后再提交);<br>    拉取： $ git pull origin master<br>    无分支管理模式</p>
-<pre><code>- 不是同一行代码冲突：在提示的冲突命令行中同意即可
-    ESC： wq(按下ENTER键即可)
-    然后提交
-- 同一行代码冲突，需要手动把代码进行合并，然后重新提交
-</code></pre><p><img src="/2020/04/23/Git/4.png" alt="代码冲突"><br>    单独分支管理模式(分支管控的只是历史区，我们创建分支，就是创建不同的线路来管理历史版本)<br>        1，每天第一件事就是把远程master拉取到本地的master上(提交之前也是)</p>
-<pre><code>    - 在本地仓库创建分支 `$ git branch [分支名字]`
-    - git checkout dev 切换到dev分支上
-    - git checkout -b [分支] 创建屏切换到这个文件
-    - 分支创建完成，会自动把本地master分支上的内容同步到dev分支上
-把dev的内容合并到到master分支上，合并完成之后推送到中央服务器
-    - git stash 暂存文件(分支有修改，不能直接切换分支，需要把修改的内容暂存)
-    - 切换到master分支上
-    - git stash pop 还原暂时存储的内容  
-当工作去或暂存区还有没有提交的内容时，使用stash 或者 pop命令
-    - git merge dev(把dev分支合并到master分支上)
-</code></pre>
+        <p>本篇是对ES6的讲解</p>
+<h3 id="声明方式"><a href="#声明方式" class="headerlink" title="声明方式"></a>声明方式</h3><ul>
+<li>var 不支持封闭作用域，会声明到全局作用域上</li>
+<li>let const基本一致</li>
+<li>let 和{}配合可以产生一个作用域</li>
+<li>let 支持块级作用域，声明的变量只会声明在当前作用域，可以解决作用域污染问题和局部作用域问题</li>
+<li>在同一个作用域下，var可以多次声明变量，但是let不可以，只能声明一次。</li>
+<li>域解释问题，变量提升 var存在，但是let不存在</li>
+<li>暂存死区, 如果作用域内定义了一个变量，那么该作用域内的变量就被绑定了，不会再向上查找。</li>
+<li>通过const声明的变量不能被修改,不能被修改引用空间</li>
+</ul>
+<h3 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h3><ul>
+<li>声明和赋值放在一起</li>
+<li><p>解构，表示等号左右两边结构类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let&#123;length&#125;=[&apos;kyle&apos;,29];</span><br><span class="line">        console.log(length);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象解构时名字必须相同</p>
+</li>
+<li>想设置某个属性的默认值，必须使用=<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;name, age, <span class="attr">defautl</span>:d&#125; = &#123;<span class="attr">name</span>:<span class="string">'xx'</span>, <span class="attr">age</span>:<span class="number">9</span>, <span class="attr">default</span>:<span class="string">'cc'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> [&#123;<span class="attr">address</span>:[,a]&#125;]= [&#123;<span class="attr">name</span>:<span class="string">'xx'</span>&#125;,&#123;<span class="attr">age</span>:<span class="number">9</span>,<span class="attr">address</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [name=<span class="string">'kyle'</span>, age=<span class="number">30</span>] = [<span class="string">'cc'</span>, <span class="number">99</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>可以支持换行， 可以支持取值</p>
+<p>如何自己实现一个类模板字符串的功能</p>
+<p>padStart, padEnd 补全</p>
+<h3 id="箭头函数，"><a href="#箭头函数，" class="headerlink" title="箭头函数，"></a>箭头函数，</h3><p>写起来简单，而且可以解决this问题<br>1，没有function关键字<br>2，小括号和大括号之间有一个箭头<br>3，如果参数是一个可以省略小括号<br>4，如果只有return,可以省略大括号<br>5，如果直接返回的是对象类型，需要小括号包含</p>
+<p>保留要操作的this<br>1, var that = this;<br>2, .bind(this);</p>
+<p>对象不是作用域，let声明的变量不会和window建立映射关系</p>
+<p>箭头函数中没有arguments<br>let fn = (,…args)=&gt;{<br>        args是一个数组<br>}</p>
+<p>函数可以赋值默认值</p>
+<h3 id="…"><a href="#…" class="headerlink" title="…"></a>…</h3><p>1, 深拷贝和浅拷贝<br>浅拷贝只拷贝指针，深拷贝拷贝堆栈<br>…也是浅拷贝</p>
+<p>1.1 深拷贝的实现<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepClone = <span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span> obj;</span><br><span class="line">    <span class="keyword">if</span> (obj === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">Date</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(obj);</span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> o = <span class="keyword">new</span> obj.constructor();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> object) &#123;</span><br><span class="line">        o[key] = <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ? deepClone(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(deepClone(<span class="literal">null</span>));</span><br><span class="line"><span class="built_in">console</span>.log(deepClone(<span class="keyword">new</span> <span class="built_in">Date</span>()));</span><br><span class="line"><span class="built_in">console</span>.log(deepClone(<span class="number">1</span>));</span><br><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,&#123;<span class="attr">name</span>:<span class="string">'kyle'</span>&#125;,[<span class="number">2</span>,<span class="number">3</span>]]);</span><br></pre></td></tr></table></figure></p>
+<h3 id="数组的常见方法"><a href="#数组的常见方法" class="headerlink" title="数组的常见方法"></a>数组的常见方法</h3><p>1, map()<br>返回原数组的每一项经过处理后的新数组<br>2, reduce() 收敛|叠加<br>返回的结果是叠加后的结果<br>3,for of<br>4, Array.from() 类数组转化成数组<br>常见的类数组: htmlCollection arguments<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">Array</span>.from(<span class="built_in">arguments</span>).join(<span class="string">'+'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="对象object"><a href="#对象object" class="headerlink" title="对象object"></a>对象object</h3><p>1, Object.assign(); 合并对象<br>2, <strong>proto</strong><br>被方法Object.setPrototypeOf(obj1, obj2) 相当于 obj1.<strong>proto</strong> = obj2;<br>获取 Object.getPrototypeOf(obj1)<br>3, super 表示父级</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ol>
+<li><p>类得三种属性<br>公有属性，私有属性，静态方法(静态属性)</p>
+</li>
+<li><p>继承<br>2.1 继承公有属性</p>
+</li>
+</ol>
+<p>2.2 继承私有属性</p>
+<p>2.3 继承公有属性和私有属性</p>
+<p>2.4 Object.create()<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//构造函数中得this，通过new调用，this指的是实例</span></span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'parent'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'eat'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> parent = <span class="keyword">new</span> Parent();</span><br><span class="line"><span class="comment">// parent.__proto__.eat();</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">9</span>;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>); <span class="comment">//继承私有属性</span></span><br><span class="line">&#125;</span><br><span class="line">Child.prototype.smoking = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'smoking'</span>);</span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">// Child.prototype.__proto__ = Parent.prototype; //只继承公有属性</span></span><br><span class="line"><span class="comment">// Object.setPrototypeOf(Child.prototype, Parent.prototype); //只继承公有属性</span></span><br><span class="line"></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);<span class="comment">//只继承公有属性,但是抛弃了自己所属类的原型</span></span><br><span class="line"><span class="keyword">let</span> child = <span class="keyword">new</span> Child();</span><br><span class="line">       </span><br><span class="line">child.eat();</span><br><span class="line"><span class="comment">// child.smoking();</span></span><br><span class="line"><span class="built_in">console</span>.log(child.name);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line"><span class="comment">// 创建一个空函数，让Child.prototype = Fn.prototype, 让Fn.prototype = Parent.prototype;</span></span><br><span class="line"><span class="comment">// 这样能继承到Parent上得公有属性，但是Child.prototype被抛弃了，无法再实现</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -540,8 +549,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/20/AXIOS/" rel="next" title="Axios & Fetch">
-                <i class="fa fa-chevron-left"></i> Axios & Fetch
+              <a href="/2020/06/09/vue/" rel="next" title="vue">
+                <i class="fa fa-chevron-left"></i> vue
               </a>
             
           </div>
@@ -549,10 +558,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/26/NODE/" rel="prev" title="NODE">
-                NODE <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -715,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-版本控制系统"><span class="nav-number">1.</span> <span class="nav-text">Git 版本控制系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的Git命令"><span class="nav-number">2.</span> <span class="nav-text">常用的Git命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的常规流程"><span class="nav-number">3.</span> <span class="nav-text">Git的常规流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些细节问题"><span class="nav-number">4.</span> <span class="nav-text">一些细节问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码回滚操作"><span class="nav-number">5.</span> <span class="nav-text">代码回滚操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#团队开发的工作流程"><span class="nav-number">6.</span> <span class="nav-text">团队开发的工作流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明方式"><span class="nav-number">1.</span> <span class="nav-text">声明方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值"><span class="nav-number">2.</span> <span class="nav-text">解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串"><span class="nav-number">3.</span> <span class="nav-text">模板字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数，"><span class="nav-number">4.</span> <span class="nav-text">箭头函数，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#…"><span class="nav-number">5.</span> <span class="nav-text">…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的常见方法"><span class="nav-number">6.</span> <span class="nav-text">数组的常见方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象object"><span class="nav-number">7.</span> <span class="nav-text">对象object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">8.</span> <span class="nav-text">类</span></a></li></ol></div>
             
 
           </div>
